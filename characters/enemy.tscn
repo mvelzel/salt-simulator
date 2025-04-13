@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0wuq3pdgaom8"]
+
+[ext_resource type="Script" uid="uid://cb6ogqc6x5inc" path="res://characters/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_7k104"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
+size = Vector2(128, 128)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("flash_timeout", "sprite")]
+script = ExtResource("1_4gyqm")
+flash_timeout = NodePath("DamageFlash")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.678891, 0.365055, 0.279488, 1)
+texture = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7xaro")
+
+[node name="DamageFlash" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]

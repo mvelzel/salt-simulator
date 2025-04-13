@@ -1,0 +1,138 @@
+[gd_scene load_steps=16 format=3 uid="uid://bsj3jwcpkt7ms"]
+
+[ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
+[ext_resource type="Script" uid="uid://burfqfqnw5p8p" path="res://characters/character.gd" id="1_pjt0s"]
+[ext_resource type="Texture2D" uid="uid://b2uydavbmeoes" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame1.png" id="3_0qfo5"]
+[ext_resource type="Script" uid="uid://bf3sw4pqqlyjq" path="res://characters/sword.gd" id="3_yxww1"]
+[ext_resource type="Texture2D" uid="uid://c2secvrwh6ij3" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame2.png" id="4_yxww1"]
+[ext_resource type="Texture2D" uid="uid://clnocjvvm7n1c" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame3.png" id="5_wdpcj"]
+[ext_resource type="Texture2D" uid="uid://0b8vl0vyy31m" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame4.png" id="6_qi5as"]
+[ext_resource type="Texture2D" uid="uid://yxbkg6syeq62" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame5.png" id="8_7tnxx"]
+[ext_resource type="Texture2D" uid="uid://s4mt0s5gvcoh" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame6.png" id="9_bwfjh"]
+[ext_resource type="Texture2D" uid="uid://bipp6803sx8l2" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame7.png" id="10_x1sy7"]
+[ext_resource type="Texture2D" uid="uid://bfdg61fea8sal" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame8.png" id="11_sm1rv"]
+[ext_resource type="Texture2D" uid="uid://cwwaudychfntk" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame9.png" id="12_jx0ln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jb3kq"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0qfo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yxww1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wdpcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qi5as")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"swing1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7tnxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bwfjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x1sy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sm1rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jx0ln")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"swing2",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7tnxx"]
+radius = 112.0
+height = 352.0
+
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("indicator_node")]
+script = ExtResource("1_pjt0s")
+SPEED = 500.0
+indicator_node = NodePath("Indicator")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -9.53674e-07)
+texture = ExtResource("1_glpr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pjt0s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_top_margin = 0.3
+drag_right_margin = 0.3
+drag_bottom_margin = 0.3
+
+[node name="Indicator" type="Node2D" parent="."]
+position = Vector2(112, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Indicator"]
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("1_glpr6")
+
+[node name="Sword" type="Node2D" parent="Indicator" node_paths=PackedStringArray("animated_sprite", "swing_delay", "combo_delay", "swing_area")]
+script = ExtResource("3_yxww1")
+animated_sprite = NodePath("SwingAnim")
+swing_delay = NodePath("SwingDelay")
+combo_delay = NodePath("ComboDelay")
+swing_area = NodePath("SwingArea")
+
+[node name="SwingAnim" type="AnimatedSprite2D" parent="Indicator/Sword"]
+rotation = -0.00230825
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_jb3kq")
+animation = &"swing1"
+speed_scale = 3.0
+
+[node name="SwingDelay" type="Timer" parent="Indicator/Sword"]
+wait_time = 0.25
+
+[node name="ComboDelay" type="Timer" parent="Indicator/Sword"]
+wait_time = 0.5
+
+[node name="SwingArea" type="Area2D" parent="Indicator/Sword"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indicator/Sword/SwingArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7tnxx")
+
+[connection signal="animation_finished" from="Indicator/Sword/SwingAnim" to="Indicator/Sword" method="_on_swing_anim_animation_finished"]
+[connection signal="timeout" from="Indicator/Sword/SwingDelay" to="Indicator/Sword" method="_on_swing_delay_timeout"]
+[connection signal="timeout" from="Indicator/Sword/ComboDelay" to="Indicator/Sword" method="_on_combo_delay_timeout"]
+[connection signal="body_entered" from="Indicator/Sword/SwingArea" to="Indicator/Sword" method="_on_swing_area_body_entered"]
