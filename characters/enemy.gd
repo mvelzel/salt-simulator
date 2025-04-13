@@ -22,3 +22,13 @@ func take_damage(damage: float) -> void:
 func _on_damage_flash_timeout() -> void:
 	if sprite:
 		sprite.self_modulate = base_modulation
+		
+@export var SPEED = 250.0
+
+func _physics_process(_delta: float) -> void:
+	var player = get_tree().get_nodes_in_group("Player")[0]
+	var direction = (player.position - position).normalized()
+	
+	velocity = direction * SPEED
+	
+	move_and_slide()
