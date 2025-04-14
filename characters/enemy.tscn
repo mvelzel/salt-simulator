@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwckjtc3xwgmy" path="res://characters/enemy.gd" id="1_4gyqm"]
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_wa0eo"]
-[ext_resource type="SpriteFrames" uid="uid://bgffug2q7x35v" path="res://characters/enemy.tres" id="2_nhupr"]
+[ext_resource type="SpriteFrames" uid="uid://b1rmmu0b6v0cs" path="res://characters/enemy.tres" id="2_nhupr"]
 
 [node name="Enemy" groups=["Enemy"] instance=ExtResource("1_wa0eo")]
 collision_layer = 2
