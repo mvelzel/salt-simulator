@@ -1,8 +1,12 @@
 extends "res://characters/base_character.gd"
 
+@onready var footstep_sound = $FootstepSound
+
 const INDICATOR_DISTANCE = 150
 
 func _physics_process(delta: float) -> void:
+	_walk_sounds_effects()
+
 	var direction = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -23,3 +27,10 @@ func _process(_delta: float) -> void:
 
 func die():
 	get_tree().reload_current_scene()
+
+func _walk_sounds_effects():
+	if velocity.length() > 10: 
+		if not footstep_sound.playing:
+			footstep_sound.play()
+	else:
+		footstep_sound.stop()
