@@ -25,6 +25,11 @@ window/size/viewport_height=720
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[global_group]
+
+Player=""
+Enemy=""
+
 [input]
 
 ui_left={
