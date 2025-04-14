@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bnrv7mwof2rox" path="res://assets/Waterfall.tscn" id="6_a6j35"]
 [ext_resource type="Texture2D" uid="uid://g2c5x445mfqw" path="res://assets/Dungeon Gathering/Set 4.5.png" id="6_nshf4"]
 [ext_resource type="PackedScene" uid="uid://cnaj23uvxp6dr" path="res://assets/Ladder.tscn" id="7_hrdq1"]
-[ext_resource type="PackedScene" uid="uid://4t4sl8oosywy" path="res://assets/bucket.tscn" id="8_j0fsv"]
+[ext_resource type="PackedScene" path="res://assets/bucket.tscn" id="8_j0fsv"]
 [ext_resource type="Texture2D" uid="uid://dewbxerd2id6i" path="res://assets/Dungeon Gathering Full/All tiles v2.png" id="10_b765g"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jo486"]

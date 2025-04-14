@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://kkjrrwbuh0xg"]
+
+[ext_resource type="PackedScene" uid="uid://cmx52ypy5u0bv" path="res://levels/Level2/level2_map.tscn" id="1_g1dg4"]
+[ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="2_s1bpp"]
+[ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_76ugp"]
+[ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="4_e8p81"]
+[ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_55gdq"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Level2Map" parent="." instance=ExtResource("1_g1dg4")]
+scale = Vector2(8, 8)
+
+[node name="RoomArea" parent="." instance=ExtResource("2_s1bpp")]
+position = Vector2(56, 1652)
+scale = Vector2(30.4567, 27.9496)
+
+[node name="RoomArea2" parent="." instance=ExtResource("2_s1bpp")]
+position = Vector2(1896, 60)
+scale = Vector2(32.0283, 29.1084)
+
+[node name="RoomArea3" parent="." instance=ExtResource("2_s1bpp")]
+position = Vector2(1872, -1740)
+scale = Vector2(26.4683, 20.8684)
+
+[node name="RoomArea4" parent="." instance=ExtResource("2_s1bpp")]
+position = Vector2(4040, 28)
+scale = Vector2(44.1483, 42.3484)
+
+[node name="RoomArea5" parent="." instance=ExtResource("2_s1bpp")]
+position = Vector2(4032, 2204)
+scale = Vector2(44.1483, 40.4161)
+
+[node name="Character" parent="." instance=ExtResource("3_76ugp")]
+position = Vector2(4, 32)
+
+[node name="Enemy" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(1904, -136)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(1912, 248)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3576, -228)
+
+[node name="Enemy4" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3584, 252)
+
+[node name="Enemy5" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4308, 404)
+
+[node name="Enemy6" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4256, -188)
+
+[node name="Enemy7" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3956, -12)
+
+[node name="SpawnPoint" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(4512, -244)
