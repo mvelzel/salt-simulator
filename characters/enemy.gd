@@ -5,7 +5,7 @@ func _ready() -> void:
 	health = 300
 	super._ready()
 
-var is_enabled = false
+var is_enabled = true
 func _physics_process(delta: float) -> void:
 	if is_enabled:
 		var player = get_tree().get_nodes_in_group("Player")[0]
@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 		
 		velocity = direction * speed
 		
-	super._physics_process(delta)
+		super._physics_process(delta)
 	
 func die():
 	queue_free()

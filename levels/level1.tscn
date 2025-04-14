@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="4_61w3m"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://d0wuq3pdgaom8" path="res://characters/enemy.tscn" id="5_61w3m"]
+[ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_pdpul"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -51,3 +52,6 @@ position = Vector2(3728, -456)
 
 [node name="Enemy7" parent="." instance=ExtResource("5_61w3m")]
 position = Vector2(3200, -16)
+
+[node name="SpawnPoint" parent="." instance=ExtResource("5_pdpul")]
+position = Vector2(1401, 33)
