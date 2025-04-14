@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://fqw31patorn4"]
+
+[ext_resource type="Script" uid="uid://c4g4wgf56m6xe" path="res://characters/base_character.gd" id="1_flllm"]
+[ext_resource type="SpriteFrames" uid="uid://j4bh4g4t6644" path="res://characters/character.tres" id="2_xeerb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgjqb"]
+size = Vector2(160, 224)
+
+[node name="BaseCharacter" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_flllm")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-1.90735e-06, -9.53674e-07)
+scale = Vector2(8, 8)
+sprite_frames = ExtResource("2_xeerb")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_pjt0s")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_hgjqb")
+
+[node name="DamageFlash" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]

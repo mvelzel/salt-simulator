@@ -1,28 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0wuq3pdgaom8"]
+[gd_scene load_steps=4 format=3 uid="uid://d2w4jnlil61ax"]
 
-[ext_resource type="Script" uid="uid://cb6ogqc6x5inc" path="res://characters/enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://bmxfvtgcb1liv" path="res://assets/gnome/24x32/gnome-m-red_hat-SWEN.png" id="2_nhupr"]
+[ext_resource type="Script" uid="uid://dwckjtc3xwgmy" path="res://characters/enemy.gd" id="1_4gyqm"]
+[ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_wa0eo"]
+[ext_resource type="SpriteFrames" uid="uid://bgffug2q7x35v" path="res://characters/enemy.tres" id="2_nhupr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
-size = Vector2(64, 96)
-
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("flash_timeout", "sprite") groups=["Enemy"]]
+[node name="Enemy" groups=["Enemy"] instance=ExtResource("1_wa0eo")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_4gyqm")
-flash_timeout = NodePath("DamageFlash")
-sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
-texture = ExtResource("2_nhupr")
-hframes = 3
-vframes = 4
-frame = 1
+[node name="Sprite" parent="." index="0"]
+sprite_frames = ExtResource("2_nhupr")
 
-[node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
-shape = SubResource("RectangleShape2D_7xaro")
+[node name="DamagePlayerTimer" type="Timer" parent="." index="4"]
+wait_time = 0.5
+one_shot = true
 
-[node name="DamageFlash" type="Timer" parent="."]
-wait_time = 0.2
-
-[connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="DamagePlayerTimer" to="." method="_on_damage_player_timer_timeout"]
