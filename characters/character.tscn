@@ -83,12 +83,14 @@ height = 352.0
 size = Vector2(96, 136)
 
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "indicator_node") groups=["Player"]]
+y_sort_enabled = true
 script = ExtResource("1_pjt0s")
 SPEED = 500.0
 sprite = NodePath("Sprite2D")
 indicator_node = NodePath("Indicator")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-1.90735e-06, -9.53674e-07)
 scale = Vector2(4, 4)
 texture = ExtResource("2_3h56x")
@@ -112,6 +114,7 @@ drag_bottom_margin = 0.3
 position = Vector2(112, 112)
 
 [node name="Sprite2D" type="Sprite2D" parent="Indicator"]
+z_index = 1
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("1_glpr6")
 

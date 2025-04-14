@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://assets/room_area.tscn" id="4_ua5ty"]
 
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
@@ -16,9 +17,6 @@ scale = Vector2(8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("2_ua5ty")]
 position = Vector2(1634, -118)
-
-[node name="Character" parent="." instance=ExtResource("3_61w3m")]
-position = Vector2(2072, 64)
 
 [node name="RoomArea" parent="." instance=ExtResource("4_ua5ty")]
 position = Vector2(1336, 64)
@@ -39,3 +37,6 @@ position = Vector2(3598, -491)
 
 [node name="Enemy5" parent="." instance=ExtResource("2_ua5ty")]
 position = Vector2(3583, 589)
+
+[node name="Character" parent="." instance=ExtResource("3_61w3m")]
+position = Vector2(2072, 64)
