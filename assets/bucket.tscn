@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://4t4sl8oosywy"]
+
+[ext_resource type="Texture2D" uid="uid://b4qbo2ajn2ila" path="res://assets/Dungeon Gathering Full/Barrel down sheet 2.png" id="1_hr5ct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8abas"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t71x"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynj7k"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ui8h"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ud8w"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e72nu"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7bmf"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox57h"]
+atlas = ExtResource("1_hr5ct")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbmow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8abas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t71x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynj7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ui8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ud8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e72nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7bmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox57h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bucket" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jbmow")
+frame_progress = 0.111434
