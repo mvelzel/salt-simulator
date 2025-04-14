@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://n2xax7e8e4mu"]
+[gd_scene load_steps=6 format=3 uid="uid://n2xax7e8e4mu"]
 
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
-[ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_61w3m"]
+[ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_61w3m"]
+[ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="4_61w3m"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
-[ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="5_61w3m"]
+[ext_resource type="PackedScene" uid="uid://d0wuq3pdgaom8" path="res://characters/enemy.tscn" id="5_61w3m"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -25,6 +26,10 @@ scale = Vector2(52.1318, 43.7438)
 
 [node name="Character" parent="." instance=ExtResource("3_61w3m")]
 position = Vector2(168, 24)
+
+[node name="FootstepSound" type="AudioStreamPlayer2D" parent="Character"]
+stream = ExtResource("4_61w3m")
+volume_db = 1.0
 
 [node name="Enemy" parent="." instance=ExtResource("5_61w3m")]
 position = Vector2(1584, -136)
