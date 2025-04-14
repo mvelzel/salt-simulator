@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
 [ext_resource type="PackedScene" uid="uid://d0wuq3pdgaom8" path="res://characters/enemy.tscn" id="2_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_61w3m"]
-[ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://assets/room_area.tscn" id="4_ua5ty"]
+[ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
 
 [node name="Game" type="Node2D"]
 

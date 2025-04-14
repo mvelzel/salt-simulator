@@ -25,10 +25,19 @@ func _on_damage_flash_timeout() -> void:
 		
 @export var SPEED = 250.0
 
+var is_enabled = true
+
 func _physics_process(_delta: float) -> void:
-	var player = get_tree().get_nodes_in_group("Player")[0]
-	var direction = (player.position - position).normalized()
-	
-	velocity = direction * SPEED
-	
-	move_and_slide()
+	if is_enabled:
+		var player = get_tree().get_nodes_in_group("Player")[0]
+		var direction = (player.position - position).normalized()
+		
+		velocity = direction * SPEED
+		
+		move_and_slide()
+		
+func turn_on():
+	is_enabled = true
+
+func turn_off():
+	is_enabled = false
