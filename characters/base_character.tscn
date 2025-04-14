@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://fqw31patorn4"]
 
 [ext_resource type="Script" uid="uid://c4g4wgf56m6xe" path="res://characters/base_character.gd" id="1_flllm"]
-[ext_resource type="SpriteFrames" uid="uid://j4bh4g4t6644" path="res://characters/character.tres" id="2_xeerb"]
+[ext_resource type="SpriteFrames" uid="uid://eqb3l27js643" path="res://characters/character.tres" id="2_xeerb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
 size = Vector2(128, 192)
