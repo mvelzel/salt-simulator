@@ -16,7 +16,7 @@ func take_damage(damage: float) -> void:
 		return
 	
 	if flash_timeout and sprite:
-		sprite.self_modulate = Color(1, 1, 1)
+		sprite.self_modulate = Color(1, 0, 0)
 		flash_timeout.start()
 
 func _on_damage_flash_timeout() -> void:

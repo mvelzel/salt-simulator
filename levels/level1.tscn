@@ -15,11 +15,10 @@ position = Vector2(-2120, -2432)
 scale = Vector2(8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("2_ua5ty")]
-position = Vector2(3624, -64)
-scale = Vector2(0.800696, 0.791093)
+position = Vector2(1634, -118)
 
 [node name="Character" parent="." instance=ExtResource("3_61w3m")]
-position = Vector2(2072, 64)
+position = Vector2(59, 60)
 scale = Vector2(0.8, 0.8)
 
 [node name="RoomArea" parent="." instance=ExtResource("4_ua5ty")]
@@ -29,3 +28,15 @@ scale = Vector2(27.7852, 19.8593)
 [node name="RoomArea2" parent="." instance=ExtResource("4_ua5ty")]
 position = Vector2(3000, 64)
 scale = Vector2(52.1318, 43.7438)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_ua5ty")]
+position = Vector2(2415, 604)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_ua5ty")]
+position = Vector2(1615, 262)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_ua5ty")]
+position = Vector2(3598, -491)
+
+[node name="Enemy5" parent="." instance=ExtResource("2_ua5ty")]
+position = Vector2(3583, 589)

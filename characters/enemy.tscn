@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0wuq3pdgaom8"]
 
 [ext_resource type="Script" uid="uid://cb6ogqc6x5inc" path="res://characters/enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://bmxfvtgcb1liv" path="res://assets/gnome/24x32/gnome-m-red_hat-SWEN.png" id="2_nhupr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
-size = Vector2(128, 128)
+size = Vector2(64, 96)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("flash_timeout", "sprite") groups=["Enemy"]]
 script = ExtResource("1_4gyqm")
@@ -12,10 +12,14 @@ flash_timeout = NodePath("DamageFlash")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.678891, 0.365055, 0.279488, 1)
-texture = ExtResource("1_7k104")
+scale = Vector2(4, 4)
+texture = ExtResource("2_nhupr")
+hframes = 3
+vframes = 4
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_7xaro")
 
 [node name="DamageFlash" type="Timer" parent="."]
