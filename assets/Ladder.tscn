@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnaj23uvxp6dr"]
+
+[ext_resource type="Texture2D" uid="uid://bwv2s8e3m7v80" path="res://assets/Ladder.png" id="1_odo74"]
+
+[node name="Ladder" type="Sprite2D"]
+position = Vector2(0.739506, 4.19157)
+scale = Vector2(0.75, 0.557141)
+texture = ExtResource("1_odo74")
