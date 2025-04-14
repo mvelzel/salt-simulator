@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var health = 500
 @export var SPEED = 300.0
-@export var sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
 
 func _physics_process(_delta: float) -> void:
 	var direction = Vector2(
@@ -16,7 +16,20 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
+	set_animation()
 	move_and_slide()
+	
+func set_animation():
+	if velocity.x < 0: # Left
+		sprite.play("walk_left")
+	elif velocity.x > 0: # Right
+		sprite.play("walk_right")
+	elif velocity.y > 0: # Down
+		sprite.play("walk_down")
+	elif velocity.y < 0: # Up
+		sprite.play("walk_up")
+	else: # Idle
+		sprite.play("idle")
 	
 @export var indicator_node: Node2D
 const INDICATOR_DISTANCE = 150
