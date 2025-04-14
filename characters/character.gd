@@ -1,6 +1,7 @@
 extends "res://characters/base_character.gd"
 
 @onready var footstep_sound = $FootstepSound
+@onready var knife_slash_sound = $KnifeSlashSound
 
 const INDICATOR_DISTANCE = 150
 
@@ -34,3 +35,8 @@ func _walk_sounds_effects():
 			footstep_sound.play()
 	else:
 		footstep_sound.stop()
+		
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			$KnifeSlashSound.play()
