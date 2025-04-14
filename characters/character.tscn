@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsj3jwcpkt7ms"]
+[gd_scene load_steps=18 format=3 uid="uid://bsj3jwcpkt7ms"]
 
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
 [ext_resource type="Script" uid="uid://burfqfqnw5p8p" path="res://characters/character.gd" id="1_pjt0s"]
@@ -78,9 +78,13 @@ animations = [{
 radius = 112.0
 height = 352.0
 
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("indicator_node") groups=["Player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgjqb"]
+size = Vector2(160, 160)
+
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "indicator_node") groups=["Player"]]
 script = ExtResource("1_pjt0s")
 SPEED = 500.0
+sprite = NodePath("Sprite2D")
 indicator_node = NodePath("Indicator")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -146,7 +150,18 @@ shadow_item_cull_mask = 2
 texture = ExtResource("13_hgjqb")
 texture_scale = 10.0
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_hgjqb")
+
+[node name="DamageFlash" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="animation_finished" from="Indicator/Sword/SwingAnim" to="Indicator/Sword" method="_on_swing_anim_animation_finished"]
 [connection signal="timeout" from="Indicator/Sword/SwingDelay" to="Indicator/Sword" method="_on_swing_delay_timeout"]
 [connection signal="timeout" from="Indicator/Sword/ComboDelay" to="Indicator/Sword" method="_on_combo_delay_timeout"]
 [connection signal="body_entered" from="Indicator/Sword/SwingArea" to="Indicator/Sword" method="_on_swing_area_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]

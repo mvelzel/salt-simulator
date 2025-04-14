@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
 size = Vector2(128, 128)
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("flash_timeout", "sprite")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("flash_timeout", "sprite") groups=["Enemy"]]
 script = ExtResource("1_4gyqm")
 flash_timeout = NodePath("DamageFlash")
 sprite = NodePath("Sprite2D")
