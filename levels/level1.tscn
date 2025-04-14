@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
 [ext_resource type="PackedScene" uid="uid://d0wuq3pdgaom8" path="res://characters/enemy.tscn" id="2_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_61w3m"]
-[ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://assets/room_area.tscn" id="4_ua5ty"]
+[ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -18,12 +18,15 @@ scale = Vector2(8, 8)
 [node name="Enemy" parent="." instance=ExtResource("2_ua5ty")]
 position = Vector2(1634, -118)
 
+[node name="Character" parent="." instance=ExtResource("3_61w3m")]
+position = Vector2(128, 64)
+
 [node name="RoomArea" parent="." instance=ExtResource("4_ua5ty")]
-position = Vector2(1336, 64)
+position = Vector2(1400, 64)
 scale = Vector2(27.7852, 19.8593)
 
 [node name="RoomArea2" parent="." instance=ExtResource("4_ua5ty")]
-position = Vector2(3000, 64)
+position = Vector2(3072, 64)
 scale = Vector2(52.1318, 43.7438)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_ua5ty")]

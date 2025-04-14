@@ -111,6 +111,8 @@ drag_right_margin = 0.3
 drag_bottom_margin = 0.3
 
 [node name="Indicator" type="Node2D" parent="."]
+z_index = 5
+z_as_relative = false
 position = Vector2(112, 112)
 
 [node name="Sprite2D" type="Sprite2D" parent="Indicator"]

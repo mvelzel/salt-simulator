@@ -18,7 +18,7 @@ hframes = 3
 vframes = 4
 frame = 1
 
-[node name="Collider" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_7xaro")
 
