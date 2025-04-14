@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsj3jwcpkt7ms"]
+[gd_scene load_steps=19 format=3 uid="uid://bsj3jwcpkt7ms"]
 
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
 [ext_resource type="Script" uid="uid://burfqfqnw5p8p" path="res://characters/character.gd" id="1_pjt0s"]
+[ext_resource type="Texture2D" uid="uid://17qfkab45x88" path="res://assets/dwarf/24x32/dwarf-m-001.png" id="2_3h56x"]
 [ext_resource type="Texture2D" uid="uid://b2uydavbmeoes" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame1.png" id="3_0qfo5"]
 [ext_resource type="Script" uid="uid://bf3sw4pqqlyjq" path="res://characters/sword.gd" id="3_yxww1"]
 [ext_resource type="Texture2D" uid="uid://c2secvrwh6ij3" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame2.png" id="4_yxww1"]
@@ -15,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
-size = Vector2(128, 128)
+size = Vector2(64, 104)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jb3kq"]
 animations = [{
@@ -79,7 +80,7 @@ radius = 112.0
 height = 352.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgjqb"]
-size = Vector2(160, 160)
+size = Vector2(96, 136)
 
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "indicator_node") groups=["Player"]]
 script = ExtResource("1_pjt0s")
@@ -89,9 +90,14 @@ indicator_node = NodePath("Indicator")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.90735e-06, -9.53674e-07)
-texture = ExtResource("1_glpr6")
+scale = Vector2(4, 4)
+texture = ExtResource("2_3h56x")
+hframes = 3
+vframes = 4
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_pjt0s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -153,6 +159,7 @@ texture_scale = 10.0
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_hgjqb")
 
 [node name="DamageFlash" type="Timer" parent="."]

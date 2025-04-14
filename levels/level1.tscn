@@ -18,8 +18,7 @@ scale = Vector2(8, 8)
 position = Vector2(1634, -118)
 
 [node name="Character" parent="." instance=ExtResource("3_61w3m")]
-position = Vector2(59, 60)
-scale = Vector2(0.8, 0.8)
+position = Vector2(2072, 64)
 
 [node name="RoomArea" parent="." instance=ExtResource("4_ua5ty")]
 position = Vector2(1336, 64)
