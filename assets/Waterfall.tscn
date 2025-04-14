@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnrv7mwof2rox"]
+
+[ext_resource type="Texture2D" uid="uid://dqygswni4tmk1" path="res://assets/Dungeon Gathering/Water.png" id="1_wb7oi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kai1p"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frlu7"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2wrc"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frs7g"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7nds"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xued"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u4jg"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogpou"]
+atlas = ExtResource("1_wb7oi")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ikjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kai1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frlu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2wrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frs7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7nds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xued")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u4jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogpou")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Waterfall" type="Node2D"]
+
+[node name="Water" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(1, 0.5)
+sprite_frames = SubResource("SpriteFrames_1ikjq")
+autoplay = "default"
+frame_progress = 0.791242
