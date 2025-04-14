@@ -1,82 +1,75 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgovwqir5uqpn"]
+[gd_scene load_steps=8 format=3 uid="uid://cgovwqir5uqpn"]
 
-[ext_resource type="Texture2D" uid="uid://dlgdmbk7d8i5s" path="res://assets/Dungeon Gathering/Torch Yellow.png" id="1_kirox"]
+[ext_resource type="Script" uid="uid://w77ob0rt8dmy" path="res://assets/torch.gd" id="1_2w5od"]
+[ext_resource type="SpriteFrames" uid="uid://b5bedoomo1wli" path="res://assets/torch_anim.tres" id="1_v31fy"]
+[ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="2_v31fy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nsdnc"]
-atlas = ExtResource("1_kirox")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v31fy"]
+size = Vector2(8, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4ik8"]
-atlas = ExtResource("1_kirox")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_2w5od"]
+resource_name = "turn_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLight:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.75]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_stqwc"]
-atlas = ExtResource("1_kirox")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_0pw7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLight:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.75]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pb7vd"]
-atlas = ExtResource("1_kirox")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pw7b"]
+_data = {
+&"RESET": SubResource("Animation_0pw7b"),
+&"turn_on": SubResource("Animation_2w5od")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kc7cj"]
-atlas = ExtResource("1_kirox")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lb00q"]
-atlas = ExtResource("1_kirox")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0oprv"]
-atlas = ExtResource("1_kirox")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lu7cl"]
-atlas = ExtResource("1_kirox")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0g81u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nsdnc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v4ik8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_stqwc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pb7vd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kc7cj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lb00q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0oprv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lu7cl")
-}],
-"loop": true,
-"name": &"Torch",
-"speed": 8.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Torch" type="Node2D"]
+[node name="Torch" type="Node2D" node_paths=PackedStringArray("light", "area", "turn_on_animation")]
+script = ExtResource("1_2w5od")
+light = NodePath("MainLight")
+area = NodePath("RoomAreaDetector")
+turn_on_animation = NodePath("TurnOnAnimation")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
-sprite_frames = SubResource("SpriteFrames_0g81u")
+sprite_frames = ExtResource("1_v31fy")
 animation = &"Torch"
 autoplay = "Torch"
-frame = 3
-frame_progress = 0.466476
+
+[node name="RoomAreaDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomAreaDetector"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_v31fy")
+
+[node name="TurnOnAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0pw7b")
+}
+speed_scale = 1.5
+
+[node name="MainLight" type="PointLight2D" parent="."]
+color = Color(1, 0.678431, 0.137255, 1)
+energy = 0.75
+shadow_filter_smooth = 8.0
+texture = ExtResource("2_v31fy")
+texture_scale = 0.5

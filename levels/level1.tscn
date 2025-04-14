@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://n2xax7e8e4mu"]
+[gd_scene load_steps=5 format=3 uid="uid://n2xax7e8e4mu"]
 
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
 [ext_resource type="PackedScene" uid="uid://d0wuq3pdgaom8" path="res://characters/enemy.tscn" id="2_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_61w3m"]
+[ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://assets/room_area.tscn" id="4_ua5ty"]
 
 [node name="Game" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [node name="Game" parent="." instance=ExtResource("1_b3oru")]
 position = Vector2(-2120, -2432)
@@ -12,8 +16,16 @@ scale = Vector2(8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("2_ua5ty")]
 position = Vector2(1344, -64)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.800696, 0.791093)
 
 [node name="Character" parent="." instance=ExtResource("3_61w3m")]
 position = Vector2(64, 64)
 scale = Vector2(0.8, 0.8)
+
+[node name="RoomArea" parent="." instance=ExtResource("4_ua5ty")]
+position = Vector2(1336, 64)
+scale = Vector2(27.7852, 19.8593)
+
+[node name="RoomArea2" parent="." instance=ExtResource("4_ua5ty")]
+position = Vector2(3000, 64)
+scale = Vector2(52.1318, 43.7438)

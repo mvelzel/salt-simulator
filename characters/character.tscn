@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bsj3jwcpkt7ms"]
+[gd_scene load_steps=17 format=3 uid="uid://bsj3jwcpkt7ms"]
 
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
 [ext_resource type="Script" uid="uid://burfqfqnw5p8p" path="res://characters/character.gd" id="1_pjt0s"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bipp6803sx8l2" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame7.png" id="10_x1sy7"]
 [ext_resource type="Texture2D" uid="uid://bfdg61fea8sal" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame8.png" id="11_sm1rv"]
 [ext_resource type="Texture2D" uid="uid://cwwaudychfntk" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame9.png" id="12_jx0ln"]
+[ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
 size = Vector2(128, 128)
@@ -131,6 +132,19 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Indicator/Sword/SwingArea"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7tnxx")
+
+[node name="MainLight" type="PointLight2D" parent="."]
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("13_hgjqb")
+texture_scale = 2.5
+
+[node name="WallIlluminator" type="PointLight2D" parent="."]
+energy = 0.2
+range_item_cull_mask = 2
+shadow_item_cull_mask = 2
+texture = ExtResource("13_hgjqb")
+texture_scale = 10.0
 
 [connection signal="animation_finished" from="Indicator/Sword/SwingAnim" to="Indicator/Sword" method="_on_swing_anim_animation_finished"]
 [connection signal="timeout" from="Indicator/Sword/SwingDelay" to="Indicator/Sword" method="_on_swing_delay_timeout"]
