@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://n2xax7e8e4mu"]
 
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
-[ext_resource type="PackedScene" uid="uid://d0wuq3pdgaom8" path="res://characters/enemy.tscn" id="2_ua5ty"]
-[ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_61w3m"]
+[ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_61w3m"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
+[ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="5_61w3m"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -15,12 +15,6 @@ color = Color(0, 0, 0, 1)
 position = Vector2(-2120, -2432)
 scale = Vector2(8, 8)
 
-[node name="Enemy" parent="." instance=ExtResource("2_ua5ty")]
-position = Vector2(1634, -118)
-
-[node name="Character" parent="." instance=ExtResource("3_61w3m")]
-position = Vector2(128, 64)
-
 [node name="RoomArea" parent="." instance=ExtResource("4_ua5ty")]
 position = Vector2(1400, 64)
 scale = Vector2(27.7852, 19.8593)
@@ -29,17 +23,26 @@ scale = Vector2(27.7852, 19.8593)
 position = Vector2(3072, 64)
 scale = Vector2(52.1318, 43.7438)
 
-[node name="Enemy2" parent="." instance=ExtResource("2_ua5ty")]
-position = Vector2(2415, 604)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_ua5ty")]
-position = Vector2(1615, 262)
-
-[node name="Enemy4" parent="." instance=ExtResource("2_ua5ty")]
-position = Vector2(3598, -491)
-
-[node name="Enemy5" parent="." instance=ExtResource("2_ua5ty")]
-position = Vector2(3583, 589)
-
 [node name="Character" parent="." instance=ExtResource("3_61w3m")]
-position = Vector2(2072, 64)
+position = Vector2(168, 24)
+
+[node name="Enemy" parent="." instance=ExtResource("5_61w3m")]
+position = Vector2(1584, -136)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_61w3m")]
+position = Vector2(1576, 216)
+
+[node name="Enemy3" parent="." instance=ExtResource("5_61w3m")]
+position = Vector2(2480, -504)
+
+[node name="Enemy4" parent="." instance=ExtResource("5_61w3m")]
+position = Vector2(2456, 512)
+
+[node name="Enemy5" parent="." instance=ExtResource("5_61w3m")]
+position = Vector2(3624, 536)
+
+[node name="Enemy6" parent="." instance=ExtResource("5_61w3m")]
+position = Vector2(3728, -456)
+
+[node name="Enemy7" parent="." instance=ExtResource("5_61w3m")]
+position = Vector2(3200, -16)

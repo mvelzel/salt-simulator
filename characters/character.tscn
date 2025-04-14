@@ -1,8 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://bsj3jwcpkt7ms"]
+[gd_scene load_steps=17 format=3 uid="uid://bplaidcffy315"]
 
+[ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
-[ext_resource type="Script" uid="uid://burfqfqnw5p8p" path="res://characters/character.gd" id="1_pjt0s"]
-[ext_resource type="Texture2D" uid="uid://17qfkab45x88" path="res://assets/dwarf/24x32/dwarf-m-001.png" id="2_3h56x"]
+[ext_resource type="Script" uid="uid://6e0opuom2i3g" path="res://characters/character.gd" id="1_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://b2uydavbmeoes" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame1.png" id="3_0qfo5"]
 [ext_resource type="Script" uid="uid://bf3sw4pqqlyjq" path="res://characters/sword.gd" id="3_yxww1"]
 [ext_resource type="Texture2D" uid="uid://c2secvrwh6ij3" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame2.png" id="4_yxww1"]
@@ -15,129 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cwwaudychfntk" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame9.png" id="12_jx0ln"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3h56x"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(24, 64, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_md4ow"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(0, 64, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqba4"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(24, 64, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bb4xn"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(48, 64, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i1355"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(0, 96, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qci4v"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(24, 96, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnu6j"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(48, 96, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3kty"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(0, 32, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4unn8"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(24, 32, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5fe2j"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(48, 32, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hkrj1"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(0, 0, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3lgwp"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(24, 0, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8lwa"]
-atlas = ExtResource("2_3h56x")
-region = Rect2(48, 0, 24, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hgjqb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3h56x")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_md4ow")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mqba4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bb4xn")
-}],
-"loop": true,
-"name": &"walk_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i1355")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qci4v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qnu6j")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e3kty")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4unn8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5fe2j")
-}],
-"loop": true,
-"name": &"walk_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hkrj1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3lgwp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x8lwa")
-}],
-"loop": true,
-"name": &"walk_up",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
-size = Vector2(64, 104)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jb3kq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_3h56x"]
 animations = [{
 "frames": [],
 "loop": true,
@@ -194,32 +72,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7tnxx"]
-radius = 112.0
-height = 352.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1355"]
+radius = 100.0
+height = 304.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgjqb"]
-size = Vector2(96, 136)
-
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "indicator_node") groups=["Player"]]
-y_sort_enabled = true
+[node name="Character" groups=["Player"] instance=ExtResource("1_54qew")]
 script = ExtResource("1_pjt0s")
-SPEED = 500.0
-sprite = NodePath("Sprite2D")
-indicator_node = NodePath("Indicator")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-1.90735e-06, -9.53674e-07)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_hgjqb")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
-shape = SubResource("RectangleShape2D_pjt0s")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.3
@@ -227,70 +87,64 @@ drag_top_margin = 0.3
 drag_right_margin = 0.3
 drag_bottom_margin = 0.3
 
-[node name="Indicator" type="Node2D" parent="."]
+[node name="Indicator" type="Node2D" parent="." index="5"]
 z_index = 5
 z_as_relative = false
 position = Vector2(112, 112)
 
-[node name="Sprite2D" type="Sprite2D" parent="Indicator"]
+[node name="Sprite2D" type="Sprite2D" parent="Indicator" index="0"]
+visible = false
+modulate = Color(100, 100, 100, 1)
 z_index = 1
-scale = Vector2(0.1875, 0.1875)
+position = Vector2(-3.63588e-06, -3.63588e-06)
+scale = Vector2(0.0625001, 0.0625001)
 texture = ExtResource("1_glpr6")
 
-[node name="Sword" type="Node2D" parent="Indicator" node_paths=PackedStringArray("animated_sprite", "swing_delay", "combo_delay", "swing_area")]
+[node name="Sword" type="Node2D" parent="Indicator" index="1" node_paths=PackedStringArray("animated_sprite", "swing_delay", "combo_delay", "swing_area", "character")]
 script = ExtResource("3_yxww1")
 animated_sprite = NodePath("SwingAnim")
 swing_delay = NodePath("SwingDelay")
 combo_delay = NodePath("ComboDelay")
 swing_area = NodePath("SwingArea")
+character = NodePath("../..")
 
-[node name="SwingAnim" type="AnimatedSprite2D" parent="Indicator/Sword"]
+[node name="SwingAnim" type="AnimatedSprite2D" parent="Indicator/Sword" index="0"]
 rotation = -0.00230825
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_jb3kq")
+sprite_frames = SubResource("SpriteFrames_3h56x")
 animation = &"swing1"
 speed_scale = 3.0
 
-[node name="SwingDelay" type="Timer" parent="Indicator/Sword"]
+[node name="SwingDelay" type="Timer" parent="Indicator/Sword" index="1"]
 wait_time = 0.25
 
-[node name="ComboDelay" type="Timer" parent="Indicator/Sword"]
+[node name="ComboDelay" type="Timer" parent="Indicator/Sword" index="2"]
 wait_time = 0.5
 
-[node name="SwingArea" type="Area2D" parent="Indicator/Sword"]
+[node name="SwingArea" type="Area2D" parent="Indicator/Sword" index="3"]
+collision_layer = 3
+collision_mask = 3
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Indicator/Sword/SwingArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indicator/Sword/SwingArea" index="0"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_7tnxx")
+shape = SubResource("CapsuleShape2D_i1355")
 
-[node name="MainLight" type="PointLight2D" parent="."]
+[node name="MainLight" type="PointLight2D" parent="." index="6"]
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("13_hgjqb")
 texture_scale = 2.5
 
-[node name="WallIlluminator" type="PointLight2D" parent="."]
+[node name="WallIlluminator" type="PointLight2D" parent="." index="7"]
 energy = 0.2
 range_item_cull_mask = 2
 shadow_item_cull_mask = 2
 texture = ExtResource("13_hgjqb")
 texture_scale = 10.0
 
-[node name="Hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 12)
-shape = SubResource("RectangleShape2D_hgjqb")
-
-[node name="DamageFlash" type="Timer" parent="."]
-wait_time = 0.2
-
 [connection signal="animation_finished" from="Indicator/Sword/SwingAnim" to="Indicator/Sword" method="_on_swing_anim_animation_finished"]
 [connection signal="timeout" from="Indicator/Sword/SwingDelay" to="Indicator/Sword" method="_on_swing_delay_timeout"]
 [connection signal="timeout" from="Indicator/Sword/ComboDelay" to="Indicator/Sword" method="_on_combo_delay_timeout"]
 [connection signal="body_entered" from="Indicator/Sword/SwingArea" to="Indicator/Sword" method="_on_swing_area_body_entered"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
-[connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]

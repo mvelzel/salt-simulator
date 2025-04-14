@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxpga73nowmia"]
+
+[ext_resource type="SpriteFrames" uid="uid://bgffug2q7x35v" path="res://characters/enemy.tres" id="2_dfxt4"]
+
+[sub_resource type="GDScript" id="GDScript_y7lou"]
+script/source = "extends CharacterBody2D
+
+@export var health = 200
+@export var flash_timeout: Timer
+@export var sprite: AnimatedSprite2D
+var base_modulation: Color
+
+func _ready() -> void:
+	if sprite:
+		base_modulation = sprite.self_modulate
+
+func take_damage(damage: float) -> void:
+	health -= damage
+	if health < 0:
+		queue_free()
+		return
+	
+	if flash_timeout and sprite:
+		sprite.self_modulate = Color(1, 0, 0)
+		flash_timeout.start()
+
+func _on_damage_flash_timeout() -> void:
+	if sprite:
+		sprite.self_modulate = base_modulation
+		
+@export var SPEED = 250.0
+
+var is_enabled = true
+
+func _physics_process(_delta: float) -> void:
+	if is_enabled:
+		var player = get_tree().get_nodes_in_group(\"Player\")[0]
+		var direction = (player.position - position).normalized()
+		
+		velocity = direction * SPEED
+		
+		set_animation()
+		move_and_slide()
+		
+func set_animation():
+	if velocity.x < 0 and abs(velocity.x) >= abs(velocity.y): # Left
+		sprite.play(\"walk_left\")
+	elif velocity.x > 0  and abs(velocity.x) >= abs(velocity.y): # Right
+		sprite.play(\"walk_right\")
+	elif velocity.y > 0: # Down
+		sprite.play(\"walk_down\")
+	elif velocity.y < 0: # Up
+		sprite.play(\"walk_up\")
+	else: # Idle
+		sprite.play(\"idle\")
+		
+func turn_on():
+	is_enabled = true
+
+func turn_off():
+	is_enabled = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
+size = Vector2(112, 184)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("flash_timeout", "sprite") groups=["Enemy"]]
+script = SubResource("GDScript_y7lou")
+flash_timeout = NodePath("DamageFlash")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = ExtResource("2_dfxt4")
+animation = &"walk_down"
+autoplay = "idle"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_7xaro")
+
+[node name="DamageFlash" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="DamageFlash" to="." method="_on_damage_flash_timeout"]
