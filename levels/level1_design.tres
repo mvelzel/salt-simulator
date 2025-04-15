@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bnrv7mwof2rox" path="res://assets/Waterfall.tscn" id="6_a6j35"]
 [ext_resource type="Texture2D" uid="uid://g2c5x445mfqw" path="res://assets/Dungeon Gathering/Set 4.5.png" id="6_nshf4"]
 [ext_resource type="PackedScene" uid="uid://cnaj23uvxp6dr" path="res://assets/Ladder.tscn" id="7_hrdq1"]
-[ext_resource type="PackedScene" path="res://assets/bucket.tscn" id="8_j0fsv"]
+[ext_resource type="PackedScene" uid="uid://4t4sl8oosywy" path="res://assets/bucket.tscn" id="8_j0fsv"]
 [ext_resource type="Texture2D" uid="uid://dewbxerd2id6i" path="res://assets/Dungeon Gathering Full/All tiles v2.png" id="10_b765g"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jo486"]
@@ -151,7 +151,7 @@ texture = ExtResource("1_jo486")
 5:7/0/terrain_set = 0
 5:7/0/terrain = 0
 5:7/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_jo486")
-5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 8, -4, 8, 8, -8, 8, -8, 0)
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.66667, 2.66667, 8, 2.66667, 8, 2.66667, 8, 2.66667, 8, 8, -8, 8, -8, 8)
 5:7/0/terrains_peering_bit/right_side = 0
 5:7/0/terrains_peering_bit/bottom_side = 0
 5:7/0/terrains_peering_bit/bottom_left_corner = 0
@@ -163,7 +163,7 @@ texture = ExtResource("1_jo486")
 6:7/0/terrain_set = 0
 6:7/0/terrain = 0
 6:7/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_jo486")
-6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, 8, -8, 8)
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.66667, 8, 2.66667, 8, 8, -8, 8)
 6:7/0/terrains_peering_bit/right_side = 0
 6:7/0/terrains_peering_bit/left_side = 0
 6:7/0/terrains_peering_bit/top_left_corner = 0
@@ -173,7 +173,7 @@ texture = ExtResource("1_jo486")
 7:7/0/terrain_set = 0
 7:7/0/terrain = 0
 7:7/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_jo486")
-7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 4, -4, 8, 0, 8, 8, -8, 8)
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -8, 2.66667, 2.66667, 2.66667, 8, 5.33333, 8, 8, -8, 8)
 7:7/0/terrains_peering_bit/right_side = 0
 7:7/0/terrains_peering_bit/bottom_right_corner = 0
 7:7/0/terrains_peering_bit/bottom_side = 0
@@ -443,6 +443,7 @@ texture = ExtResource("1_jo486")
 17:11/0 = 0
 18:11/0 = 0
 2:12/0 = 0
+2:12/0/y_sort_origin = -5
 4:12/0 = 0
 4:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:12/0 = 0

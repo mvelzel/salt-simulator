@@ -12,6 +12,16 @@ script = ExtResource("1_4gyqm")
 [node name="Sprite" parent="." index="0"]
 sprite_frames = ExtResource("2_nhupr")
 
+[node name="Collider" parent="." index="1"]
+y_sort_enabled = true
+position = Vector2(0, 8)
+
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(0, -23)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-1, -5)
+
 [node name="DamagePlayerTimer" type="Timer" parent="." index="4"]
 wait_time = 0.5
 one_shot = true

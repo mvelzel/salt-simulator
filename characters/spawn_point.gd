@@ -4,7 +4,7 @@ extends Node2D
 
 func _on_spawn_timer_timeout() -> void:
 	var enemy = enemy_scene.instantiate()
-	get_tree().root.add_child(enemy)
+	get_node("../").add_child(enemy)
 	enemy.global_position = global_position
 	
 var enabled = false	

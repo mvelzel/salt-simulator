@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://fqw31patorn4"]
 
-[ext_resource type="Script" uid="uid://c4g4wgf56m6xe" path="res://characters/base_character.gd" id="1_flllm"]
+[ext_resource type="Script" path="res://characters/base_character.gd" id="1_flllm"]
 [ext_resource type="SpriteFrames" uid="uid://eqb3l27js643" path="res://characters/character.tres" id="2_xeerb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt0s"]
-size = Vector2(128, 192)
+size = Vector2(111, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgjqb"]
-size = Vector2(160, 224)
+size = Vector2(147, 204)
 
 [node name="BaseCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -20,12 +20,14 @@ scale = Vector2(8, 8)
 sprite_frames = ExtResource("2_xeerb")
 animation = &"idle"
 autoplay = "idle"
+offset = Vector2(0, -7.5)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 24)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_pjt0s")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, -60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 24)
