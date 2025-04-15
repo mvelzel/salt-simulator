@@ -58,12 +58,9 @@ position = Vector2(3200, -16)
 y_sort_enabled = true
 position = Vector2(1401, 33)
 
-[node name="Enemy8" parent="." instance=ExtResource("5_61w3m")]
-position = Vector2(398, 235)
-
 [node name="PipeStart" parent="." instance=ExtResource("6_pdpul")]
-z_index = 1
-position = Vector2(252, -192)
+y_sort_enabled = true
+position = Vector2(252, -194)
 
 [node name="Sewer" parent="." instance=ExtResource("7_8hd6v")]
 position = Vector2(1400, -296)
