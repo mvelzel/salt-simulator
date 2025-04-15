@@ -1,28 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://n2xax7e8e4mu"]
+[gd_scene load_steps=7 format=3 uid="uid://n2xax7e8e4mu"]
 
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
 [ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_61w3m"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="5_61w3m"]
 [ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_pdpul"]
-[ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="6_045es"]
-[ext_resource type="Script" uid="uid://dwckjtc3xwgmy" path="res://characters/enemy.gd" id="7_omn1t"]
-[ext_resource type="SpriteFrames" uid="uid://b1rmmu0b6v0cs" path="res://characters/enemy.tres" id="8_lf3p4"]
-
-[sub_resource type="PackedScene" id="PackedScene_yydhl"]
-resource_local_to_scene = true
-_bundled = {
-"base_scene": 0,
-"conn_count": 3,
-"conns": PackedInt32Array(3, 0, 18, 17, 2, 0, 0, 3, 0, 20, 19, 2, 0, 0, 5, 0, 22, 21, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Enemy", "collision_layer", "collision_mask", "script", "Sprite", "sprite_frames", "offset", "Collider", "y_sort_enabled", "position", "Hitbox", "CollisionShape2D", "DamageFlash", "DamagePlayerTimer", "wait_time", "one_shot", "Timer", "_on_hitbox_body_entered", "body_entered", "_on_hitbox_body_exited", "body_exited", "_on_damage_player_timer_timeout", "timeout"),
-"node_count": 6,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 1, 3, 2, 1, 0, 0, 0, 2147483647, 262148, -1, 2, 5, 3, 6, 4, 0, 0, 0, 2147483647, 524295, -1, 2, 8, 5, 9, 6, 0, 0, 0, 2147483647, 786442, -1, 1, 9, 7, 0, 3, 0, 2147483647, 262155, -1, 1, 9, 8, 0, 0, 0, 16, 1310733, -1, 2, 14, 9, 15, 5, 0),
-"variants": [ExtResource("6_045es"), 2, ExtResource("7_omn1t"), ExtResource("8_lf3p4"), Vector2(0, -5), true, Vector2(0, 29), Vector2(0, -23), Vector2(-1.5, 14), 0.5],
-"version": 3
-}
+[ext_resource type="AudioStream" uid="uid://bre2eljs1k4vb" path="res://sounds/sewer-drain-23073.mp3" id="6_pdpul"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -43,8 +26,7 @@ position = Vector2(3072, 64)
 scale = Vector2(52.1318, 43.7438)
 
 [node name="Character" parent="." instance=ExtResource("3_61w3m")]
-position = Vector2(150, 11)
-health = 10000.0
+position = Vector2(168, 24)
 
 [node name="Enemy" parent="." instance=ExtResource("5_61w3m")]
 position = Vector2(1584, -136)
@@ -68,9 +50,15 @@ position = Vector2(3728, -456)
 position = Vector2(3200, -16)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_pdpul")]
-y_sort_enabled = true
 position = Vector2(1401, 33)
-enemy_scene = SubResource("PackedScene_yydhl")
 
-[node name="Enemy8" parent="." instance=ExtResource("5_61w3m")]
-position = Vector2(398, 235)
+[node name="Sewer" type="Node2D" parent="."]
+position = Vector2(1396, -300)
+
+[node name="SewerSound" type="AudioStreamPlayer2D" parent="Sewer"]
+position = Vector2(-1, 42)
+stream = ExtResource("6_pdpul")
+volume_db = 5.0
+pitch_scale = 1.5
+autoplay = true
+max_distance = 300.0

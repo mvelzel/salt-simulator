@@ -26,6 +26,15 @@ position = Vector2(-1, -5)
 wait_time = 0.5
 one_shot = true
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
+path_desired_distance = 64.0
+path_max_distance = 128.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 96.0
+max_speed = 300.0
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="DamagePlayerTimer" to="." method="_on_damage_player_timer_timeout"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
