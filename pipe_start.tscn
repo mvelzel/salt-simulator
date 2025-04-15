@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://be0opqvvn7rtt"]
+[gd_scene load_steps=9 format=3 uid="uid://be0opqvvn7rtt"]
 
 [ext_resource type="Script" uid="uid://bv7kiktfna0cf" path="res://pipe_start.gd" id="1_hxrnu"]
 [ext_resource type="Texture2D" uid="uid://bdensxbvlmf5l" path="res://assets/pipes.png" id="1_n3scm"]
+[ext_resource type="Texture2D" uid="uid://de7qt3o6541ll" path="res://ui/icons-n-buttons.png" id="3_5i75w"]
 [ext_resource type="PackedScene" uid="uid://dbhc6yaxsrm5p" path="res://progress.tscn" id="3_ifta4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxrnu"]
@@ -9,6 +10,13 @@ size = Vector2(384, 384)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hxrnu"]
 light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5i75w"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n0sl"]
+atlas = ExtResource("3_5i75w")
+region = Rect2(208, 48, 16, 16)
 
 [node name="PipeStart" type="Node2D"]
 script = ExtResource("1_hxrnu")
@@ -32,12 +40,12 @@ frame = 10
 [node name="PipeLocation" type="Node2D" parent="."]
 
 [node name="Trigger" type="Area2D" parent="PipeLocation"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeLocation/Trigger"]
 shape = SubResource("RectangleShape2D_hxrnu")
 
 [node name="GrabLabel" type="RichTextLabel" parent="PipeLocation"]
-visible = false
 z_index = 1
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_hxrnu")
@@ -46,10 +54,15 @@ offset_top = -144.0
 offset_right = -124.0
 offset_bottom = -124.0
 scale = Vector2(4, 4)
-text = "Press 'E' to grab."
+text = "Press     to grab."
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="EKey" type="Sprite2D" parent="PipeLocation/GrabLabel"]
+material = SubResource("CanvasItemMaterial_5i75w")
+position = Vector2(54, 10)
+texture = SubResource("AtlasTexture_0n0sl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -69,7 +82,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PumpTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 0.2
 
 [connection signal="body_entered" from="PipeLocation/Trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="body_exited" from="PipeLocation/Trigger" to="." method="_on_trigger_body_exited"]
