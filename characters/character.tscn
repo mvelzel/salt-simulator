@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=22 format=3 uid="uid://bplaidcffy315"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bfdg61fea8sal" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame8.png" id="11_sm1rv"]
 [ext_resource type="Texture2D" uid="uid://cwwaudychfntk" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame9.png" id="12_jx0ln"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
+[ext_resource type="Script" uid="uid://b3kr5xdkg8ec7" path="res://characters/gun.gd" id="14_e3kty"]
+[ext_resource type="Texture2D" uid="uid://l24qo6akqueu" path="res://assets/Guns/Guns/Tokarev.png" id="14_qnu6j"]
+[ext_resource type="PackedScene" uid="uid://dloaq2mi7horc" path="res://effects/bullet.tscn" id="15_4unn8"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
 [ext_resource type="AudioStream" uid="uid://d2agvfxltpbvg" path="res://sounds/3_knife_slash_c-92500.mp3" id="16_qci4v"]
 
@@ -124,6 +127,7 @@ wait_time = 0.25
 wait_time = 0.5
 
 [node name="SwingArea" type="Area2D" parent="Indicator/Sword" index="3"]
+visible = false
 collision_layer = 3
 collision_mask = 3
 monitoring = false
@@ -133,6 +137,15 @@ monitorable = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i1355")
 
+[node name="Gun" type="Node2D" parent="Indicator" index="2"]
+script = ExtResource("14_e3kty")
+bullet_scene = ExtResource("15_4unn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Indicator/Gun" index="0"]
+position = Vector2(0, -16)
+scale = Vector2(8, 8)
+texture = ExtResource("14_qnu6j")
+
 [node name="MainLight" type="PointLight2D" parent="." index="6"]
 energy = 0.5
 shadow_enabled = true
@@ -140,6 +153,7 @@ texture = ExtResource("13_hgjqb")
 texture_scale = 2.5
 
 [node name="WallIlluminator" type="PointLight2D" parent="." index="7"]
+position = Vector2(11, -6)
 energy = 0.2
 range_item_cull_mask = 2
 shadow_item_cull_mask = 2

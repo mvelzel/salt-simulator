@@ -9,8 +9,10 @@ extends Node2D
 var can_swing = true
 var combo = false
 
+var enabled = false
+
 func _input(event) -> void:
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+	if enabled and event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		if not combo_delay or not swing_delay or not can_swing or not swing_area:
 			return
 		

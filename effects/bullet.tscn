@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dloaq2mi7horc"]
+
+[ext_resource type="Texture2D" uid="uid://bwll204yqbs65" path="res://assets/Guns/Bullets/SmallBullet.png" id="1_5esik"]
+[ext_resource type="Script" uid="uid://cqtsbxdhugdyy" path="res://effects/bullet.gd" id="1_dewm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5esik"]
+size = Vector2(4, 4)
+
+[node name="Bullet" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_dewm2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("1_5esik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_5esik")

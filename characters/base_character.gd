@@ -30,13 +30,17 @@ func set_animation():
 	else: # Idle
 		$Sprite.play("idle")
 		
-func take_damage(damage: float, source: Node2D) -> void:
+func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:
 	health -= damage
 	if health < 0:
 		die()
 		return
-		
-	var knockback_direction = source.position.direction_to(position)
+	
+	var knockback_direction
+	if source:
+		knockback_direction = source.position.direction_to(position)
+	else:
+		knockback_direction = direction.normalized()
 	knockback = knockback_direction * damage * knockback_modifier
 	
 	$Sprite.self_modulate = Color(1, 0, 0)
