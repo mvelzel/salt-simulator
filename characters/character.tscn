@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://l24qo6akqueu" path="res://assets/Guns/Guns/Tokarev.png" id="14_qnu6j"]
 [ext_resource type="PackedScene" uid="uid://dloaq2mi7horc" path="res://effects/bullet.tscn" id="15_4unn8"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
-[ext_resource type="AudioStream" uid="uid://d2agvfxltpbvg" path="res://sounds/3_knife_slash_c-92500.mp3" id="16_qci4v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3h56x"]
 animations = [{
@@ -163,10 +162,6 @@ texture_scale = 10.0
 [node name="FootstepSound" type="AudioStreamPlayer2D" parent="." index="8"]
 stream = ExtResource("15_i1355")
 volume_db = 1.0
-
-[node name="KnifeSlashSound" type="AudioStreamPlayer2D" parent="." index="9"]
-stream = ExtResource("16_qci4v")
-volume_db = 5.0
 
 [connection signal="animation_finished" from="Indicator/Sword/SwingAnim" to="Indicator/Sword" method="_on_swing_anim_animation_finished"]
 [connection signal="timeout" from="Indicator/Sword/SwingDelay" to="Indicator/Sword" method="_on_swing_delay_timeout"]
