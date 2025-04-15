@@ -50,7 +50,7 @@ func set_pipe(pipe):
 	dragging_pipe = pipe
 	
 	if dragging_pipe:
-		speed = default_speed / 2
+		speed = default_speed * 2
 	else:
 		speed = default_speed
 

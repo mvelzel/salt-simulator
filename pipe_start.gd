@@ -7,8 +7,14 @@ var player: Node2D
 
 var astar_grid: AStarGrid2D
 
+@export var level_finish_salt_threshold = 15
+@export var max_salt = 30
+var current_salt = 0
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
+	
+	$CanvasLayer/SaltProgress.scaffold_steps(level_finish_salt_threshold)
 	
 	astar_grid = AStarGrid2D.new()
 	var region = floor_layer.get_used_rect()
@@ -44,12 +50,13 @@ func _ready() -> void:
 
 var is_dragging = false
 var is_pumping = false
+var can_stop_dragging = true
 
 var can_grab = false
 func _on_trigger_body_entered(body: Node2D) -> void:
 	can_grab = true
 	if body.is_in_group("Player"):
-		if not is_dragging and not is_pumping:
+		if not is_dragging and (not is_pumping or current_salt >= level_finish_salt_threshold):
 			$PipeLocation/GrabLabel.visible = true
 
 func _on_trigger_body_exited(body: Node2D) -> void:
@@ -57,17 +64,30 @@ func _on_trigger_body_exited(body: Node2D) -> void:
 		can_grab = false
 		$PipeLocation/GrabLabel.visible = false	
 
-func start_pumping(pipe_end: Node2D):
+var pipe_end: Node2D
+func start_pumping(pump_pipe_end: Node2D):
+	can_stop_dragging = false
+	pipe_end = pump_pipe_end
 	is_dragging = false
 	is_pumping = true
 	$PipeLocation/GrabLabel.visible = false
 	$PipeLocation.global_position = pipe_end.global_position
+	$CanvasLayer/SaltProgress.visible = true
+	$PumpTimer.start()
 	if player and player.has_method("set_pipe"):
 		player.set_pipe(null)
 		
 func stop_pumping():
+	can_stop_dragging = false
 	is_dragging = true
 	is_pumping = false
+	$PumpTimer.stop()
+	$CanvasLayer/SaltProgress.visible = false
+	$PipeLocation/GrabLabel.visible = false
+	
+	if pipe_end and pipe_end.has_method("stop_pumping"):
+		pipe_end.stop_pumping()
+	
 	if player and player.has_method("set_pipe"):
 		player.set_pipe(self)
 		
@@ -75,13 +95,14 @@ func get_is_pumping():
 	return is_pumping
 
 func _unhandled_input(event):
-	if not is_pumping and event is InputEventKey:
-		if event.pressed:
-			if event.keycode == KEY_E:
-				if not is_dragging and can_grab:
-					start_dragging()
-				else:
-					stop_dragging()
+	if event is InputEventKey and event.pressed and event.keycode == KEY_E:
+		if is_pumping:
+			if current_salt >= level_finish_salt_threshold:
+				stop_pumping()
+		elif not is_dragging and can_grab:
+			start_dragging()
+		else:
+			stop_dragging()
 				
 var previous_path
 			
@@ -94,6 +115,9 @@ func start_dragging():
 		player.set_pipe(self)
 	
 func stop_dragging():
+	if not can_stop_dragging:
+		return
+		
 	is_dragging = false
 	
 	var target_position = $PipeLocation.global_position
@@ -131,3 +155,14 @@ func _process(delta: float) -> void:
 			
 	pipe_layer.set_cells_terrain_path(path, 0, 1)
 	previous_path = path
+
+func _on_pump_timer_timeout() -> void:
+	current_salt += 1
+	$CanvasLayer/SaltProgress.render_bar(current_salt)
+	
+	if current_salt >= level_finish_salt_threshold:
+		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red]!!! [/color]Pumping [font gl=\"2\" emb=\"1\"]MORE[/font] salt[color=red] !!![/color]"
+	
+	if current_salt == max_salt:
+		$PumpTimer.stop()
+	

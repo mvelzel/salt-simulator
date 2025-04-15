@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbhc6yaxsrm5p"]
+
+[ext_resource type="Script" uid="uid://bimw4ebtn0w7f" path="res://salt_progress.gd" id="1_s2606"]
+[ext_resource type="Texture2D" uid="uid://bf3q6mfujqwwg" path="res://ui/health-bars.png" id="2_wk8xe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i75w"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(0, 32, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n0sl"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(40, 32, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcern"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(8, 32, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2606"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(64, 48, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk8xe"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(104, 48, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76nj8"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(72, 48, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj270"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(0, 96, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otg2m"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(40, 96, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syw7e"]
+atlas = ExtResource("2_wk8xe")
+region = Rect2(8, 96, 8, 16)
+
+[node name="SaltProgress" type="Node2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_s2606")
+start_texture = SubResource("AtlasTexture_5i75w")
+end_texture = SubResource("AtlasTexture_0n0sl")
+progress_texture = SubResource("AtlasTexture_gcern")
+second_start_texture = SubResource("AtlasTexture_s2606")
+second_end_texture = SubResource("AtlasTexture_wk8xe")
+second_progress_texture = SubResource("AtlasTexture_76nj8")
+background_start_texture = SubResource("AtlasTexture_lj270")
+background_end_texture = SubResource("AtlasTexture_otg2m")
+background_progress_texture = SubResource("AtlasTexture_syw7e")

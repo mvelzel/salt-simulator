@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://be0opqvvn7rtt"]
+[gd_scene load_steps=6 format=3 uid="uid://be0opqvvn7rtt"]
 
 [ext_resource type="Script" uid="uid://bv7kiktfna0cf" path="res://pipe_start.gd" id="1_hxrnu"]
 [ext_resource type="Texture2D" uid="uid://bdensxbvlmf5l" path="res://assets/pipes.png" id="1_n3scm"]
+[ext_resource type="PackedScene" uid="uid://dbhc6yaxsrm5p" path="res://progress.tscn" id="3_ifta4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxrnu"]
 size = Vector2(384, 384)
@@ -50,5 +51,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SaltProgress" parent="CanvasLayer" instance=ExtResource("3_ifta4")]
+visible = false
+position = Vector2(960, 128)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/SaltProgress"]
+offset_left = -54.0
+offset_top = 6.0
+offset_right = 162.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[wave]Pumping salt..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PumpTimer" type="Timer" parent="."]
+wait_time = 0.4
+
 [connection signal="body_entered" from="PipeLocation/Trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="body_exited" from="PipeLocation/Trigger" to="." method="_on_trigger_body_exited"]
+[connection signal="timeout" from="PumpTimer" to="." method="_on_pump_timer_timeout"]
