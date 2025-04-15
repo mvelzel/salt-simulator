@@ -7,6 +7,6 @@
 [node name="SewerSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(3, 61)
 stream = ExtResource("1_0o6ln")
-volume_db = 8.0
+volume_db = 15.0
 autoplay = true
 max_distance = 450.0
