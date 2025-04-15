@@ -1,5 +1,7 @@
 extends Node2D
 
+const SoundUtils = preload("res://utils/SoundUtils.gd")
+
 @export var animated_sprite: AnimatedSprite2D
 @export var swing_delay: Timer
 @export var combo_delay: Timer
@@ -56,14 +58,4 @@ func _on_swing_area_body_entered(body: Node2D) -> void:
 		body.take_damage(75, character)
 		
 func play_knife_slash_sound() -> void:
-	var temp_audio_player = AudioStreamPlayer2D.new()
-	temp_audio_player.stream = knife_slash_sound_resource
-	
-	add_child(temp_audio_player)
-	
-	temp_audio_player.play()
-	
-	var sound_length = temp_audio_player.stream.get_length()
-	
-	await get_tree().create_timer(sound_length).timeout
-	temp_audio_player.queue_free()
+	SoundUtils.play_sound(self, knife_slash_sound_resource)
