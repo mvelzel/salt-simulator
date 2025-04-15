@@ -164,5 +164,6 @@ func _on_pump_timer_timeout() -> void:
 		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red]!!! [/color]Pumping [font gl=\"2\" emb=\"1\"]MORE[/font] salt[color=red] !!![/color]"
 	
 	if current_salt == max_salt:
+		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red][font gl=\"2\" emb=\"1\"]MAX SALT - LEAVE NOW"
 		$PumpTimer.stop()
 	
