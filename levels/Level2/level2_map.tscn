@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://cmx52ypy5u0bv"]
+[gd_scene load_steps=3 format=4 uid="uid://cmx52ypy5u0bv"]
 
 [ext_resource type="TileSet" uid="uid://is75chxchr7m" path="res://levels/level1_design.tres" id="1_nlkui"]
+[ext_resource type="PackedScene" uid="uid://bois74xev31wa" path="res://SoundAreas/SewerSoundArea.tscn" id="2_1o7sv"]
 
 [node name="Level2Map" type="Node2D"]
 y_sort_enabled = true
@@ -36,3 +37,6 @@ tile_set = ExtResource("1_nlkui")
 [node name="Props" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAMAPH/AwAKACYAAAAMAPL/AwAKACYAAAAQAPH/AwAJACYAAAADAAsAAQAAAAAABwACAAoAAwAMACIAAAA=")
 tile_set = ExtResource("1_nlkui")
+
+[node name="Sewer" parent="." instance=ExtResource("2_1o7sv")]
+position = Vector2(536, -63)

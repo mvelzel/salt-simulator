@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="5_61w3m"]
 [ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_pdpul"]
-[ext_resource type="PackedScene" uid="uid://bois74xev31wa" path="res://SoundAreas/SewerSoundArea.tscn" id="6_pdpul"]
+[ext_resource type="AudioStream" uid="uid://bre2eljs1k4vb" path="res://sounds/sewer-drain-23073.mp3" id="6_pdpul"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -52,5 +52,13 @@ position = Vector2(3200, -16)
 [node name="SpawnPoint" parent="." instance=ExtResource("5_pdpul")]
 position = Vector2(1401, 33)
 
-[node name="Sewer" parent="." instance=ExtResource("6_pdpul")]
-position = Vector2(1397, -300)
+[node name="Sewer" type="Node2D" parent="."]
+position = Vector2(1396, -300)
+
+[node name="SewerSound" type="AudioStreamPlayer2D" parent="Sewer"]
+position = Vector2(-1, 42)
+stream = ExtResource("6_pdpul")
+volume_db = 5.0
+pitch_scale = 1.5
+autoplay = true
+max_distance = 300.0
