@@ -5,6 +5,7 @@
 [node name="Torch" instance=ExtResource("1_qhxyv")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -12)
 animation = &"TorchL"
 autoplay = "TorchL"
 
