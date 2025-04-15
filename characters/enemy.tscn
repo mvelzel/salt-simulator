@@ -11,6 +11,7 @@ script = ExtResource("1_4gyqm")
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = ExtResource("2_nhupr")
+offset = Vector2(0, 0)
 
 [node name="Collider" parent="." index="1"]
 y_sort_enabled = true
