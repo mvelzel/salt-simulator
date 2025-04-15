@@ -31,6 +31,10 @@ version_control/autoload_on_startup=true
 Player=""
 Enemy=""
 
+[gui]
+
+theme/custom_font="uid://d4qym2ytq5ef"
+
 [input]
 
 ui_left={

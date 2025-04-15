@@ -20,3 +20,14 @@ texture = ExtResource("1_n3scm")
 hframes = 6
 vframes = 3
 frame = 10
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = -124.0
+offset_top = -96.0
+offset_bottom = -76.0
+scale = Vector2(2, 2)
+text = "Press 'E' to grab."
+horizontal_alignment = 1
+vertical_alignment = 1
