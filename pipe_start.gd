@@ -12,10 +12,6 @@ func _ready() -> void:
 	
 	astar_grid = AStarGrid2D.new()
 	var region = floor_layer.get_used_rect()
-	region = Rect2i(
-		Vector2i(region.position.x - 1, region.position.y - 1),
-		Vector2i(region.size.x + 2, region.size.y + 2)
-	)
 	astar_grid.region = region
 	astar_grid.cell_size = pipe_layer.tile_set.tile_size
 	
@@ -45,12 +41,10 @@ func _ready() -> void:
 var previous_path
 func _process(delta: float) -> void:
 	var self_tile_pos = floor_layer.local_to_map(floor_layer.to_local(global_position))
-	self_tile_pos = Vector2i(self_tile_pos.x - 1, self_tile_pos.y + 1)
 	
 	var target_tile_pos = floor_layer.local_to_map(floor_layer.to_local(player.global_position))
-	target_tile_pos = Vector2i(target_tile_pos.x - 1, target_tile_pos.y)
 	
-	var path = [Vector2i(self_tile_pos.x, self_tile_pos.y - 1)] + astar_grid.get_id_path(self_tile_pos, target_tile_pos, true)
+	var path = astar_grid.get_id_path(self_tile_pos, target_tile_pos, true)
 
 	if previous_path:
 		for point in previous_path:
