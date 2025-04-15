@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://n2xax7e8e4mu"]
 
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
-[ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_61w3m"]
+[ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_61w3m"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="5_61w3m"]
 [ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_pdpul"]

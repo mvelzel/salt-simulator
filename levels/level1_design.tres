@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://is75chxchr7m"]
+[gd_resource type="TileSet" load_steps=30 format=3 uid="uid://is75chxchr7m"]
 
 [ext_resource type="Texture2D" uid="uid://cq4lstddaajw4" path="res://assets/Dungeon Gathering/Set 1.png" id="1_jo486"]
 [ext_resource type="PackedScene" uid="uid://cgovwqir5uqpn" path="res://assets/Torch.tscn" id="2_nshf4"]
@@ -586,7 +586,7 @@ texture = ExtResource("1_jo486")
 17:11/0 = 0
 18:11/0 = 0
 2:12/0 = 0
-2:12/0/y_sort_origin = -6
+2:12/0/y_sort_origin = -10
 4:12/0 = 0
 4:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:12/0 = 0
@@ -828,6 +828,9 @@ texture = ExtResource("6_nshf4")
 1:7/0 = 0
 2:7/0 = 0
 3:7/0 = 0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8evt3"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8evt3"]
 texture = ExtResource("10_b765g")
@@ -1309,6 +1312,8 @@ texture = ExtResource("10_b765g")
 52:5/0 = 0
 53:5/0 = 0
 54:5/0 = 0
+54:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_8evt3")
+54:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -2.66667, 8, -2.66667, -8, -2.66667, -8, -8, 8, -8)
 55:5/0 = 0
 56:5/0 = 0
 57:5/0 = 0

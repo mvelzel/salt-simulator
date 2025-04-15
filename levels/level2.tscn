@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cmx52ypy5u0bv" path="res://levels/Level2/level2_map.tscn" id="1_g1dg4"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="2_s1bpp"]
-[ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_76ugp"]
+[ext_resource type="PackedScene" uid="uid://bsj3jwcpkt7ms" path="res://characters/character.tscn" id="3_76ugp"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="4_e8p81"]
 [ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_55gdq"]
 
@@ -13,6 +13,7 @@ y_sort_enabled = true
 color = Color(0, 0, 0, 1)
 
 [node name="Level2Map" parent="." instance=ExtResource("1_g1dg4")]
+y_sort_enabled = true
 scale = Vector2(8, 8)
 
 [node name="RoomArea" parent="." instance=ExtResource("2_s1bpp")]
