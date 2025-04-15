@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=18 format=3 uid="uid://bsj3jwcpkt7ms"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cwwaudychfntk" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame9.png" id="12_jx0ln"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
-[ext_resource type="AudioStream" uid="uid://d2agvfxltpbvg" path="res://sounds/3_knife_slash_c-92500.mp3" id="16_qci4v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3h56x"]
 animations = [{
@@ -149,10 +148,6 @@ texture_scale = 10.0
 [node name="FootstepSound" type="AudioStreamPlayer2D" parent="." index="8"]
 stream = ExtResource("15_i1355")
 volume_db = 1.0
-
-[node name="KnifeSlashSound" type="AudioStreamPlayer2D" parent="." index="9"]
-stream = ExtResource("16_qci4v")
-volume_db = 5.0
 
 [connection signal="animation_finished" from="Indicator/Sword/SwingAnim" to="Indicator/Sword" method="_on_swing_anim_animation_finished"]
 [connection signal="timeout" from="Indicator/Sword/SwingDelay" to="Indicator/Sword" method="_on_swing_delay_timeout"]

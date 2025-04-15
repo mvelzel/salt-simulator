@@ -1,7 +1,7 @@
 extends "res://characters/base_character.gd"
 
 @onready var footstep_sound = $FootstepSound
-@onready var knife_slash_sound = $KnifeSlashSound
+@onready var knife_slash_sound_resource: AudioStream = preload("res://sounds/3_knife_slash_c-92500.mp3")
 
 const INDICATOR_DISTANCE = 150
 
@@ -39,4 +39,17 @@ func _walk_sounds_effects():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			$KnifeSlashSound.play()
+			play_knife_slash_sound()
+			
+func play_knife_slash_sound() -> void:
+	var temp_audio_player = AudioStreamPlayer2D.new()
+	temp_audio_player.stream = knife_slash_sound_resource
+	
+	add_child(temp_audio_player)
+	
+	temp_audio_player.play()
+	
+	var sound_length = temp_audio_player.stream.get_length()
+	
+	await get_tree().create_timer(sound_length).timeout
+	temp_audio_player.queue_free()
