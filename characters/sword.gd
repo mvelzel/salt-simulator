@@ -5,18 +5,27 @@ extends Node2D
 @export var combo_delay: Timer
 @export var swing_area: Area2D
 @export var character: Node2D
+@onready var knife_slash_sound_resource: AudioStream = preload("res://sounds/3_knife_slash_c-92500.mp3")
 
 var can_swing = true
 var combo = false
+var enabled = true
 
-var enabled = false
+func disable():
+	visible = false
+	enabled = false
+	
+func enable():
+	visible = true
+	enabled = true
 
-func _input(event) -> void:
+func _unhandled_input(event) -> void:
 	if enabled and event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		if not combo_delay or not swing_delay or not can_swing or not swing_area:
 			return
 		
 		if can_swing:
+			play_knife_slash_sound()
 			swing_area.monitoring = false
 			
 			if combo:
@@ -45,3 +54,16 @@ func _on_swing_anim_animation_finished() -> void:
 func _on_swing_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy") and body.has_method("take_damage"):
 		body.take_damage(75, character)
+		
+func play_knife_slash_sound() -> void:
+	var temp_audio_player = AudioStreamPlayer2D.new()
+	temp_audio_player.stream = knife_slash_sound_resource
+	
+	add_child(temp_audio_player)
+	
+	temp_audio_player.play()
+	
+	var sound_length = temp_audio_player.stream.get_length()
+	
+	await get_tree().create_timer(sound_length).timeout
+	temp_audio_player.queue_free()

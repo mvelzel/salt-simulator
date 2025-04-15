@@ -1,11 +1,19 @@
 extends Node2D
 
-var enabled = true
+var enabled = false
 
 @export var bullet_scene: PackedScene
 @export var bullet_speed = 75
 
-func _input(event) -> void:
+func disable():
+	visible = false
+	enabled = false
+	
+func enable():
+	visible = true
+	enabled = true
+
+func _unhandled_input(event) -> void:
 	if enabled and event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)

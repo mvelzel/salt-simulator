@@ -12,6 +12,10 @@ func _ready() -> void:
 	
 	astar_grid = AStarGrid2D.new()
 	var region = floor_layer.get_used_rect()
+	region = Rect2i(
+		Vector2i(region.position.x - 1, region.position.y - 1),
+		Vector2i(region.size.x + 2, region.size.y + 2)
+	)
 	astar_grid.region = region
 	astar_grid.cell_size = pipe_layer.tile_set.tile_size
 	
