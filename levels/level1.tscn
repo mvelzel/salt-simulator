@@ -23,6 +23,8 @@ _bundled = {
 "variants": [ExtResource("6_045es"), 2, ExtResource("7_omn1t"), ExtResource("8_lf3p4"), Vector2(0, -5), true, Vector2(0, 29), Vector2(0, -23), Vector2(-1.5, 14), 0.5],
 "version": 3
 }
+[ext_resource type="PackedScene" uid="uid://bois74xev31wa" path="res://SoundAreas/SewerSoundArea.tscn" id="7_pdpul"]
+[ext_resource type="PackedScene" uid="uid://be0opqvvn7rtt" path="res://pipe_start.tscn" id="6_pdpul"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -30,15 +32,18 @@ y_sort_enabled = true
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
-[node name="Game" parent="." instance=ExtResource("1_b3oru")]
+[node name="Map" parent="." instance=ExtResource("1_b3oru")]
+unique_name_in_owner = true
 position = Vector2(-2120, -2432)
 scale = Vector2(8, 8)
 
 [node name="RoomArea" parent="." instance=ExtResource("4_ua5ty")]
+visible = false
 position = Vector2(1400, 64)
 scale = Vector2(27.7852, 19.8593)
 
 [node name="RoomArea2" parent="." instance=ExtResource("4_ua5ty")]
+visible = false
 position = Vector2(3072, 64)
 scale = Vector2(52.1318, 43.7438)
 
@@ -74,3 +79,8 @@ enemy_scene = SubResource("PackedScene_yydhl")
 
 [node name="Enemy8" parent="." instance=ExtResource("5_61w3m")]
 position = Vector2(398, 235)
+[node name="Sewer" parent="." instance=ExtResource("7_pdpul")]
+position = Vector2(1397, -300)
+[node name="PipeStart" parent="." instance=ExtResource("6_pdpul")]
+z_index = 1
+position = Vector2(252, -192)

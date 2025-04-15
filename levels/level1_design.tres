@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=27 format=3 uid="uid://is75chxchr7m"]
+[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://is75chxchr7m"]
 
 [ext_resource type="Texture2D" uid="uid://cq4lstddaajw4" path="res://assets/Dungeon Gathering/Set 1.png" id="1_jo486"]
 [ext_resource type="PackedScene" uid="uid://cgovwqir5uqpn" path="res://assets/Torch.tscn" id="2_nshf4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cnaj23uvxp6dr" path="res://assets/Ladder.tscn" id="7_hrdq1"]
 [ext_resource type="PackedScene" uid="uid://4t4sl8oosywy" path="res://assets/bucket.tscn" id="8_j0fsv"]
 [ext_resource type="Texture2D" uid="uid://dewbxerd2id6i" path="res://assets/Dungeon Gathering Full/All tiles v2.png" id="10_b765g"]
+[ext_resource type="Texture2D" uid="uid://bdensxbvlmf5l" path="res://assets/pipes.png" id="11_8evt3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b765g"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -6167,6 +6168,65 @@ texture = ExtResource("10_b765g")
 57:74/0 = 0
 58:74/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rt8cf"]
+texture = ExtResource("11_8evt3")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 1
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 1
+1:0/0/terrains_peering_bit/right_side = 1
+1:0/0/terrains_peering_bit/left_side = 1
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 1
+2:0/0/terrains_peering_bit/bottom_side = 1
+2:0/0/terrains_peering_bit/top_side = 1
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 1
+0:1/0/terrains_peering_bit/right_side = 1
+0:1/0/terrains_peering_bit/bottom_side = 1
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 1
+1:1/0/terrains_peering_bit/bottom_side = 1
+1:1/0/terrains_peering_bit/left_side = 1
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 1
+2:1/0/terrains_peering_bit/bottom_side = 1
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 1
+3:1/0/terrains_peering_bit/left_side = 1
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 1
+0:2/0/terrains_peering_bit/right_side = 1
+0:2/0/terrains_peering_bit/top_side = 1
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 1
+1:2/0/terrains_peering_bit/left_side = 1
+1:2/0/terrains_peering_bit/top_side = 1
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 1
+2:2/0/terrains_peering_bit/top_side = 1
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 1
+3:2/0/terrains_peering_bit/right_side = 1
+4:2/0 = 0
+5:2/0 = 0
+
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 3
@@ -6174,8 +6234,11 @@ physics_layer_0/collision_mask = 3
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.261754, 0.350148, 0.957001, 1)
+terrain_set_0/terrain_1/name = "Pipe"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_frs7g")
 sources/1 = SubResource("TileSetScenesCollectionSource_q7nds")
 sources/2 = SubResource("TileSetAtlasSource_a6j35")
 sources/3 = SubResource("TileSetAtlasSource_8evt3")
+sources/4 = SubResource("TileSetAtlasSource_rt8cf")

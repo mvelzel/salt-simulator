@@ -7,7 +7,7 @@
 size = Vector2(111, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgjqb"]
-size = Vector2(147, 204)
+size = Vector2(128, 192)
 
 [node name="BaseCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
