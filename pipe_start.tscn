@@ -21,6 +21,7 @@ frame = 14
 
 [node name="UnsheathedPipe" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(-4, 4)
 scale = Vector2(8, 8)
 texture = ExtResource("1_n3scm")
 hframes = 6
