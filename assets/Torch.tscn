@@ -54,11 +54,12 @@ position = Vector2(0, -4)
 sprite_frames = ExtResource("1_v31fy")
 animation = &"Torch"
 autoplay = "Torch"
+offset = Vector2(0, 5.5)
 
 [node name="RoomAreaDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomAreaDetector"]
-position = Vector2(0, -4)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_v31fy")
 
 [node name="TurnOnAnimation" type="AnimationPlayer" parent="."]
@@ -68,6 +69,7 @@ libraries = {
 speed_scale = 1.5
 
 [node name="MainLight" type="PointLight2D" parent="."]
+position = Vector2(0, 2)
 color = Color(1, 0.678431, 0.137255, 1)
 energy = 0.75
 shadow_filter_smooth = 8.0
