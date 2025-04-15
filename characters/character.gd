@@ -44,6 +44,15 @@ func _unhandled_input(event):
 			if event.keycode == KEY_2:
 				$Indicator/Sword.disable()
 				$Indicator/Gun.enable()
-		
-			
-			
+				
+var dragging_pipe
+func set_pipe(pipe):
+	dragging_pipe = pipe
+	
+	if dragging_pipe:
+		speed = default_speed / 2
+	else:
+		speed = default_speed
+
+func get_pipe():
+	return dragging_pipe

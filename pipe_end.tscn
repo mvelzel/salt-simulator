@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cai0rbw7r8t7w"]
+
+[ext_resource type="Script" uid="uid://dtmvgbpai5nkc" path="res://pipe_end.gd" id="1_jidjj"]
+[ext_resource type="Texture2D" uid="uid://bdensxbvlmf5l" path="res://assets/pipes.png" id="1_ldhqh"]
+[ext_resource type="Texture2D" uid="uid://cnjkywgrtwfvc" path="res://assets/Dungeon Gathering/Button.png" id="1_rdgu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdgu1"]
+size = Vector2(384, 384)
+
+[node name="PipeEnd" type="Node2D"]
+script = ExtResource("1_jidjj")
+
+[node name="UnconnectedPipe" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("1_rdgu1")
+hframes = 3
+frame = 2
+
+[node name="ConnectedPipe" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(8, 8)
+texture = ExtResource("1_ldhqh")
+hframes = 6
+vframes = 3
+frame = 3
+
+[node name="PlaceLabel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+offset_left = -240.0
+offset_top = -152.0
+offset_right = -119.0
+offset_bottom = -132.0
+scale = Vector2(4, 4)
+text = "Press 'E' to place."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Trigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+shape = SubResource("RectangleShape2D_rdgu1")
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="body_exited" from="Trigger" to="." method="_on_trigger_body_exited"]

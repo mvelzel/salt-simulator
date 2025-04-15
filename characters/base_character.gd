@@ -4,9 +4,12 @@ extends CharacterBody2D
 @export var speed = 500.0
 @export var knockback_modifier = 15
 
+var default_speed = speed
+
 var base_modulation: Color
 func _ready() -> void:
 	base_modulation = $Sprite.self_modulate
+	default_speed = speed
 	
 var knockback = Vector2.ZERO
 

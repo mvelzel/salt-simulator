@@ -41,12 +41,87 @@ func _ready() -> void:
 				astar_grid.set_point_solid(tile_pos)	
 			if pillar_tile_data:
 				astar_grid.set_point_solid(tile_pos)	
+
+var is_dragging = false
+var is_pumping = false
+
+var can_grab = false
+func _on_trigger_body_entered(body: Node2D) -> void:
+	can_grab = true
+	if body.is_in_group("Player"):
+		if not is_dragging and not is_pumping:
+			$PipeLocation/GrabLabel.visible = true
+
+func _on_trigger_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		can_grab = false
+		$PipeLocation/GrabLabel.visible = false	
+
+func start_pumping(pipe_end: Node2D):
+	is_dragging = false
+	is_pumping = true
+	$PipeLocation/GrabLabel.visible = false
+	$PipeLocation.global_position = pipe_end.global_position
+	if player and player.has_method("set_pipe"):
+		player.set_pipe(null)
+		
+func stop_pumping():
+	is_dragging = true
+	is_pumping = false
+	if player and player.has_method("set_pipe"):
+		player.set_pipe(self)
+		
+func get_is_pumping():
+	return is_pumping
+
+func _unhandled_input(event):
+	if not is_pumping and event is InputEventKey:
+		if event.pressed:
+			if event.keycode == KEY_E:
+				if not is_dragging and can_grab:
+					start_dragging()
+				else:
+					stop_dragging()
 				
 var previous_path
+			
+func start_dragging():
+	is_dragging = true
+	$SheathedPipe.visible = false
+	$UnsheathedPipe.visible = true
+	$PipeLocation/GrabLabel.visible = false
+	if player and player.has_method("set_pipe"):
+		player.set_pipe(self)
+	
+func stop_dragging():
+	is_dragging = false
+	
+	var target_position = $PipeLocation.global_position
+	var self_tile_pos = floor_layer.local_to_map(floor_layer.to_local(global_position))
+	var target_tile_pos = floor_layer.local_to_map(floor_layer.to_local(target_position))
+	if self_tile_pos == target_tile_pos:
+		$SheathedPipe.visible = true
+		$UnsheathedPipe.visible = false
+	
+	$PipeLocation/GrabLabel.visible = true
+	if player and player.has_method("set_pipe"):
+		player.set_pipe(null)
+
+var previous_position
+
 func _process(delta: float) -> void:
+	if is_dragging and player:
+		$PipeLocation.global_position = player.global_position
+	
+	var target_position = $PipeLocation.global_position
+	if previous_position == target_position:
+		return
+	
+	previous_position = target_position
+		
 	var self_tile_pos = floor_layer.local_to_map(floor_layer.to_local(global_position))
 	
-	var target_tile_pos = floor_layer.local_to_map(floor_layer.to_local(player.global_position))
+	var target_tile_pos = floor_layer.local_to_map(floor_layer.to_local(target_position))
 	
 	var path = astar_grid.get_id_path(self_tile_pos, target_tile_pos, true)
 
