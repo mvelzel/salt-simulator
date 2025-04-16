@@ -82,3 +82,13 @@ visible = false
 modulate = Color(1, 1, 1, 0.8)
 scale = Vector2(8, 8)
 texture = SubResource("AtlasTexture_k0v8f")
+
+[node name="AmmoLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -56.0
+offset_top = -120.0
+offset_right = 8.0
+offset_bottom = -100.0
+scale = Vector2(3, 3)
+text = "0/10"
+vertical_alignment = 1

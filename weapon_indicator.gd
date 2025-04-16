@@ -15,6 +15,10 @@ func _ready():
 	elif weapon_type == "turret":
 		$WeaponSprite/TurretSprite.visible = true
 		
+func set_ammo(current: int, max: int):
+	$AmmoLabel.visible = true
+	$AmmoLabel.text = "%d/%d" % [current, max]
+		
 func change_weapon(type):
 	if type == weapon_type:
 		$ActiveBackground.visible = true

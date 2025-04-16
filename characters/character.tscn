@@ -30,6 +30,7 @@ region = Rect2(8, 48, 8, 16)
 [node name="Character" groups=["Player"] instance=ExtResource("1_54qew")]
 script = ExtResource("1_pjt0s")
 active_weapons = Array[String](["sword"])
+turret_amount = 0
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 position_smoothing_enabled = true
@@ -108,3 +109,5 @@ volume_db = 5.0
 
 [node name="hurtSound" parent="." index="11"]
 stream = ExtResource("13_3h56x")
+
+[connection signal="weapon_fired" from="Weapons/Turret" to="." method="_on_turret_weapon_fired"]

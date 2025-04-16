@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://beymba2qv21c2" path="res://levels/level3.tscn" id="9_crte6"]
 [ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="10_crte6"]
 
-[node name="Game" type="Node2D"]
+[node name="Game2" type="Node2D"]
 y_sort_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

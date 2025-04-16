@@ -4,6 +4,7 @@ extends Node2D
 @export var damage: float
 
 var enabled = false
+signal weapon_fired
 
 func change_weapon(type):
 	if weapon_type == type:
@@ -32,6 +33,7 @@ func attack():
 	$WeaponSound.play()
 	
 	can_attack = false
+	weapon_fired.emit()
 	$Delay.start()
 
 func _on_delay_timeout() -> void:

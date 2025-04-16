@@ -48,6 +48,7 @@ scale = Vector2(17.9083, 78.7884)
 [node name="Character" parent="." instance=ExtResource("3_qi51e")]
 position = Vector2(-128, -92)
 active_weapons = Array[String](["sword", "gun", "turret"])
+turret_amount = 6
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_47a12")]
 position = Vector2(30, 2380)

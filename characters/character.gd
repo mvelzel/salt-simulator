@@ -5,6 +5,9 @@ extends "res://characters/base_character.gd"
 const INDICATOR_DISTANCE = 150
 
 @export var active_weapons: Array[String] = ["sword"]
+@export var turret_amount = 0
+
+@onready var current_turret_amount = turret_amount
 
 var weapon_key_mapping = {
 	KEY_1: "sword",
@@ -21,6 +24,9 @@ func _ready() -> void:
 		for child in $CanvasLayer/WeaponIndicators.get_children():
 			if child.has_method("hide_weapon"):
 				child.hide_weapon(weapon)
+				
+	if "turret" in active_weapons:
+		$CanvasLayer/WeaponIndicators/TurretIndicator.set_ammo(current_turret_amount, turret_amount)
 	
 	super._ready()
 
@@ -107,3 +113,11 @@ func set_pipe(pipe):
 
 func get_pipe():
 	return dragging_pipe
+
+func _on_turret_weapon_fired() -> void:
+	current_turret_amount -= 1
+	
+	$CanvasLayer/WeaponIndicators/TurretIndicator.set_ammo(current_turret_amount, turret_amount)
+	if current_turret_amount <= 0:
+		change_weapon("sword")
+		disable_weapon("turret")
