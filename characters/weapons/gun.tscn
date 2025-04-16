@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdjhowl3jtn0k"]
+[gd_scene load_steps=7 format=3 uid="uid://cdjhowl3jtn0k"]
 
 [ext_resource type="PackedScene" uid="uid://m8i881u5shwe" path="res://characters/weapons/weapon.tscn" id="1_gkj1v"]
 [ext_resource type="Script" uid="uid://dhgv27nqtfrhh" path="res://characters/weapons/gun.gd" id="2_blfwh"]
 [ext_resource type="AudioStream" uid="uid://drxd37d0ctj1i" path="res://sounds/gun-shot.mp3" id="2_w4f1h"]
 [ext_resource type="PackedScene" uid="uid://dloaq2mi7horc" path="res://effects/bullet.tscn" id="3_c3njp"]
 [ext_resource type="Texture2D" uid="uid://l24qo6akqueu" path="res://assets/Guns/Guns/Tokarev.png" id="4_c3njp"]
+[ext_resource type="AudioStream" uid="uid://biu7qsui2pxbb" path="res://sounds/weapon-switch-gun.mp3" id="6_frgsx"]
 
 [node name="Gun" instance=ExtResource("1_gkj1v")]
 script = ExtResource("2_blfwh")
@@ -23,3 +24,6 @@ frame = 0
 
 [node name="WeaponSound" parent="." index="2"]
 stream = ExtResource("2_w4f1h")
+
+[node name="WeaponSwitchSound" parent="." index="3"]
+stream = ExtResource("6_frgsx")

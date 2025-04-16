@@ -19,4 +19,6 @@ frame = 33
 
 [node name="WeaponSound" type="AudioStreamPlayer2D" parent="."]
 
+[node name="WeaponSwitchSound" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

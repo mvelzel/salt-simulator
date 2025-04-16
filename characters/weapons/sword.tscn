@@ -1,51 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://0tgabdqxrlqd"]
+[gd_scene load_steps=10 format=3 uid="uid://0tgabdqxrlqd"]
 
 [ext_resource type="PackedScene" uid="uid://m8i881u5shwe" path="res://characters/weapons/weapon.tscn" id="1_gfbtj"]
 [ext_resource type="AudioStream" uid="uid://d2agvfxltpbvg" path="res://sounds/3_knife_slash_c-92500.mp3" id="2_fgxdk"]
 [ext_resource type="Script" uid="uid://bw1u3eq5mryvx" path="res://characters/weapons/sword.gd" id="2_m3bwd"]
+[ext_resource type="AudioStream" uid="uid://8eybitavjaqe" path="res://sounds/weapon-switch-sword.mp3" id="4_kjkax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgxdk"]
 size = Vector2(7.13398, 23.0516)
-
-[sub_resource type="Animation" id="Animation_fgxdk"]
-resource_name = "swing_to"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Vector2(0, -128), Vector2(0, 128)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponSprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0656667, 0.0666667, 0.25),
-"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
-"update": 0,
-"values": [Vector2(8, 8), Vector2(8, 8), Vector2(8, -8), Vector2(8, -8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponSprite:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0656667, 0.0666667, 0.25),
-"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
-"update": 0,
-"values": [0.0, 0.785398, -0.785398, 0.0]
-}
 
 [sub_resource type="Animation" id="Animation_m3bwd"]
 length = 0.001
@@ -126,6 +87,46 @@ tracks/2/keys = {
 "values": [0.0, -0.785398, 0.785398, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_fgxdk"]
+resource_name = "swing_to"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -128), Vector2(0, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0656667, 0.0666667, 0.25),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(8, 8), Vector2(8, -8), Vector2(8, -8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0656667, 0.0666667, 0.25),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.785398, -0.785398, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kjkax"]
 _data = {
 &"RESET": SubResource("Animation_m3bwd"),
@@ -158,5 +159,8 @@ stream = ExtResource("2_fgxdk")
 libraries = {
 &"": SubResource("AnimationLibrary_kjkax")
 }
+
+[node name="WeaponSwitchSound" parent="." index="4"]
+stream = ExtResource("4_kjkax")
 
 [connection signal="body_entered" from="WeaponSprite/Hurtbox" to="." method="_on_hurtbox_body_entered"]

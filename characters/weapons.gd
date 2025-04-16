@@ -20,15 +20,3 @@ func change_weapon(type) -> void:
 	for child in get_children():
 		if child.has_method("change_weapon"):
 			child.change_weapon(type)
-	
-	_play_switch_sound(type)
-	
-func _play_switch_sound(type: String):
-	if weapon_sounds.has(type):
-		var player = AudioStreamPlayer2D.new()
-		player.stream = weapon_sounds[type]
-		add_child(player)
-		player.play()
-		
-		await get_tree().create_timer(player.stream.get_length()).timeout
-		player.queue_free()
