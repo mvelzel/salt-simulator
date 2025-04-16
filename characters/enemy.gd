@@ -38,6 +38,10 @@ func turn_on():
 
 func turn_off():
 	is_enabled = false
+	
+func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:	
+	super.take_damage(damage, source, direction)
+	$HurtGnomeSound.play()
 
 var overlapping_player = false
 func _on_hitbox_body_entered(body: Node2D) -> void:
