@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://0tgabdqxrlqd"]
+[gd_scene load_steps=17 format=3 uid="uid://0tgabdqxrlqd"]
 
 [ext_resource type="PackedScene" uid="uid://m8i881u5shwe" path="res://characters/weapons/weapon.tscn" id="1_gfbtj"]
 [ext_resource type="AudioStream" uid="uid://d2agvfxltpbvg" path="res://sounds/3_knife_slash_c-92500.mp3" id="2_fgxdk"]
@@ -215,13 +215,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_kjkax")
 }
 
-[node name="WeaponSwitchSound" parent="." index="4"]
-stream = ExtResource("4_kjkax")
 [node name="SwingAnimation" type="AnimatedSprite2D" parent="." index="4"]
 position = Vector2(64, 0)
 scale = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_fl42d")
 animation = &"swing"
 speed_scale = 4.0
+
+[node name="WeaponSwitchSound" parent="." index="5"]
+stream = ExtResource("4_kjkax")
 
 [connection signal="body_entered" from="WeaponSprite/Hurtbox" to="." method="_on_hurtbox_body_entered"]
