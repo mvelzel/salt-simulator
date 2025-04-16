@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=17 format=3 uid="uid://bplaidcffy315"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdjhowl3jtn0k" path="res://characters/weapons/gun.tscn" id="6_bnq0n"]
 [ext_resource type="PackedScene" uid="uid://vfy0ybly0x4o" path="res://weapon_indicator.tscn" id="11_4kffy"]
 [ext_resource type="AudioStream" uid="uid://d2nnrnl3cukex" path="res://sounds/grab-pipe.mp3" id="12_bnq0n"]
+[ext_resource type="AudioStream" uid="uid://bgkfh8rlqq0kg" path="res://sounds/dwarf-hurt.mp3" id="13_3h56x"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
 [ext_resource type="PackedScene" uid="uid://0tgabdqxrlqd" path="res://characters/weapons/sword.tscn" id="18_bb4xn"]
@@ -96,3 +97,6 @@ weapon_type = "gun"
 [node name="GrabPipeSound" type="AudioStreamPlayer2D" parent="Pipe" index="0"]
 stream = ExtResource("12_bnq0n")
 volume_db = 5.0
+
+[node name="hurtSound" parent="." index="11"]
+stream = ExtResource("13_3h56x")

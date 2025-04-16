@@ -49,6 +49,7 @@ func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZER
 	
 	$Sprite.self_modulate = Color(1, 0, 0)
 	$DamageFlash.start()
+	$hurtSound.play()
 		
 func die():
 	pass
