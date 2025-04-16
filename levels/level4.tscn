@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkp2w5of52x2y"]
+[gd_scene load_steps=11 format=3 uid="uid://bkp2w5of52x2y"]
 
 [ext_resource type="PackedScene" path="res://levels/level4_map.tscn" id="1_naavy"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="2_gh4cy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="8_b8ghs"]
 [ext_resource type="PackedScene" uid="uid://beymba2qv21c2" path="res://levels/level3.tscn" id="9_lrvx3"]
 [ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="10_0halg"]
+[ext_resource type="PackedScene" uid="uid://cync3l8itdjrv" path="res://difficulty_manager.tscn" id="10_naavy"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -134,3 +135,6 @@ position = Vector2(-976, 4284)
 
 [node name="Enemy18" parent="." instance=ExtResource("4_lw0yu")]
 position = Vector2(-919, 3991)
+
+[node name="DifficultyManager" parent="." instance=ExtResource("10_naavy")]
+unique_name_in_owner = true
