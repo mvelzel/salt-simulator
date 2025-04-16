@@ -40,7 +40,7 @@ func _on_delay_timeout() -> void:
 	var direction = global_position.direction_to(closest_enemy.global_position)
 	
 	var bullet = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = global_position
 	bullet.global_rotation = direction.angle()
 	var velocity = direction * bullet_speed

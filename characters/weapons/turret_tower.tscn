@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://br5ypqhrfiyf4"]
 
-[ext_resource type="Script" path="res://characters/weapons/turret_tower.gd" id="1_7de3w"]
+[ext_resource type="Script" uid="uid://dmmu8a6a3phdr" path="res://characters/weapons/turret_tower.gd" id="1_7de3w"]
 [ext_resource type="Texture2D" uid="uid://bms5kvniw0tpa" path="res://assets/Turret/Laser Turret Sprite Sheet.png" id="1_ql6h3"]
 [ext_resource type="PackedScene" uid="uid://dloaq2mi7horc" path="res://effects/bullet.tscn" id="2_dk3o1"]
 [ext_resource type="AudioStream" uid="uid://drxd37d0ctj1i" path="res://sounds/gun-shot.mp3" id="4_ivt4g"]
@@ -139,7 +139,7 @@ collision_mask = 3
 shape = SubResource("RectangleShape2D_ql6h3")
 
 [node name="Delay" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ivt4g")

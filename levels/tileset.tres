@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://br5ypqhrfiyf4" path="res://characters/weapons/turret_tower.tscn" id="13_5lrol"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="14_g0rwr"]
 [ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="15_gsknr"]
-[ext_resource type="PackedScene" path="res://spawn_point_stage_2.tscn" id="16_3rtnd"]
-[ext_resource type="PackedScene" path="res://spawn_point_stage_3.tscn" id="17_04hcs"]
+[ext_resource type="PackedScene" uid="uid://ofjtcefqptm6" path="res://spawn_point_stage_2.tscn" id="16_3rtnd"]
+[ext_resource type="PackedScene" uid="uid://cnphmjiwxrevv" path="res://spawn_point_stage_3.tscn" id="17_04hcs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b765g"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)

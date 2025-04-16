@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bkwusbw5h1mme" path="res://sounds/metal-beaten.mp3" id="4_5tyam"]
 [ext_resource type="AudioStream" uid="uid://dp4dpcdo8c1u" path="res://sounds/success.mp3" id="4_lahne"]
 
-[node name="DifficultyManager" type="Node2D"]
+[node name="DifficultyManager" type="Node2D" groups=["DifficultyManager"]]
 script = ExtResource("1_0d281")
 
 [node name="BackgroundMusicExploration" type="AudioStreamPlayer2D" parent="."]

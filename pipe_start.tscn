@@ -97,6 +97,7 @@ offset_top = 6.0
 offset_right = 162.0
 offset_bottom = 22.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 bbcode_enabled = true
 text = "[wave]Pumping salt..."
 horizontal_alignment = 1

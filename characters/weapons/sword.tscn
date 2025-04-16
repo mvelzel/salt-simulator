@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cnktxpq3vkcf4" path="res://sounds/weapon-swicth-sword.mp3" id="5_t4bbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgxdk"]
-size = Vector2(7.13398, 36.7696)
+size = Vector2(7.13398, 31.8198)
 
 [sub_resource type="Animation" id="Animation_m3bwd"]
 length = 0.001
@@ -204,7 +204,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponSprite/Hurtbox" index="0"]
-position = Vector2(-3.4641, -0.585792)
+position = Vector2(-3.4641, -3.06068)
 shape = SubResource("RectangleShape2D_fgxdk")
 
 [node name="WeaponSound" parent="." index="2"]
@@ -226,3 +226,4 @@ speed_scale = 4.0
 stream = ExtResource("5_t4bbx")
 
 [connection signal="body_entered" from="WeaponSprite/Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="WeaponSprite/Hurtbox" to="." method="_on_hurtbox_body_exited"]

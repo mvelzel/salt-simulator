@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://b1m77d7nbtecn"]
 
 [ext_resource type="PackedScene" uid="uid://bg4hqt7472bom" path="res://levels/base_map.tscn" id="1_xi40l"]
-[ext_resource type="TileSet" uid="uid://is75chxchr7m" path="res://levels/level1_design.tres" id="2_bpqqs"]
+[ext_resource type="TileSet" uid="uid://is75chxchr7m" path="res://levels/tileset.tres" id="2_bpqqs"]
 
 [node name="Map" instance=ExtResource("1_xi40l")]
 

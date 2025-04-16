@@ -3,7 +3,7 @@ extends Node2D
 @export var enemy_scene: PackedScene
 @export var stage: int = 1
 
-var difficulty_manager
+@onready var difficulty_manager = get_tree().get_first_node_in_group("DifficultyManager")
 
 var padding_y = 64
 var padding_x = 32
@@ -12,23 +12,20 @@ var base_time
 
 func _on_spawn_timer_timeout() -> void:
 	var enemy = enemy_scene.instantiate()
-	get_tree().root.add_child(enemy)
+	get_tree().current_scene.add_child(enemy)
 	enemy.global_position = global_position
 	enemy.scale = Vector2(1, 1)
 	$WarnSprite.play()
 	randomize_time()
+	$SpawnTimer.start()
 	
 var enabled = false
-var screen_visible = true
+var screen_visible = false
 
 func _ready() -> void:
 	base_time = $SpawnTimer.wait_time
 	randomize_time()
-	
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	difficulty_manager = get_tree().root.get_children()[0].get_node("%DifficultyManager")
-	
+
 func randomize_time() -> void:
 	$SpawnTimer.wait_time = base_time + randf_range(-1, 1)
 
@@ -39,8 +36,8 @@ func get_camera_rect() -> Rect2:
 	return camera_rect
 
 func _process(delta: float) -> void:
-	if not enabled and stage in difficulty_manager.get_difficulty_stages():
-		turn_on()
+	if not enabled and difficulty_manager and stage in difficulty_manager.get_difficulty_stages():
+		do_turn_on()
 		
 	if enabled:
 		var g_pos = global_position
@@ -55,16 +52,26 @@ func _process(delta: float) -> void:
 		else:
 			$WarnSprite.visible = false
 
-func turn_on():
+func do_turn_on():
 	enabled = true
 	if not screen_visible:
 		_on_spawn_timer_timeout()
+	else:
+		$SpawnTimer.start()
+		$SpawnTimer.paused = true
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	screen_visible = true
-	$SpawnTimer.stop()
+	$SpawnTimer.paused = true
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	screen_visible = false
-	if enabled:
-		$SpawnTimer.start()
+	$SpawnTimer.paused = false
+
+func _on_spawn_range_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player") and enabled:
+		$SpawnTimer.paused = false
+		
+func _on_spawn_range_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player") and enabled:
+		$SpawnTimer.paused = true

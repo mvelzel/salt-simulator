@@ -1,6 +1,6 @@
 extends ColorRect
 
-@export var next_scene: PackedScene
+@export var next_scene: String
 
 func _ready() -> void:
 	$AnimationPlayer.play("fade_in")
@@ -11,4 +11,6 @@ func transition_to(scene = next_scene) -> void:
 		
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
-	get_tree().change_scene_to_packed(scene)
+	var cur_scene = get_tree().current_scene
+	get_tree().change_scene_to_file(next_scene)
+	cur_scene.queue_free()

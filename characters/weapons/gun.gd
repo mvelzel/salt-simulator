@@ -5,7 +5,7 @@ extends "res://characters/weapons/weapon.gd"
 
 func attack():
 	var bullet = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = global_position
 	bullet.global_rotation = global_rotation
 	

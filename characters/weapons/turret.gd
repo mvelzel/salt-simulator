@@ -8,12 +8,15 @@ var pillars_layer: TileMapLayer
 var turrets_layer: TileMapLayer
 
 func _ready() -> void:
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	turret_indicator_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%TurretIndicator")
-	floor_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Floor")
-	pillars_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Pillars")
-	turrets_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Turrets")
+	for layer in get_tree().get_nodes_in_group("TileMapLayers"):
+		if layer.name == "Floor":
+			floor_layer = layer
+		elif layer.name == "TurretIndicator":
+			turret_indicator_layer = layer
+		elif layer.name == "Turrets":
+			turrets_layer = layer
+		elif layer.name == "Pillars":
+			pillars_layer = layer
 
 var active_tile
 func _process(_delta: float) -> void:

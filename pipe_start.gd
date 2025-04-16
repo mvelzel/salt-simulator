@@ -3,7 +3,7 @@ extends Node2D
 var floor_layer
 var pipe_layer
 var pillars_layer
-var difficulty_manager
+@onready var difficulty_manager = get_tree().get_first_node_in_group("DifficultyManager")
 
 var player: Node2D
 
@@ -14,16 +14,19 @@ var astar_grid: AStarGrid2D
 var current_salt = 0
 
 func _ready() -> void:
+	if Global.is_debug():
+		$PumpTimer.wait_time /= 10
+	
 	player = get_tree().get_first_node_in_group("Player")
+	for layer in get_tree().get_nodes_in_group("TileMapLayers"):
+		if layer.name == "Floor":
+			floor_layer = layer
+		elif layer.name == "Pipe":
+			pipe_layer = layer
+		elif layer.name == "Pillars":
+			pillars_layer = layer
 	
 	$CanvasLayer/SaltProgress.scaffold_steps(level_finish_salt_threshold)
-	
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	floor_layer = get_node("%Map").get_node("%Floor")
-	pipe_layer = get_node("%Map").get_node("%Pipe")
-	pillars_layer = get_node("%Map").get_node("%Pillars")
-	difficulty_manager = get_tree().root.get_children()[0].get_node("%DifficultyManager")
 	
 	astar_grid = AStarGrid2D.new()
 	var region = floor_layer.get_used_rect()
@@ -112,7 +115,7 @@ func _unhandled_input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_E:
 		if can_finish:
 			get_node("%SceneTransitionRect").transition_to()
-		if is_pumping:
+		elif is_pumping:
 			if current_salt >= level_finish_salt_threshold:
 				stop_pumping()
 		elif not is_dragging and can_grab:

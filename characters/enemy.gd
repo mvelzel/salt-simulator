@@ -38,16 +38,18 @@ func die():
 
 func turn_on():
 	is_enabled = true
+	$Hitbox.monitoring = true
 
 func turn_off():
 	is_enabled = false
+	$Hitbox.monitoring = false
 
 var overlapping_player = false
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and body.has_method("take_damage"):
 		overlapping_player = true
 		
-		if $DamagePlayerTimer.is_stopped():
+		if $DamagePlayerTimer.is_stopped() and is_instance_valid(player):
 			player.take_damage(50, self)
 			$DamagePlayerTimer.start()
 

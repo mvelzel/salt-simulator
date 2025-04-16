@@ -18,6 +18,9 @@ var weapon_key_mapping = {
 func _ready() -> void:
 	change_weapon("sword")
 	
+	if Global.is_debug():
+		health = 10000
+	
 	for weapon in weapon_key_mapping.values():
 		if weapon in active_weapons:
 			continue
@@ -101,7 +104,10 @@ func set_pipe(pipe):
 	
 	dragging_pipe = pipe
 	if dragging_pipe:
-		speed = default_speed / 2
+		if Global.is_debug():
+			speed = default_speed * 2
+		else:
+			speed = default_speed / 2
 		change_weapon("sword")
 		for weapon in weapon_key_mapping.values():
 			if weapon != "sword":
