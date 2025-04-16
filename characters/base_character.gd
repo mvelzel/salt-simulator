@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var knockback_modifier = 15
 
 var default_speed = speed
+var max_health = health
 
 var base_modulation: Color
 func _ready() -> void:
@@ -13,7 +14,7 @@ func _ready() -> void:
 	
 var knockback = Vector2.ZERO
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	set_animation()
 	
 	velocity = velocity + knockback
@@ -35,7 +36,7 @@ func set_animation():
 		
 func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:
 	health -= damage
-	if health < 0:
+	if health <= 0:
 		die()
 		return
 	

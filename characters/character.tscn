@@ -1,85 +1,37 @@
-[gd_scene load_steps=22 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=18 format=3 uid="uid://bplaidcffy315"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
 [ext_resource type="Script" uid="uid://6e0opuom2i3g" path="res://characters/character.gd" id="1_pjt0s"]
-[ext_resource type="Texture2D" uid="uid://b2uydavbmeoes" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame1.png" id="3_0qfo5"]
-[ext_resource type="Script" uid="uid://bf3sw4pqqlyjq" path="res://characters/sword.gd" id="3_yxww1"]
-[ext_resource type="Texture2D" uid="uid://c2secvrwh6ij3" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame2.png" id="4_yxww1"]
-[ext_resource type="Texture2D" uid="uid://clnocjvvm7n1c" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame3.png" id="5_wdpcj"]
-[ext_resource type="Texture2D" uid="uid://0b8vl0vyy31m" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame4.png" id="6_qi5as"]
-[ext_resource type="Texture2D" uid="uid://yxbkg6syeq62" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame5.png" id="8_7tnxx"]
-[ext_resource type="Texture2D" uid="uid://s4mt0s5gvcoh" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame6.png" id="9_bwfjh"]
-[ext_resource type="Texture2D" uid="uid://bipp6803sx8l2" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame7.png" id="10_x1sy7"]
-[ext_resource type="Texture2D" uid="uid://bfdg61fea8sal" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame8.png" id="11_sm1rv"]
-[ext_resource type="Texture2D" uid="uid://cwwaudychfntk" path="res://effects/Slash 1/color4/Frames/Slash_color4_frame9.png" id="12_jx0ln"]
+[ext_resource type="Script" uid="uid://mrva1r4vc1wk" path="res://characters/weapons.gd" id="3_hkrj1"]
+[ext_resource type="PackedScene" uid="uid://cdjhowl3jtn0k" path="res://characters/weapons/gun.tscn" id="6_bnq0n"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 [ext_resource type="Texture2D" uid="uid://bxhabqnrirdu1" path="res://assets/Dungeon Gathering Full/New Items [Update]/16x16 Items Pack.png" id="14_4unn8"]
-[ext_resource type="Script" uid="uid://b3kr5xdkg8ec7" path="res://characters/gun.gd" id="14_e3kty"]
-[ext_resource type="Texture2D" uid="uid://l24qo6akqueu" path="res://assets/Guns/Guns/Tokarev.png" id="14_qnu6j"]
-[ext_resource type="PackedScene" uid="uid://dloaq2mi7horc" path="res://effects/bullet.tscn" id="15_4unn8"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
+[ext_resource type="PackedScene" uid="uid://0tgabdqxrlqd" path="res://characters/weapons/sword.tscn" id="18_bb4xn"]
+[ext_resource type="PackedScene" uid="uid://dbhc6yaxsrm5p" path="res://progress.tscn" id="20_5fe2j"]
+[ext_resource type="Texture2D" uid="uid://bf3q6mfujqwwg" path="res://ui/health-bars.png" id="21_md4ow"]
+[ext_resource type="Texture2D" uid="uid://2x8elknih4f4" path="res://ui/UI-Windows-grey-darkwood.png" id="22_mqba4"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3h56x"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_0qfo5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_yxww1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_wdpcj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_qi5as")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"swing1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_7tnxx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_bwfjh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_x1sy7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_sm1rv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_jx0ln")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"swing2",
-"speed": 5.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqba4"]
+atlas = ExtResource("21_md4ow")
+region = Rect2(0, 48, 8, 16)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1355"]
-radius = 100.0
-height = 304.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_md4ow"]
+atlas = ExtResource("21_md4ow")
+region = Rect2(40, 48, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb4xn"]
+atlas = ExtResource("21_md4ow")
+region = Rect2(8, 48, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lgwp"]
+atlas = ExtResource("22_mqba4")
+region = Rect2(424, 304, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkrj1"]
+atlas = ExtResource("22_mqba4")
+region = Rect2(376, 424, 32, 32)
 
 [node name="Character" groups=["Player"] instance=ExtResource("1_54qew")]
 script = ExtResource("1_pjt0s")
@@ -92,12 +44,13 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="Indicator" type="Node2D" parent="." index="5"]
+[node name="Weapons" type="Node2D" parent="." index="5"]
 z_index = 5
 z_as_relative = false
 position = Vector2(112, 112)
+script = ExtResource("3_hkrj1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Indicator" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Weapons" index="0"]
 visible = false
 modulate = Color(100, 100, 100, 1)
 z_index = 1
@@ -105,55 +58,9 @@ position = Vector2(-3.63588e-06, -3.63588e-06)
 scale = Vector2(0.0625001, 0.0625001)
 texture = ExtResource("1_glpr6")
 
-[node name="Sword" type="Node2D" parent="Indicator" index="1" node_paths=PackedStringArray("animated_sprite", "swing_delay", "combo_delay", "swing_area", "character")]
-script = ExtResource("3_yxww1")
-animated_sprite = NodePath("SwingAnim")
-swing_delay = NodePath("SwingDelay")
-combo_delay = NodePath("ComboDelay")
-swing_area = NodePath("SwingArea")
-character = NodePath("../..")
+[node name="Sword" parent="Weapons" index="1" instance=ExtResource("18_bb4xn")]
 
-[node name="SwingAnim" type="AnimatedSprite2D" parent="Indicator/Sword" index="0"]
-rotation = -0.00230825
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_3h56x")
-animation = &"swing1"
-speed_scale = 3.0
-
-[node name="SwingDelay" type="Timer" parent="Indicator/Sword" index="1"]
-wait_time = 0.25
-
-[node name="ComboDelay" type="Timer" parent="Indicator/Sword" index="2"]
-wait_time = 0.5
-
-[node name="SwingArea" type="Area2D" parent="Indicator/Sword" index="3"]
-visible = false
-collision_layer = 3
-collision_mask = 3
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Indicator/Sword/SwingArea" index="0"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_i1355")
-
-[node name="Sprite2D" type="Sprite2D" parent="Indicator/Sword" index="4"]
-rotation = 0.78383
-scale = Vector2(8, 8)
-texture = ExtResource("14_4unn8")
-hframes = 10
-vframes = 23
-frame = 33
-
-[node name="Gun" type="Node2D" parent="Indicator" index="2"]
-visible = false
-script = ExtResource("14_e3kty")
-bullet_scene = ExtResource("15_4unn8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Indicator/Gun" index="0"]
-position = Vector2(0, -16)
-scale = Vector2(8, 8)
-texture = ExtResource("14_qnu6j")
+[node name="Gun" parent="Weapons" index="2" instance=ExtResource("6_bnq0n")]
 
 [node name="MainLight" type="PointLight2D" parent="." index="6"]
 energy = 0.5
@@ -173,7 +80,32 @@ texture_scale = 10.0
 stream = ExtResource("15_i1355")
 volume_db = 1.0
 
-[connection signal="animation_finished" from="Indicator/Sword/SwingAnim" to="Indicator/Sword" method="_on_swing_anim_animation_finished"]
-[connection signal="timeout" from="Indicator/Sword/SwingDelay" to="Indicator/Sword" method="_on_swing_delay_timeout"]
-[connection signal="timeout" from="Indicator/Sword/ComboDelay" to="Indicator/Sword" method="_on_combo_delay_timeout"]
-[connection signal="body_entered" from="Indicator/Sword/SwingArea" to="Indicator/Sword" method="_on_swing_area_body_entered"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="9"]
+
+[node name="HealthBar" parent="CanvasLayer" index="0" instance=ExtResource("20_5fe2j")]
+position = Vector2(384, 976)
+scale = Vector2(6, 6)
+current_step = 10
+start_texture = SubResource("AtlasTexture_mqba4")
+end_texture = SubResource("AtlasTexture_md4ow")
+progress_texture = SubResource("AtlasTexture_bb4xn")
+
+[node name="WeaponIndicator" type="Node2D" parent="CanvasLayer" index="1"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/WeaponIndicator" index="0"]
+position = Vector2(144, 848)
+scale = Vector2(6, 6)
+texture = SubResource("AtlasTexture_3lgwp")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/WeaponIndicator" index="1"]
+position = Vector2(144, 848)
+scale = Vector2(6, 6)
+texture = SubResource("AtlasTexture_hkrj1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/WeaponIndicator" index="2"]
+position = Vector2(144, 848)
+scale = Vector2(5, 5)
+texture = ExtResource("14_4unn8")
+hframes = 10
+vframes = 23
+frame = 33

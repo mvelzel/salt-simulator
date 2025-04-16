@@ -94,23 +94,25 @@ func render_bar(step):
 	if not progress_texture:
 		return
 	
-	if step == 0:
+	if step > steps and second_progress_texture:
 		if start_sprite:
-			start_sprite.visible = false
-		if end_sprite:
-			end_sprite.visible = false
+			start_sprite.visible = true
+			start_sprite.texture = second_start_texture
+		if end_sprite and step == steps * 2:
+			end_sprite.visible = true
+			end_sprite.texture = second_end_texture
 	else:
-		if step > steps and second_progress_texture:
+		if step == 0:
 			if start_sprite:
-				start_sprite.visible = true
-				start_sprite.texture = second_start_texture
-			if end_sprite and step == steps * 2:
-				end_sprite.visible = true
-				end_sprite.texture = second_end_texture
+				start_sprite.visible = false
 		else:
 			if start_sprite:
 				start_sprite.visible = true
-			if end_sprite and step == steps:
+		if step < steps:
+			if end_sprite:
+				end_sprite.visible = false
+		else:
+			if end_sprite:
 				end_sprite.visible = true
 	
 	for i in range(steps):

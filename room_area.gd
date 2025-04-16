@@ -3,7 +3,7 @@ extends Area2D
 var registered_nodes: Array[Node2D] = []
 
 var registered = false
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not registered:
 		call_deferred("register_areas")
 

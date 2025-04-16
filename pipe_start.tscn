@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://de7qt3o6541ll" path="res://ui/icons-n-buttons.png" id="3_5i75w"]
 [ext_resource type="PackedScene" uid="uid://dbhc6yaxsrm5p" path="res://progress.tscn" id="3_ifta4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxrnu"]
-size = Vector2(384, 384)
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hxrnu"]
 light_mode = 1
 
@@ -17,6 +14,9 @@ light_mode = 1
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n0sl"]
 atlas = ExtResource("3_5i75w")
 region = Rect2(208, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxrnu"]
+size = Vector2(384, 384)
 
 [node name="PipeStart" type="Node2D"]
 script = ExtResource("1_hxrnu")
@@ -37,6 +37,26 @@ hframes = 6
 vframes = 3
 frame = 10
 
+[node name="FinishLabel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_hxrnu")
+offset_left = -248.0
+offset_top = -144.0
+offset_right = -124.0
+offset_bottom = -124.0
+scale = Vector2(4, 4)
+text = "Press     to exit."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EKey" type="Sprite2D" parent="FinishLabel"]
+material = SubResource("CanvasItemMaterial_5i75w")
+position = Vector2(58, 10)
+texture = SubResource("AtlasTexture_0n0sl")
+
 [node name="PipeLocation" type="Node2D" parent="."]
 
 [node name="Trigger" type="Area2D" parent="PipeLocation"]
@@ -46,6 +66,7 @@ visible = false
 shape = SubResource("RectangleShape2D_hxrnu")
 
 [node name="GrabLabel" type="RichTextLabel" parent="PipeLocation"]
+visible = false
 z_index = 1
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_hxrnu")
@@ -84,6 +105,13 @@ vertical_alignment = 1
 [node name="PumpTimer" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="FinishArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
+shape = SubResource("RectangleShape2D_hxrnu")
+
 [connection signal="body_entered" from="PipeLocation/Trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="body_exited" from="PipeLocation/Trigger" to="." method="_on_trigger_body_exited"]
 [connection signal="timeout" from="PumpTimer" to="." method="_on_pump_timer_timeout"]
+[connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
+[connection signal="body_exited" from="FinishArea" to="." method="_on_finish_area_body_exited"]

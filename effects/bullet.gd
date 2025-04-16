@@ -4,7 +4,7 @@ var initial_velocity: Vector2
 func set_initial_velocity(start_velocity: Vector2) -> void:
 	initial_velocity = start_velocity
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var collission = move_and_collide(initial_velocity)
 	
 	if collission:

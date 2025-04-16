@@ -22,11 +22,16 @@ func _physics_process(delta: float) -> void:
 	
 func _process(_delta: float) -> void:
 	var mouse_position = get_local_mouse_position()
-	$Indicator.position = mouse_position.normalized() * INDICATOR_DISTANCE
-	$Indicator.rotation = Vector2.ZERO.direction_to(mouse_position).angle()
+	$Weapons.position = mouse_position.normalized() * INDICATOR_DISTANCE
+	$Weapons.rotation = Vector2.ZERO.direction_to(mouse_position).angle()
 
 func die():
 	get_tree().reload_current_scene()
+	
+func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:	
+	super.take_damage(damage, source, direction)
+	
+	$CanvasLayer/HealthBar.render_bar(health / max_health * 10)
 
 func _walk_sounds_effects():
 	if velocity.length() > 10: 
@@ -39,11 +44,9 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed:
 			if event.keycode == KEY_1:
-				$Indicator/Sword.enable()
-				$Indicator/Gun.disable()
+				$Weapons.change_weapon("sword")
 			if event.keycode == KEY_2:
-				$Indicator/Sword.disable()
-				$Indicator/Gun.enable()
+				$Weapons.change_weapon("gun")
 				
 var dragging_pipe
 func set_pipe(pipe):

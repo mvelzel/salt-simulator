@@ -53,9 +53,10 @@ var is_pumping = false
 var can_stop_dragging = true
 
 var can_grab = false
+var can_finish = false
 func _on_trigger_body_entered(body: Node2D) -> void:
-	can_grab = true
 	if body.is_in_group("Player"):
+		can_grab = true
 		if not is_dragging and (not is_pumping or current_salt >= level_finish_salt_threshold):
 			$PipeLocation/GrabLabel.visible = true
 
@@ -96,6 +97,8 @@ func get_is_pumping():
 
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_E:
+		if can_finish:
+			get_node("%SceneTransitionRect").transition_to()
 		if is_pumping:
 			if current_salt >= level_finish_salt_threshold:
 				stop_pumping()
@@ -166,4 +169,14 @@ func _on_pump_timer_timeout() -> void:
 	if current_salt == max_salt:
 		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red][font gl=\"2\" emb=\"1\"]MAX SALT - LEAVE NOW"
 		$PumpTimer.stop()
-	
+
+func _on_finish_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		if not can_stop_dragging:
+			can_finish = true
+			$FinishLabel.visible = true
+
+func _on_finish_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		can_finish = false
+		$FinishLabel.visible = false
