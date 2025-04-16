@@ -63,4 +63,4 @@ y_sort_enabled = true
 position = Vector2(288, -176)
 
 [node name="Sewer" parent="." instance=ExtResource("7_7trqu")]
-position = Vector2(1400, -296)
+position = Vector2(-278, 2962)
