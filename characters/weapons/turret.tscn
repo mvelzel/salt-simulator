@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs2x8tlcrekw"]
+[gd_scene load_steps=5 format=3 uid="uid://cs2x8tlcrekw"]
 
 [ext_resource type="PackedScene" uid="uid://cdjhowl3jtn0k" path="res://characters/weapons/gun.tscn" id="1_6m0rs"]
 [ext_resource type="Script" uid="uid://dlt77qgo00pv" path="res://characters/weapons/turret.gd" id="2_metfg"]
 [ext_resource type="Texture2D" uid="uid://484io6a578sf" path="res://assets/Herramienta.png" id="2_n7tbw"]
+[ext_resource type="AudioStream" uid="uid://b6rc4uy2a2n6k" path="res://sounds/ratchet-socket-wrench-tool-95253.mp3" id="4_vf04b"]
 
 [node name="Turret" instance=ExtResource("1_6m0rs")]
 script = ExtResource("2_metfg")
@@ -19,4 +20,4 @@ texture = ExtResource("2_n7tbw")
 stream = null
 
 [node name="WeaponSwitchSound" parent="." index="3"]
-stream = null
+stream = ExtResource("4_vf04b")
