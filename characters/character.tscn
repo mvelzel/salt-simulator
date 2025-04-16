@@ -105,7 +105,7 @@ weapon_type = "turret"
 
 [node name="GrabPipeSound" type="AudioStreamPlayer2D" parent="Pipe" index="0"]
 stream = ExtResource("12_bnq0n")
-volume_db = 5.0
+volume_db = 10.0
 
 [node name="hurtSound" parent="." index="11"]
 stream = ExtResource("13_3h56x")
