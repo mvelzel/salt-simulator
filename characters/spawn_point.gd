@@ -3,7 +3,7 @@ extends Node2D
 @export var enemy_scene: PackedScene
 @export var stage: int = 1
 
-@onready var difficulty_manager = get_tree().root.get_children()[0].get_node("%DifficultyManager")
+var difficulty_manager
 
 var padding_y = 64
 var padding_x = 32
@@ -24,6 +24,10 @@ var screen_visible = true
 func _ready() -> void:
 	base_time = $SpawnTimer.wait_time
 	randomize_time()
+	
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	difficulty_manager = get_tree().root.get_children()[0].get_node("%DifficultyManager")
 	
 func randomize_time() -> void:
 	$SpawnTimer.wait_time = base_time + randf_range(-1, 1)

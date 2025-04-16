@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Salt Simulator"
-run/main_scene="uid://n2xax7e8e4mu"
+run/main_scene="uid://bm3ig6p1vehw8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://pffqy0bv53kj"]
+[gd_scene load_steps=7 format=3 uid="uid://pffqy0bv53kj"]
 
 [ext_resource type="PackedScene" uid="uid://bkooe52igdu7l" path="res://levels/level5_map.tscn" id="1_ldkys"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="2_vp6pq"]
 [ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_66nwl"]
-[ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="4_t5gjd"]
-[ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_1oekh"]
 [ext_resource type="PackedScene" uid="uid://be0opqvvn7rtt" path="res://pipe_start.tscn" id="6_d4v0i"]
-[ext_resource type="PackedScene" path="res://pipe_end.tscn" id="8_y18d6"]
+[ext_resource type="PackedScene" uid="uid://c7pu1wadqtc8q" path="res://difficulty_manager.tscn" id="8_dm5g0"]
+[ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="8_y18d6"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -118,164 +117,8 @@ scale = Vector2(-92.7212, 73.5486)
 [node name="Character" parent="." instance=ExtResource("3_66nwl")]
 position = Vector2(115, 131)
 active_weapons = Array[String](["sword", "gun", "turret"])
-turret_amount = 4
+turret_amount = 6
 health = 10000.0
-
-[node name="Enemy" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(583, 984)
-
-[node name="Enemy2" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(1091, 612)
-
-[node name="Enemy3" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(-857, 898)
-
-[node name="Enemy4" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(-814, 99)
-
-[node name="Enemy5" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(356, 1825)
-
-[node name="Enemy6" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(465, 1863)
-
-[node name="Enemy7" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(680, 1790)
-
-[node name="Enemy8" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(2067, 633)
-
-[node name="Enemy9" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(2105, 1470)
-
-[node name="Enemy10" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(2188, 1753)
-
-[node name="Enemy11" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(654, 3183)
-
-[node name="Enemy12" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(851, 3158)
-
-[node name="Enemy13" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(947, 3135)
-
-[node name="Enemy14" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(1727, 2621)
-
-[node name="Enemy15" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(-444, 3157)
-
-[node name="Enemy16" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(-194, 4383)
-
-[node name="Enemy17" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(208, 4456)
-
-[node name="Enemy18" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(92, 4562)
-
-[node name="Enemy19" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(3466, 2848)
-
-[node name="Enemy20" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(3383, 3106)
-
-[node name="Enemy21" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(3254, 3189)
-
-[node name="Enemy22" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(4126, 5019)
-
-[node name="Enemy23" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(4432, 5165)
-
-[node name="Enemy24" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(2767, 4680)
-
-[node name="Enemy25" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(5138, 2534)
-
-[node name="Enemy26" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(4289, 1776)
-
-[node name="Enemy27" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(4600, 1541)
-
-[node name="Enemy28" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(5386, -243)
-
-[node name="Enemy29" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(5578, -920)
-
-[node name="Enemy30" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(6463, -986)
-
-[node name="Enemy31" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(6599, -49)
-
-[node name="Enemy32" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(5252, -522)
-
-[node name="Enemy33" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(6096, 74)
-
-[node name="Enemy34" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(8353, -1313)
-
-[node name="Enemy35" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(8363, -919)
-
-[node name="Enemy36" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(8575, -899)
-
-[node name="Enemy37" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(8580, -1159)
-
-[node name="Enemy38" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(6136, -2180)
-
-[node name="Enemy39" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(5987, -2797)
-
-[node name="Enemy40" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(6391, -3060)
-
-[node name="Enemy41" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(6424, -2736)
-
-[node name="Enemy42" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(3765, -1164)
-
-[node name="Enemy43" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(3894, -1025)
-
-[node name="Enemy44" parent="." instance=ExtResource("4_t5gjd")]
-position = Vector2(3581, -939)
-
-[node name="SpawnPoint" parent="." instance=ExtResource("5_1oekh")]
-y_sort_enabled = true
-position = Vector2(1532, 235)
-
-[node name="SpawnPoint2" parent="." instance=ExtResource("5_1oekh")]
-y_sort_enabled = true
-position = Vector2(3625, -1041)
-
-[node name="SpawnPoint3" parent="." instance=ExtResource("5_1oekh")]
-y_sort_enabled = true
-position = Vector2(6033, -3075)
-
-[node name="SpawnPoint4" parent="." instance=ExtResource("5_1oekh")]
-y_sort_enabled = true
-position = Vector2(8486, -1080)
-
-[node name="SpawnPoint5" parent="." instance=ExtResource("5_1oekh")]
-y_sort_enabled = true
-position = Vector2(1505, 3004)
-
-[node name="SpawnPoint6" parent="." instance=ExtResource("5_1oekh")]
-y_sort_enabled = true
-position = Vector2(3091, 585)
 
 [node name="PipeStart" parent="." instance=ExtResource("6_d4v0i")]
 y_sort_enabled = true
@@ -283,3 +126,6 @@ position = Vector2(69, -320)
 
 [node name="PipeEnd" parent="." instance=ExtResource("8_y18d6")]
 position = Vector2(6080, -576)
+
+[node name="DifficultyManager" parent="." instance=ExtResource("8_dm5g0")]
+unique_name_in_owner = true

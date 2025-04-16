@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var floor_layer: TileMapLayer = get_node("%Map").get_node("%Floor")
-@onready var pipe_layer: TileMapLayer = get_node("%Map").get_node("%Pipe")
-@onready var pillars_layer: TileMapLayer = get_node("%Map").get_node("%Pillars")
-@onready var difficulty_manager = get_tree().root.get_children()[0].get_node("%DifficultyManager")
+var floor_layer
+var pipe_layer
+var pillars_layer
+var difficulty_manager
 
 var player: Node2D
 
@@ -17,6 +17,13 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	
 	$CanvasLayer/SaltProgress.scaffold_steps(level_finish_salt_threshold)
+	
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	floor_layer = get_node("%Map").get_node("%Floor")
+	pipe_layer = get_node("%Map").get_node("%Pipe")
+	pillars_layer = get_node("%Map").get_node("%Pillars")
+	difficulty_manager = get_tree().root.get_children()[0].get_node("%DifficultyManager")
 	
 	astar_grid = AStarGrid2D.new()
 	var region = floor_layer.get_used_rect()
@@ -49,6 +56,7 @@ func _ready() -> void:
 				astar_grid.set_point_solid(tile_pos)
 			if pillar_tile_data:
 				astar_grid.set_point_solid(tile_pos)
+	
 
 var is_dragging = false
 var is_pumping = false

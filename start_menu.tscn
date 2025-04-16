@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm3ig6p1vehw8"]
+
+[ext_resource type="Script" uid="uid://bd8ahb6ta0p5o" path="res://start_menu.gd" id="1_vpdu5"]
+[ext_resource type="Texture2D" uid="uid://2x8elknih4f4" path="res://ui/UI-Windows-grey-darkwood.png" id="2_ia0g5"]
+[ext_resource type="Texture2D" uid="uid://bsv8el8ni2y6a" path="res://pixel2.png" id="2_v2mkm"]
+[ext_resource type="PackedScene" uid="uid://c7pu1wadqtc8q" path="res://difficulty_manager.tscn" id="4_v2mkm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpdu5"]
+atlas = ExtResource("2_ia0g5")
+region = Rect2(96, 416, 48, 16)
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_vpdu5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_v2mkm")
+stretch_mode = 6
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -92.0
+offset_right = -179.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_vpdu5")
+stretch_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 107.0
+offset_bottom = 44.0
+scale = Vector2(0.4, 0.4)
+mouse_filter = 2
+text = "START GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultyManager" parent="." instance=ExtResource("4_v2mkm")]
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]
