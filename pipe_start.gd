@@ -3,6 +3,8 @@ extends Node2D
 @onready var floor_layer: TileMapLayer = get_node("%Map").get_node("%Floor")
 @onready var pipe_layer: TileMapLayer = get_node("%Map").get_node("%Pipe")
 @onready var pillars_layer: TileMapLayer = get_node("%Map").get_node("%Pillars")
+@onready var difficulty_manager = get_tree().root.get_children()[0].get_node("%DifficultyManager")
+
 var player: Node2D
 
 var astar_grid: AStarGrid2D
@@ -75,6 +77,8 @@ func start_pumping(pump_pipe_end: Node2D):
 	$PipeLocation.global_position = pipe_end.global_position
 	$CanvasLayer/SaltProgress.visible = true
 	$PumpTimer.start()
+	difficulty_manager.add_difficulty_stage(1)
+	
 	if player and player.has_method("set_pipe"):
 		player.set_pipe(null)
 		
@@ -85,6 +89,7 @@ func stop_pumping():
 	$PumpTimer.stop()
 	$CanvasLayer/SaltProgress.visible = false
 	$PipeLocation/GrabLabel.visible = false
+	difficulty_manager.add_difficulty_stage(3)
 	
 	if pipe_end and pipe_end.has_method("stop_pumping"):
 		pipe_end.stop_pumping()
@@ -164,6 +169,8 @@ func _on_pump_timer_timeout() -> void:
 	$CanvasLayer/SaltProgress.render_bar(current_salt)
 	
 	if current_salt >= level_finish_salt_threshold:
+		if current_salt >= level_finish_salt_threshold + 2:
+			difficulty_manager.add_difficulty_stage(2)
 		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red]!!! [/color]Pumping [font gl=\"2\" emb=\"1\"]MORE[/font] salt[color=red] !!![/color]"
 	
 	if current_salt == max_salt:
@@ -172,7 +179,7 @@ func _on_pump_timer_timeout() -> void:
 
 func _on_finish_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		if not can_stop_dragging:
+		if not can_stop_dragging and player.get_pipe():
 			can_finish = true
 			$FinishLabel.visible = true
 

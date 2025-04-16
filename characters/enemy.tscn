@@ -37,6 +37,7 @@ max_speed = 300.0
 
 [node name="hurtSound" parent="." index="6"]
 stream = ExtResource("4_ggbst")
+volume_db = 20.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

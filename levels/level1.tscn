@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://n2xax7e8e4mu"]
+[gd_scene load_steps=12 format=3 uid="uid://n2xax7e8e4mu"]
 
 [ext_resource type="PackedScene" uid="uid://c6xacxmlykrjv" path="res://levels/level1_design.tscn" id="1_b3oru"]
 [ext_resource type="PackedScene" uid="uid://q4gkh1lmmbvp" path="res://levels/level2.tscn" id="2_lf3p4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bois74xev31wa" path="res://SoundAreas/SewerSoundArea.tscn" id="7_8hd6v"]
 [ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="8_045es"]
 [ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="9_omn1t"]
+[ext_resource type="PackedScene" uid="uid://cync3l8itdjrv" path="res://difficulty_manager.tscn" id="11_yydhl"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -79,3 +80,6 @@ position = Vector2(3192, 64)
 
 [node name="Sewer" parent="." instance=ExtResource("7_8hd6v")]
 position = Vector2(1400, -296)
+
+[node name="DifficultyManager" parent="." instance=ExtResource("11_yydhl")]
+unique_name_in_owner = true

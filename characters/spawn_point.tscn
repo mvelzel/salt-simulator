@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://4p5sxjvqfnet"]
+[gd_scene load_steps=3 format=3 uid="uid://4p5sxjvqfnet"]
 
 [ext_resource type="Script" uid="uid://jbx61ntvgwuj" path="res://characters/spawn_point.gd" id="1_f8oq1"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="2_6wqb2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wqb2"]
-size = Vector2(16, 16)
 
 [node name="SpawnPoint" type="Node2D"]
 script = ExtResource("1_f8oq1")
@@ -12,11 +9,6 @@ enemy_scene = ExtResource("2_6wqb2")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
-
-[node name="RoomAreaDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomAreaDetector"]
-shape = SubResource("RectangleShape2D_6wqb2")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.8, 0.8)

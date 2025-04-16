@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://q4gkh1lmmbvp"]
+[gd_scene load_steps=12 format=3 uid="uid://q4gkh1lmmbvp"]
 
 [ext_resource type="PackedScene" uid="uid://cmx52ypy5u0bv" path="res://levels/Level2/level2_map.tscn" id="1_g1dg4"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="2_s1bpp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="8_55gdq"]
 [ext_resource type="PackedScene" uid="uid://beymba2qv21c2" path="res://levels/level3.tscn" id="9_crte6"]
 [ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="10_crte6"]
+[ext_resource type="PackedScene" uid="uid://cync3l8itdjrv" path="res://difficulty_manager.tscn" id="11_hq01p"]
 
 [node name="Game2" type="Node2D"]
 y_sort_enabled = true
@@ -128,3 +129,6 @@ next_scene = ExtResource("9_crte6")
 [node name="PipeEnd" parent="." instance=ExtResource("10_crte6")]
 z_index = -1
 position = Vector2(4032, 2620)
+
+[node name="DifficultyManager" parent="." instance=ExtResource("11_hq01p")]
+unique_name_in_owner = true
