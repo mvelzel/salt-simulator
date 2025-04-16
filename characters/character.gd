@@ -61,8 +61,10 @@ func change_weapon(type):
 
 var dragging_pipe
 func set_pipe(pipe):
-	dragging_pipe = pipe
+	if dragging_pipe == null and pipe != null:
+		$Pipe/GrabPipeSound.play()
 	
+	dragging_pipe = pipe
 	if dragging_pipe:
 		speed = default_speed / 2
 	else:
