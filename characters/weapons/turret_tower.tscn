@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://br5ypqhrfiyf4"]
+[gd_scene load_steps=23 format=3 uid="uid://br5ypqhrfiyf4"]
 
-[ext_resource type="Script" uid="uid://dmmu8a6a3phdr" path="res://characters/weapons/turret_tower.gd" id="1_7de3w"]
+[ext_resource type="Script" path="res://characters/weapons/turret_tower.gd" id="1_7de3w"]
 [ext_resource type="Texture2D" uid="uid://bms5kvniw0tpa" path="res://assets/Turret/Laser Turret Sprite Sheet.png" id="1_ql6h3"]
 [ext_resource type="PackedScene" uid="uid://dloaq2mi7horc" path="res://effects/bullet.tscn" id="2_dk3o1"]
 [ext_resource type="AudioStream" uid="uid://drxd37d0ctj1i" path="res://sounds/gun-shot.mp3" id="4_ivt4g"]
+[ext_resource type="AudioStream" uid="uid://cx31f70lrw7tf" path="res://sounds/place-turret.mp3" id="5_u5o3m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_demax"]
 atlas = ExtResource("1_ql6h3")
@@ -145,6 +146,8 @@ stream = ExtResource("4_ivt4g")
 volume_db = -10.0
 
 [node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_u5o3m")
+volume_db = 24.0
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
