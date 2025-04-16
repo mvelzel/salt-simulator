@@ -125,4 +125,5 @@ mouse_filter = 1
 next_scene = ExtResource("9_crte6")
 
 [node name="PipeEnd" parent="." instance=ExtResource("10_crte6")]
+z_index = -1
 position = Vector2(4032, 2620)
