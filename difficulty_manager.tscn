@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cync3l8itdjrv"]
+[gd_scene load_steps=4 format=3 uid="uid://c7pu1wadqtc8q"]
 
 [ext_resource type="Script" uid="uid://cuh2laptwewyb" path="res://difficulty_manager.gd" id="1_0d281"]
+[ext_resource type="AudioStream" uid="uid://daw18x46olyyv" path="res://Music/exploration.mp3" id="2_76bry"]
+[ext_resource type="AudioStream" uid="uid://c8bgdlueq15a4" path="res://Music/action-fight.mp3" id="3_vx3ya"]
 
 [node name="DifficultyManager" type="Node2D"]
 script = ExtResource("1_0d281")
+
+[node name="BackgroundMusicExploration" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_76bry")
+volume_db = 1.0
+autoplay = true
+max_distance = 1e+06
+parameters/looping = true
+
+[node name="BackgroundMusicActionFight" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vx3ya")
+volume_db = 1.0
+max_distance = 1e+08
+parameters/looping = true
