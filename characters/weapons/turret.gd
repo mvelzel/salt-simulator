@@ -9,6 +9,7 @@ var turrets_layer: TileMapLayer
 
 func _ready() -> void:
 	await get_tree().physics_frame
+	await get_tree().physics_frame
 	turret_indicator_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%TurretIndicator")
 	floor_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Floor")
 	pillars_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Pillars")

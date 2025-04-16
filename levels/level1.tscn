@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bois74xev31wa" path="res://SoundAreas/SewerSoundArea.tscn" id="7_8hd6v"]
 [ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="8_045es"]
 [ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="9_omn1t"]
-[ext_resource type="PackedScene" uid="uid://cync3l8itdjrv" path="res://difficulty_manager.tscn" id="11_yydhl"]
+[ext_resource type="PackedScene" uid="uid://c7pu1wadqtc8q" path="res://difficulty_manager.tscn" id="11_yydhl"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
