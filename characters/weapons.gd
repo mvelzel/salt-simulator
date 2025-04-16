@@ -3,10 +3,6 @@ extends Node2D
 @export var default_weapon = "sword"
 
 @onready var current_weapon: String = ""
-@onready var weapon_sounds := {
-	"sword": preload("res://sounds/weapon-switch-sword.mp3"),
-	"gun": preload("res://sounds/weapon-switch-gun.mp3")
-}
 
 func _ready() -> void:
 	change_weapon(default_weapon)
