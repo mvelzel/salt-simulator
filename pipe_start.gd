@@ -123,8 +123,8 @@ func start_dragging():
 		player.set_pipe(self)
 	
 func stop_dragging():
-	if not can_stop_dragging:
-		return
+	#if not can_stop_dragging:
+	#	return
 		
 	is_dragging = false
 	
@@ -169,7 +169,7 @@ func _on_pump_timer_timeout() -> void:
 	$CanvasLayer/SaltProgress.render_bar(current_salt)
 	
 	if current_salt >= level_finish_salt_threshold:
-		if current_salt >= level_finish_salt_threshold + 2:
+		if current_salt >= level_finish_salt_threshold + 4:
 			difficulty_manager.add_difficulty_stage(2)
 		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red]!!! [/color]Pumping [font gl=\"2\" emb=\"1\"]MORE[/font] salt[color=red] !!![/color]"
 	
