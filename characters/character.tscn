@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=18 format=3 uid="uid://bplaidcffy315"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
@@ -108,7 +108,3 @@ volume_db = 5.0
 
 [node name="hurtSound" parent="." index="11"]
 stream = ExtResource("13_3h56x")
-
-[node name="TurretIndicator" parent="CanvasLayer/WeaponIndicators" index="2" instance=ExtResource("11_4kffy")]
-position = Vector2(288, 0)
-weapon_type = "turret"

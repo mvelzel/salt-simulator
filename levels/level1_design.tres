@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=50 format=3 uid="uid://is75chxchr7m"]
+[gd_resource type="TileSet" load_steps=52 format=3 uid="uid://is75chxchr7m"]
 
 [ext_resource type="Texture2D" uid="uid://cq4lstddaajw4" path="res://assets/Dungeon Gathering/Set 1.png" id="1_jo486"]
 [ext_resource type="PackedScene" uid="uid://cgovwqir5uqpn" path="res://assets/Torch.tscn" id="2_nshf4"]
