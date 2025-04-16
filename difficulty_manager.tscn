@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7pu1wadqtc8q"]
+[gd_scene load_steps=6 format=3 uid="uid://c7pu1wadqtc8q"]
 
 [ext_resource type="Script" uid="uid://cuh2laptwewyb" path="res://difficulty_manager.gd" id="1_0d281"]
 [ext_resource type="AudioStream" uid="uid://daw18x46olyyv" path="res://Music/exploration.mp3" id="2_76bry"]
 [ext_resource type="AudioStream" uid="uid://c8bgdlueq15a4" path="res://Music/action-fight.mp3" id="3_vx3ya"]
+[ext_resource type="AudioStream" uid="uid://bkwusbw5h1mme" path="res://sounds/metal-beaten.mp3" id="4_5tyam"]
+[ext_resource type="AudioStream" uid="uid://dp4dpcdo8c1u" path="res://sounds/success.mp3" id="4_lahne"]
 
 [node name="DifficultyManager" type="Node2D"]
 script = ExtResource("1_0d281")
@@ -19,3 +21,13 @@ stream = ExtResource("3_vx3ya")
 volume_db = 1.0
 max_distance = 1e+08
 parameters/looping = true
+
+[node name="ConnectPipeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5tyam")
+volume_db = 20.0
+max_distance = 1e+07
+
+[node name="SuccesSaltSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lahne")
+volume_db = 20.0
+max_distance = 1e+07
