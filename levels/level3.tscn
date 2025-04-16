@@ -20,40 +20,65 @@ y_sort_enabled = true
 position = Vector2(41.4151, 19.7957)
 scale = Vector2(8, 8)
 
-[node name="RoomArea" parent="." instance=ExtResource("2_6uckl")]
-visible = false
-position = Vector2(1400, 64)
-scale = Vector2(27.7852, 19.8593)
+[node name="RoomArea3" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(108, 1638)
+scale = Vector2(35.7852, 62.5393)
+
+[node name="RoomArea4" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(-1289, 1677)
+scale = Vector2(35.3052, 56.6593)
+
+[node name="RoomArea5" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(-1478, 175)
+scale = Vector2(41.5452, 42.8193)
+
+[node name="RoomArea6" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(-553, 3350)
+scale = Vector2(67.9452, 47.6193)
+
+[node name="RoomArea7" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(1826, 3243)
+scale = Vector2(58.5852, 53.6193)
+
+[node name="RoomArea8" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(1018, 6183)
+scale = Vector2(93.0652, 91.6993)
+
+[node name="RoomArea10" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(1861, 4454)
+scale = Vector2(28.3052, 26.0199)
+
+[node name="RoomArea11" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(1531, 1643)
+scale = Vector2(-46.5957, 42.8152)
+
+[node name="RoomArea9" parent="." instance=ExtResource("2_6uckl")]
+position = Vector2(-1047, 4868)
+scale = Vector2(20.7452, 56.8993)
 
 [node name="RoomArea2" parent="." instance=ExtResource("2_6uckl")]
-visible = false
-position = Vector2(3072, 64)
-scale = Vector2(52.1318, 43.7438)
+position = Vector2(1320, 384)
+scale = Vector2(46.0252, 44.8193)
 
 [node name="Character" parent="." instance=ExtResource("3_d6jip")]
-position = Vector2(150, 11)
+position = Vector2(-301, 3390)
+active_weapons = Array[String](["sword", "gun", "turret"])
 health = 10000.0
 
 [node name="Enemy" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(107, 510)
+position = Vector2(-312, 1165)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(1576, 216)
+position = Vector2(497, 1171)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(-116, 256)
+position = Vector2(313, 1414)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(209, 333)
+position = Vector2(-95, 1441)
 
 [node name="Enemy5" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(3624, 536)
-
-[node name="Enemy6" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(3728, -456)
-
-[node name="Enemy7" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(3200, -16)
+position = Vector2(101, 1937)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_cpuyl")]
 y_sort_enabled = true

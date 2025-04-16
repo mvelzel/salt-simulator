@@ -46,6 +46,14 @@ unique_name_in_owner = true
 z_index = -1
 tile_set = ExtResource("1_bhsn3")
 
+[node name="TurretIndicator" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("1_bhsn3")
+
+[node name="Turrets" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("1_bhsn3")
+
 [node name="Torches" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAACAAEAAQAAAAAAAwACAP//AQAAAAAAAwD+////AQAAAAAAAgD///3/AQAAAAAAAQD+/wIAAQAAAAAABAA=")

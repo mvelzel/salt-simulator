@@ -1,0 +1,151 @@
+[gd_scene load_steps=22 format=3 uid="uid://br5ypqhrfiyf4"]
+
+[ext_resource type="Script" uid="uid://dmmu8a6a3phdr" path="res://characters/weapons/turret_tower.gd" id="1_7de3w"]
+[ext_resource type="Texture2D" uid="uid://bms5kvniw0tpa" path="res://assets/Turret/Laser Turret Sprite Sheet.png" id="1_ql6h3"]
+[ext_resource type="PackedScene" uid="uid://dloaq2mi7horc" path="res://effects/bullet.tscn" id="2_dk3o1"]
+[ext_resource type="AudioStream" uid="uid://drxd37d0ctj1i" path="res://sounds/gun-shot.mp3" id="4_ivt4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_demax"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seody"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di82c"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejj2x"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qcyw"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wuof"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyvx4"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7v7p"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7hq1"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(256, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rj6x"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(288, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41yxx"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(320, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2o2i"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(352, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sncs"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(384, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd25q"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(416, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h2de"]
+atlas = ExtResource("1_ql6h3")
+region = Rect2(448, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxu0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_demax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seody")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di82c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejj2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qcyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wuof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyvx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7v7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7hq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rj6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41yxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2o2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sncs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd25q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h2de")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql6h3"]
+size = Vector2(80, 80)
+
+[node name="TurretTower" type="Node2D"]
+script = ExtResource("1_7de3w")
+bullet_scene = ExtResource("2_dk3o1")
+
+[node name="TurretSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yxu0p")
+autoplay = "default"
+speed_scale = 3.0
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("RectangleShape2D_ql6h3")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ivt4g")
+volume_db = -10.0
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

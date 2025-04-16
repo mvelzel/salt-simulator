@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs2x8tlcrekw"]
+
+[ext_resource type="PackedScene" uid="uid://cdjhowl3jtn0k" path="res://characters/weapons/gun.tscn" id="1_6m0rs"]
+[ext_resource type="Script" uid="uid://dlt77qgo00pv" path="res://characters/weapons/turret.gd" id="2_metfg"]
+[ext_resource type="Texture2D" uid="uid://484io6a578sf" path="res://assets/Herramienta.png" id="2_n7tbw"]
+
+[node name="Turret" instance=ExtResource("1_6m0rs")]
+script = ExtResource("2_metfg")
+weapon_type = "turret"
+damage = 0.0
+
+[node name="WeaponSprite" parent="." index="1"]
+position = Vector2(0, 0)
+rotation = 0.785397
+scale = Vector2(4, 4)
+texture = ExtResource("2_n7tbw")
+
+[node name="WeaponSound" parent="." index="2"]
+stream = null
+
+[node name="WeaponSwitchSound" parent="." index="3"]
+stream = null

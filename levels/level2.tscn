@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://be0opqvvn7rtt" path="res://pipe_start.tscn" id="7_76ugp"]
 [ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="8_55gdq"]
 [ext_resource type="PackedScene" uid="uid://beymba2qv21c2" path="res://levels/level3.tscn" id="9_crte6"]
-[ext_resource type="PackedScene" path="res://pipe_end.tscn" id="10_crte6"]
+[ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="10_crte6"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -39,14 +39,39 @@ position = Vector2(4040, 28)
 scale = Vector2(44.1483, 42.3484)
 
 [node name="RoomArea5" parent="." instance=ExtResource("2_s1bpp")]
-position = Vector2(4032, 2204)
+position = Vector2(4032, 2201)
 scale = Vector2(44.1483, 40.4161)
 
 [node name="Character" parent="." instance=ExtResource("3_76ugp")]
 position = Vector2(-128, -92)
+active_weapons = Array[String](["sword", "gun"])
 
 [node name="Enemy" parent="." instance=ExtResource("4_e8p81")]
 position = Vector2(1904, -136)
+
+[node name="Enemy8" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(-279, 1396)
+
+[node name="Enemy9" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4580, -97)
+
+[node name="Enemy10" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3454, 1803)
+
+[node name="Enemy11" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3587, 1957)
+
+[node name="Enemy13" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4514, 1809)
+
+[node name="Enemy14" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4258, 2038)
+
+[node name="Enemy15" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3882, 2639)
+
+[node name="Enemy17" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4165, 2675)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_e8p81")]
 position = Vector2(1912, 248)
@@ -69,6 +94,18 @@ position = Vector2(3956, -12)
 [node name="SpawnPoint" parent="." instance=ExtResource("5_55gdq")]
 position = Vector2(4512, -244)
 
+[node name="SpawnPoint2" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(3549, 426)
+
+[node name="SpawnPoint3" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(2118, -256)
+
+[node name="SpawnPoint4" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(-114, 212)
+
+[node name="SpawnPoint5" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(4622, 1773)
+
 [node name="Zink" parent="." instance=ExtResource("6_s1bpp")]
 position = Vector2(1725, -1846)
 
@@ -89,4 +126,5 @@ mouse_filter = 1
 next_scene = ExtResource("9_crte6")
 
 [node name="PipeEnd" parent="." instance=ExtResource("10_crte6")]
+z_index = -1
 position = Vector2(4032, 2620)

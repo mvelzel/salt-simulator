@@ -4,8 +4,23 @@ extends "res://characters/base_character.gd"
 
 const INDICATOR_DISTANCE = 150
 
+@export var active_weapons: Array[String] = ["sword"]
+
+var weapon_key_mapping = {
+	KEY_1: "sword",
+	KEY_2: "gun",
+	KEY_3: "turret"
+}
+
 func _ready() -> void:
 	change_weapon("sword")
+	
+	for weapon in weapon_key_mapping.values():
+		if weapon in active_weapons:
+			continue
+		for child in $CanvasLayer/WeaponIndicators.get_children():
+			if child.has_method("hide_weapon"):
+				child.hide_weapon(weapon)
 	
 	super._ready()
 
@@ -44,14 +59,28 @@ func _walk_sounds_effects():
 			footstep_sound.play()
 	else:
 		footstep_sound.stop()
+
+var disabled_weapons = []
+func disable_weapon(type):
+	disabled_weapons.append(type)
+	for child in $CanvasLayer/WeaponIndicators.get_children():
+		if child.has_method("disable"):
+			child.disable(type)
+	
+func enable_weapon(type):
+	disabled_weapons = disabled_weapons.filter(func(weapon): return weapon != type)
+	for child in $CanvasLayer/WeaponIndicators.get_children():
+		if child.has_method("enable"):
+			child.enable(type)
 		
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed:
-			if event.keycode == KEY_1:
-				change_weapon("sword")
-			if event.keycode == KEY_2:
-				change_weapon("gun")
+			for key in weapon_key_mapping:
+				var weapon = weapon_key_mapping[key]
+				if event.keycode == key and weapon not in disabled_weapons and weapon in active_weapons:
+					change_weapon(weapon_key_mapping[key])
+					break
 				
 func change_weapon(type):
 	$Weapons.change_weapon(type)
@@ -67,8 +96,14 @@ func set_pipe(pipe):
 	dragging_pipe = pipe
 	if dragging_pipe:
 		speed = default_speed / 2
+		change_weapon("sword")
+		for weapon in weapon_key_mapping.values():
+			if weapon != "sword":
+				disable_weapon(weapon)
 	else:
 		speed = default_speed
+		for weapon in weapon_key_mapping.values():
+			enable_weapon(weapon)
 
 func get_pipe():
 	return dragging_pipe

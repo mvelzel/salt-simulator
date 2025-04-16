@@ -12,6 +12,8 @@ func _ready():
 		$WeaponSprite/SwordSprite.visible = true
 	elif weapon_type == "gun":
 		$WeaponSprite/GunSprite.visible = true
+	elif weapon_type == "turret":
+		$WeaponSprite/TurretSprite.visible = true
 		
 func change_weapon(type):
 	if type == weapon_type:
@@ -22,3 +24,15 @@ func change_weapon(type):
 		$ActiveBackground.visible = false
 		$InactiveBackground.visible = true
 		$WeaponSprite.modulate.a = 0.5
+		
+func disable(type = null):
+	if not type or type == weapon_type:
+		$DisabledSprite.visible = true
+	
+func enable(type = null):
+	if not type or type == weapon_type:
+		$DisabledSprite.visible = false
+		
+func hide_weapon(type):
+	if type == weapon_type:
+		visible = false
