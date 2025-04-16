@@ -39,7 +39,7 @@ position = Vector2(4040, 28)
 scale = Vector2(44.1483, 42.3484)
 
 [node name="RoomArea5" parent="." instance=ExtResource("2_s1bpp")]
-position = Vector2(4032, 2204)
+position = Vector2(4032, 2201)
 scale = Vector2(44.1483, 40.4161)
 
 [node name="Character" parent="." instance=ExtResource("3_76ugp")]
@@ -47,6 +47,30 @@ position = Vector2(-128, -92)
 
 [node name="Enemy" parent="." instance=ExtResource("4_e8p81")]
 position = Vector2(1904, -136)
+
+[node name="Enemy8" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(-279, 1396)
+
+[node name="Enemy9" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4580, -97)
+
+[node name="Enemy10" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3454, 1803)
+
+[node name="Enemy11" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3587, 1957)
+
+[node name="Enemy13" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4514, 1809)
+
+[node name="Enemy14" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4258, 2038)
+
+[node name="Enemy15" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(3882, 2639)
+
+[node name="Enemy17" parent="." instance=ExtResource("4_e8p81")]
+position = Vector2(4165, 2675)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_e8p81")]
 position = Vector2(1912, 248)
@@ -68,6 +92,18 @@ position = Vector2(3956, -12)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_55gdq")]
 position = Vector2(4512, -244)
+
+[node name="SpawnPoint2" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(3549, 426)
+
+[node name="SpawnPoint3" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(2118, -256)
+
+[node name="SpawnPoint4" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(-114, 212)
+
+[node name="SpawnPoint5" parent="." instance=ExtResource("5_55gdq")]
+position = Vector2(4622, 1773)
 
 [node name="Zink" parent="." instance=ExtResource("6_s1bpp")]
 position = Vector2(1725, -1846)
