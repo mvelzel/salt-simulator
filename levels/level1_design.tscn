@@ -30,6 +30,7 @@ tile_set = ExtResource("1_t4yih")
 
 [node name="Pipe" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
+z_index = -1
 tile_map_data = PackedByteArray("AAAQABEABAAAAAAAAAA=")
 tile_set = ExtResource("1_t4yih")
 

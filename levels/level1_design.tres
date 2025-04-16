@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=30 format=3 uid="uid://is75chxchr7m"]
+[gd_resource type="TileSet" load_steps=46 format=3 uid="uid://is75chxchr7m"]
 
 [ext_resource type="Texture2D" uid="uid://cq4lstddaajw4" path="res://assets/Dungeon Gathering/Set 1.png" id="1_jo486"]
 [ext_resource type="PackedScene" uid="uid://cgovwqir5uqpn" path="res://assets/Torch.tscn" id="2_nshf4"]
@@ -809,7 +809,103 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lcopi"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gjmx0"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_syopn"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dpmoq"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_p7o5k"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xkc80"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fnqeg"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lm7wr"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_41pwp"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7ek11"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tqt5l"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vqdlk"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_82wdm"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_inojt"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2l6g3"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3xsdr"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_88uy5"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
@@ -2872,8 +2968,11 @@ texture = ExtResource("10_b765g")
 60:27/0 = 0
 61:27/0 = 0
 65:27/0 = 0
+65:27/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 66:27/0 = 0
+66:27/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 67:27/0 = 0
+67:27/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 69:27/0 = 0
 70:27/0 = 0
 71:27/0 = 0
@@ -2959,8 +3058,11 @@ texture = ExtResource("10_b765g")
 60:28/0 = 0
 61:28/0 = 0
 65:28/0 = 0
+65:28/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 66:28/0 = 0
+66:28/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 67:28/0 = 0
+67:28/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 69:28/0 = 0
 70:28/0 = 0
 71:28/0 = 0
@@ -3050,8 +3152,11 @@ texture = ExtResource("10_b765g")
 58:29/0 = 0
 59:29/0 = 0
 65:29/0 = 0
+65:29/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 66:29/0 = 0
+66:29/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 67:29/0 = 0
+67:29/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 69:29/0 = 0
 70:29/0 = 0
 71:29/0 = 0
@@ -3123,8 +3228,11 @@ texture = ExtResource("10_b765g")
 60:30/0 = 0
 61:30/0 = 0
 65:30/0 = 0
+65:30/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 66:30/0 = 0
+66:30/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 67:30/0 = 0
+67:30/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lcopi")
 69:30/0 = 0
 70:30/0 = 0
 71:30/0 = 0
@@ -3208,7 +3316,9 @@ texture = ExtResource("10_b765g")
 60:31/0 = 0
 61:31/0 = 0
 66:31/0 = 0
+66:31/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gjmx0")
 67:31/0 = 0
+67:31/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gjmx0")
 69:31/0 = 0
 70:31/0 = 0
 71:31/0 = 0
@@ -3270,8 +3380,11 @@ texture = ExtResource("10_b765g")
 61:32/0 = 0
 62:32/0 = 0
 65:32/0 = 0
+65:32/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gjmx0")
 66:32/0 = 0
+66:32/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gjmx0")
 67:32/0 = 0
+67:32/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gjmx0")
 87:32/0 = 0
 88:32/0 = 0
 89:32/0 = 0
@@ -3389,8 +3502,11 @@ texture = ExtResource("10_b765g")
 58:34/0 = 0
 59:34/0 = 0
 66:34/0 = 0
+66:34/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_syopn")
 67:34/0 = 0
+67:34/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p7o5k")
 68:34/0 = 0
+68:34/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lm7wr")
 69:34/0 = 0
 70:34/0 = 0
 71:34/0 = 0
@@ -3440,8 +3556,11 @@ texture = ExtResource("10_b765g")
 58:35/0 = 0
 59:35/0 = 0
 66:35/0 = 0
+66:35/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dpmoq")
 67:35/0 = 0
+67:35/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xkc80")
 68:35/0 = 0
+68:35/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_41pwp")
 69:35/0 = 0
 70:35/0 = 0
 71:35/0 = 0
@@ -3456,6 +3575,7 @@ texture = ExtResource("10_b765g")
 80:35/0 = 0
 81:35/0 = 0
 82:35/0 = 0
+82:35/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_88uy5")
 83:35/0 = 0
 86:35/0 = 0
 87:35/0 = 0
@@ -3503,7 +3623,9 @@ texture = ExtResource("10_b765g")
 58:36/0 = 0
 59:36/0 = 0
 67:36/0 = 0
+67:36/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fnqeg")
 68:36/0 = 0
+68:36/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fnqeg")
 69:36/0 = 0
 70:36/0 = 0
 71:36/0 = 0
@@ -3567,7 +3689,9 @@ texture = ExtResource("10_b765g")
 58:37/0 = 0
 59:37/0 = 0
 67:37/0 = 0
+67:37/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fnqeg")
 68:37/0 = 0
+68:37/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fnqeg")
 69:37/0 = 0
 70:37/0 = 0
 71:37/0 = 0
@@ -3984,10 +4108,15 @@ texture = ExtResource("10_b765g")
 68:42/0 = 0
 69:42/0 = 0
 72:42/0 = 0
+72:42/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vqdlk")
 73:42/0 = 0
+73:42/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vqdlk")
 75:42/0 = 0
+75:42/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 76:42/0 = 0
+76:42/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 77:42/0 = 0
+77:42/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 87:42/0 = 0
 88:42/0 = 0
 89:42/0 = 0
@@ -4056,14 +4185,23 @@ texture = ExtResource("10_b765g")
 65:43/0 = 0
 66:43/0 = 0
 72:43/0 = 0
+72:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vqdlk")
 73:43/0 = 0
+73:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vqdlk")
 75:43/0 = 0
+75:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 76:43/0 = 0
+76:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 77:43/0 = 0
+77:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 78:43/0 = 0
+78:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 79:43/0 = 0
+79:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 80:43/0 = 0
+80:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 81:43/0 = 0
+81:43/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_82wdm")
 83:43/0 = 0
 84:43/0 = 0
 85:43/0 = 0
@@ -4133,12 +4271,19 @@ texture = ExtResource("10_b765g")
 68:44/0 = 0
 69:44/0 = 0
 72:44/0 = 0
+72:44/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 73:44/0 = 0
+73:44/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 75:44/0 = 0
+75:44/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 76:44/0 = 0
+76:44/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 77:44/0 = 0
+77:44/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 78:44/0 = 0
+78:44/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2l6g3")
 79:44/0 = 0
+79:44/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2l6g3")
 87:44/0 = 0
 88:44/0 = 0
 89:44/0 = 0
@@ -4211,13 +4356,21 @@ texture = ExtResource("10_b765g")
 68:45/0 = 0
 69:45/0 = 0
 71:45/0 = 0
+71:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 72:45/0 = 0
+72:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 73:45/0 = 0
+73:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 75:45/0 = 0
+75:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 76:45/0 = 0
+76:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 77:45/0 = 0
+77:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 78:45/0 = 0
+78:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3xsdr")
 79:45/0 = 0
+79:45/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3xsdr")
 80:45/0 = 0
 81:45/0 = 0
 82:45/0 = 0
@@ -4274,13 +4427,21 @@ texture = ExtResource("10_b765g")
 65:46/0 = 0
 66:46/0 = 0
 71:46/0 = 0
+71:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 72:46/0 = 0
+72:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 73:46/0 = 0
+73:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tqt5l")
 75:46/0 = 0
+75:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 76:46/0 = 0
+76:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 77:46/0 = 0
+77:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_inojt")
 78:46/0 = 0
+78:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3xsdr")
 79:46/0 = 0
+79:46/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3xsdr")
 80:46/0 = 0
 81:46/0 = 0
 82:46/0 = 0
