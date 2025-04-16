@@ -16,6 +16,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Map" parent="." instance=ExtResource("1_1xfnq")]
 unique_name_in_owner = true
+y_sort_enabled = true
 position = Vector2(41.4151, 19.7957)
 scale = Vector2(8, 8)
 
@@ -34,16 +35,16 @@ position = Vector2(150, 11)
 health = 10000.0
 
 [node name="Enemy" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(1584, -136)
+position = Vector2(107, 510)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_kkm8t")]
 position = Vector2(1576, 216)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(2480, -504)
+position = Vector2(-116, 256)
 
 [node name="Enemy4" parent="." instance=ExtResource("4_kkm8t")]
-position = Vector2(2456, 512)
+position = Vector2(209, 333)
 
 [node name="Enemy5" parent="." instance=ExtResource("4_kkm8t")]
 position = Vector2(3624, 536)
@@ -60,7 +61,7 @@ position = Vector2(1401, 33)
 
 [node name="PipeStart" parent="." instance=ExtResource("6_mf7v1")]
 y_sort_enabled = true
-position = Vector2(288, -176)
+position = Vector2(109, -301)
 
 [node name="Sewer" parent="." instance=ExtResource("7_7trqu")]
 position = Vector2(-278, 2962)
