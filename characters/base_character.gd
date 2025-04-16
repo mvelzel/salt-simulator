@@ -41,7 +41,7 @@ func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZER
 	
 	var knockback_direction
 	if source:
-		knockback_direction = source.position.direction_to(position)
+		knockback_direction = source.position.direction_to(position).normalized()
 	else:
 		knockback_direction = direction.normalized()
 	knockback = knockback_direction * damage * knockback_modifier
