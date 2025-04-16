@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://brkd6r3iknjpg"]
+[gd_scene load_steps=8 format=3 uid="uid://brkd6r3iknjpg"]
 
 [ext_resource type="Shader" uid="uid://cvokymapw6tr2" path="res://levels/SceneTransitionRect.gdshader" id="1_r3sap"]
 [ext_resource type="Script" uid="uid://cfqy5icbnmqk5" path="res://levels/scene_transition_rect.gd" id="2_mkv5i"]
-[ext_resource type="AudioStream" uid="uid://ckb00tdigd8ub" path="res://sounds/level-complete.mp3" id="3_tj8rk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkv5i"]
 shader = ExtResource("1_r3sap")
@@ -78,8 +77,3 @@ script = ExtResource("2_mkv5i")
 libraries = {
 &"": SubResource("AnimationLibrary_mkv5i")
 }
-
-[node name="LevelCompleteSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_tj8rk")
-volume_db = 20.0
-max_distance = 1e+08

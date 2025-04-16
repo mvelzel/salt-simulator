@@ -4,7 +4,6 @@ extends ColorRect
 
 func _ready() -> void:
 	$AnimationPlayer.play("fade_in")
-	$LevelCompleteSound.play()
 
 func transition_to(scene = next_scene) -> void:
 	if not scene:
