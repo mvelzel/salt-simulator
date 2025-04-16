@@ -1,136 +1,129 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkp2w5of52x2y"]
+[gd_scene load_steps=9 format=3 uid="uid://beymba2qv21c2"]
 
-[ext_resource type="PackedScene" path="res://levels/level4_map.tscn" id="1_naavy"]
+[ext_resource type="PackedScene" uid="uid://b1m77d7nbtecn" path="res://levels/level4_map.tscn" id="1_cc5tm"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="2_gh4cy"]
 [ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_qi51e"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="4_lw0yu"]
 [ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="5_47a12"]
 [ext_resource type="PackedScene" uid="uid://be0opqvvn7rtt" path="res://pipe_start.tscn" id="7_1c06p"]
-[ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="8_b8ghs"]
-[ext_resource type="PackedScene" uid="uid://beymba2qv21c2" path="res://levels/level3.tscn" id="9_lrvx3"]
-[ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="10_0halg"]
+[ext_resource type="PackedScene" uid="uid://bois74xev31wa" path="res://SoundAreas/SewerSoundArea.tscn" id="7_mj76i"]
+[ext_resource type="PackedScene" path="res://pipe_end.tscn" id="10_0halg"]
 
-[node name="Game" type="Node2D"]
+[node name="Game2" type="Node2D"]
 y_sort_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
-[node name="Map" parent="." instance=ExtResource("1_naavy")]
+[node name="Map" parent="." instance=ExtResource("1_cc5tm")]
 unique_name_in_owner = true
 y_sort_enabled = true
+position = Vector2(41.4151, 19.7957)
 scale = Vector2(8, 8)
 
-[node name="RoomArea" parent="." instance=ExtResource("2_gh4cy")]
-position = Vector2(70, 1230)
-scale = Vector2(30.4567, 27.9496)
-
-[node name="RoomArea2" parent="." instance=ExtResource("2_gh4cy")]
-position = Vector2(46, -1094)
-scale = Vector2(30.4567, 27.9496)
-
 [node name="RoomArea3" parent="." instance=ExtResource("2_gh4cy")]
-position = Vector2(989, 70)
-scale = Vector2(17.9083, 78.7884)
+position = Vector2(108, 1638)
+scale = Vector2(35.7852, 62.5393)
 
 [node name="RoomArea4" parent="." instance=ExtResource("2_gh4cy")]
-position = Vector2(66, 2326)
-scale = Vector2(30.6683, 25.0284)
+position = Vector2(-1289, 1677)
+scale = Vector2(35.3052, 56.6593)
 
 [node name="RoomArea5" parent="." instance=ExtResource("2_gh4cy")]
-position = Vector2(39, 4212)
-scale = Vector2(77.0683, 79.1361)
+position = Vector2(-1478, 175)
+scale = Vector2(41.5452, 42.8193)
 
 [node name="RoomArea6" parent="." instance=ExtResource("2_gh4cy")]
-position = Vector2(-840, -65)
-scale = Vector2(17.9083, 78.7884)
+position = Vector2(-553, 3350)
+scale = Vector2(67.9452, 47.6193)
+
+[node name="RoomArea7" parent="." instance=ExtResource("2_gh4cy")]
+position = Vector2(1826, 3243)
+scale = Vector2(58.5852, 53.6193)
+
+[node name="RoomArea8" parent="." instance=ExtResource("2_gh4cy")]
+position = Vector2(1018, 6183)
+scale = Vector2(93.0652, 91.6993)
+
+[node name="RoomArea10" parent="." instance=ExtResource("2_gh4cy")]
+position = Vector2(1861, 4454)
+scale = Vector2(28.3052, 26.0199)
+
+[node name="RoomArea11" parent="." instance=ExtResource("2_gh4cy")]
+position = Vector2(1531, 1643)
+scale = Vector2(-46.5957, 42.8152)
+
+[node name="RoomArea9" parent="." instance=ExtResource("2_gh4cy")]
+position = Vector2(-1047, 4868)
+scale = Vector2(20.7452, 56.8993)
+
+[node name="RoomArea2" parent="." instance=ExtResource("2_gh4cy")]
+position = Vector2(1320, 384)
+scale = Vector2(46.0252, 44.8193)
 
 [node name="Character" parent="." instance=ExtResource("3_qi51e")]
-position = Vector2(-128, -92)
+position = Vector2(52, 45)
 active_weapons = Array[String](["sword", "gun", "turret"])
-turret_amount = 6
+turret_amount = 4
+
+[node name="Enemy" parent="." instance=ExtResource("4_lw0yu")]
+position = Vector2(-312, 1165)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_lw0yu")]
+position = Vector2(497, 1171)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_lw0yu")]
+position = Vector2(313, 1414)
+
+[node name="Enemy4" parent="." instance=ExtResource("4_lw0yu")]
+position = Vector2(-95, 1441)
+
+[node name="Enemy5" parent="." instance=ExtResource("4_lw0yu")]
+position = Vector2(101, 1937)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_47a12")]
-position = Vector2(30, 2380)
+y_sort_enabled = true
+position = Vector2(1532, 235)
 
 [node name="SpawnPoint2" parent="." instance=ExtResource("5_47a12")]
-position = Vector2(1154, 4175)
+y_sort_enabled = true
+position = Vector2(-1688, 203)
 
 [node name="SpawnPoint3" parent="." instance=ExtResource("5_47a12")]
-position = Vector2(-641, 4981)
+y_sort_enabled = true
+position = Vector2(-1128, 1713)
 
 [node name="SpawnPoint4" parent="." instance=ExtResource("5_47a12")]
-position = Vector2(985, -872)
+y_sort_enabled = true
+position = Vector2(-854, 3740)
 
 [node name="SpawnPoint5" parent="." instance=ExtResource("5_47a12")]
-position = Vector2(-930, -936)
+y_sort_enabled = true
+position = Vector2(2208, 5049)
+
+[node name="SpawnPoint6" parent="." instance=ExtResource("5_47a12")]
+y_sort_enabled = true
+position = Vector2(-252, 4986)
+
+[node name="SpawnPoint7" parent="." instance=ExtResource("5_47a12")]
+y_sort_enabled = true
+position = Vector2(2183, 7085)
+
+[node name="SpawnPoint8" parent="." instance=ExtResource("5_47a12")]
+y_sort_enabled = true
+position = Vector2(-189, 7143)
+
+[node name="SpawnPoint9" parent="." instance=ExtResource("5_47a12")]
+y_sort_enabled = true
+position = Vector2(2404, 2979)
 
 [node name="PipeStart" parent="." instance=ExtResource("7_1c06p")]
 y_sort_enabled = true
-position = Vector2(68, -320)
+position = Vector2(109, -301)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="SceneTransitionRect" parent="CanvasLayer" instance=ExtResource("8_b8ghs")]
-unique_name_in_owner = true
-offset_top = 36.12
-offset_bottom = 36.12
-mouse_filter = 1
-next_scene = ExtResource("9_lrvx3")
+[node name="Sewer" parent="." instance=ExtResource("7_mj76i")]
+position = Vector2(-278, 2962)
 
 [node name="PipeEnd" parent="." instance=ExtResource("10_0halg")]
-position = Vector2(56, 4220)
-
-[node name="Enemy" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(893, -830)
-
-[node name="Enemy2" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(893, -416)
-
-[node name="Enemy3" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(893, 206)
-
-[node name="Enemy4" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(893, 772)
-
-[node name="Enemy5" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(-881, 772)
-
-[node name="Enemy6" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(-881, 287)
-
-[node name="Enemy7" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(-881, -408)
-
-[node name="Enemy8" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(-881, -860)
-
-[node name="Enemy9" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(16, -860)
-
-[node name="Enemy10" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(16, 2260)
-
-[node name="Enemy11" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(239, 2260)
-
-[node name="Enemy12" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(239, 2424)
-
-[node name="Enemy13" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(986, 4004)
-
-[node name="Enemy14" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(1003, 4445)
-
-[node name="Enemy15" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(979, 4674)
-
-[node name="Enemy16" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(-895, 4563)
-
-[node name="Enemy17" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(-976, 4284)
-
-[node name="Enemy18" parent="." instance=ExtResource("4_lw0yu")]
-position = Vector2(-919, 3991)
+z_index = -1
+position = Vector2(1129, 6228)
