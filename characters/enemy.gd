@@ -31,6 +31,9 @@ func _physics_process(delta: float) -> void:
 		super._physics_process(delta)
 	
 func die():
+	visible = false
+	turn_off()
+	await $hurtSound.finished
 	queue_free()
 
 func turn_on():

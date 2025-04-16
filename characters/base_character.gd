@@ -36,9 +36,8 @@ func set_animation():
 		
 func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:
 	health -= damage
-	if health <= 0:
-		die()
-		return
+	$hurtSound.stop()
+	$hurtSound.play()
 	
 	var knockback_direction
 	if source:
@@ -49,7 +48,10 @@ func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZER
 	
 	$Sprite.self_modulate = Color(1, 0, 0)
 	$DamageFlash.start()
-	$hurtSound.play()
+	
+	if health <= 0:
+		die()
+		return
 		
 func die():
 	pass
