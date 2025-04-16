@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=52 format=3 uid="uid://is75chxchr7m"]
+[gd_resource type="TileSet" load_steps=57 format=3 uid="uid://is75chxchr7m"]
 
 [ext_resource type="Texture2D" uid="uid://cq4lstddaajw4" path="res://assets/Dungeon Gathering/Set 1.png" id="1_jo486"]
 [ext_resource type="PackedScene" uid="uid://cgovwqir5uqpn" path="res://assets/Torch.tscn" id="2_nshf4"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bdensxbvlmf5l" path="res://assets/pipes.png" id="11_8evt3"]
 [ext_resource type="Texture2D" uid="uid://2x8elknih4f4" path="res://ui/UI-Windows-grey-darkwood.png" id="12_rt8cf"]
 [ext_resource type="PackedScene" uid="uid://br5ypqhrfiyf4" path="res://characters/weapons/turret_tower.tscn" id="13_5lrol"]
+[ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="14_g0rwr"]
+[ext_resource type="PackedScene" uid="uid://4p5sxjvqfnet" path="res://characters/spawn_point.tscn" id="15_gsknr"]
+[ext_resource type="PackedScene" uid="uid://ofjtcefqptm6" path="res://spawn_point_stage_2.tscn" id="16_3rtnd"]
+[ext_resource type="PackedScene" uid="uid://cnphmjiwxrevv" path="res://spawn_point_stage_3.tscn" id="17_04hcs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b765g"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -7412,6 +7416,13 @@ texture = ExtResource("12_rt8cf")
 resource_name = "Turrets"
 scenes/1/scene = ExtResource("13_5lrol")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gsknr"]
+resource_name = "Enemies"
+scenes/1/scene = ExtResource("14_g0rwr")
+scenes/2/scene = ExtResource("15_gsknr")
+scenes/4/scene = ExtResource("16_3rtnd")
+scenes/5/scene = ExtResource("17_04hcs")
+
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 3
@@ -7431,3 +7442,4 @@ sources/3 = SubResource("TileSetAtlasSource_8evt3")
 sources/4 = SubResource("TileSetAtlasSource_rt8cf")
 sources/5 = SubResource("TileSetAtlasSource_5lrol")
 sources/6 = SubResource("TileSetScenesCollectionSource_g0rwr")
+sources/7 = SubResource("TileSetScenesCollectionSource_gsknr")

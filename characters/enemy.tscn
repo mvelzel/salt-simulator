@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bh368lvtpf6cq" path="res://sounds/hurt-gnome.mp3" id="4_ggbst"]
 
 [node name="Enemy" groups=["Enemy"] instance=ExtResource("1_wa0eo")]
+scale = Vector2(0.125, 0.125)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4gyqm")

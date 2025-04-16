@@ -2,10 +2,17 @@ extends "res://characters/weapons/weapon.gd"
 
 const TURRET_RADIUS = 200
 
-@onready var turret_indicator_layer: TileMapLayer = get_tree().root.get_children()[0].get_node("%Map").get_node("%TurretIndicator")
-@onready var floor_layer: TileMapLayer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Floor")
-@onready var pillars_layer: TileMapLayer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Pillars")
-@onready var turrets_layer: TileMapLayer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Turrets")
+var turret_indicator_layer: TileMapLayer
+var floor_layer: TileMapLayer
+var pillars_layer: TileMapLayer
+var turrets_layer: TileMapLayer
+
+func _ready() -> void:
+	await get_tree().physics_frame
+	turret_indicator_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%TurretIndicator")
+	floor_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Floor")
+	pillars_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Pillars")
+	turrets_layer = get_tree().root.get_children()[0].get_node("%Map").get_node("%Turrets")
 
 var active_tile
 func _process(_delta: float) -> void:
