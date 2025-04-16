@@ -29,6 +29,7 @@ region = Rect2(8, 48, 8, 16)
 
 [node name="Character" groups=["Player"] instance=ExtResource("1_54qew")]
 script = ExtResource("1_pjt0s")
+active_weapons = Array[String](["sword"])
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 position_smoothing_enabled = true
@@ -94,6 +95,10 @@ position = Vector2(152, 856)
 [node name="GunIndicator" parent="CanvasLayer/WeaponIndicators" index="1" instance=ExtResource("11_4kffy")]
 position = Vector2(144, 0)
 weapon_type = "gun"
+
+[node name="TurretIndicator" parent="CanvasLayer/WeaponIndicators" index="2" instance=ExtResource("11_4kffy")]
+position = Vector2(288, 0)
+weapon_type = "turret"
 
 [node name="Pipe" type="Node2D" parent="." index="10"]
 

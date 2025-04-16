@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3ing281qek0j"]
+[gd_scene load_steps=10 format=3 uid="uid://bkp2w5of52x2y"]
 
-[ext_resource type="PackedScene" uid="uid://diftr3qdo64u0" path="res://levels/level4_map.tscn" id="1_naavy"]
+[ext_resource type="PackedScene" path="res://levels/level4_map.tscn" id="1_naavy"]
 [ext_resource type="PackedScene" uid="uid://c3bnr1iu6hdi5" path="res://room_area.tscn" id="2_gh4cy"]
 [ext_resource type="PackedScene" uid="uid://bplaidcffy315" path="res://characters/character.tscn" id="3_qi51e"]
 [ext_resource type="PackedScene" uid="uid://d2w4jnlil61ax" path="res://characters/enemy.tscn" id="4_lw0yu"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://be0opqvvn7rtt" path="res://pipe_start.tscn" id="7_1c06p"]
 [ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="8_b8ghs"]
 [ext_resource type="PackedScene" uid="uid://beymba2qv21c2" path="res://levels/level3.tscn" id="9_lrvx3"]
-[ext_resource type="PackedScene" path="res://pipe_end.tscn" id="10_0halg"]
+[ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="10_0halg"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -47,6 +47,7 @@ scale = Vector2(17.9083, 78.7884)
 
 [node name="Character" parent="." instance=ExtResource("3_qi51e")]
 position = Vector2(-128, -92)
+active_weapons = Array[String](["sword", "gun", "turret"])
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_47a12")]
 position = Vector2(30, 2380)

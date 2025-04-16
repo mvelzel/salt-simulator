@@ -62,6 +62,7 @@ scale = Vector2(46.0252, 44.8193)
 
 [node name="Character" parent="." instance=ExtResource("3_d6jip")]
 position = Vector2(-301, 3390)
+active_weapons = Array[String](["sword", "gun", "turret"])
 health = 10000.0
 
 [node name="Enemy" parent="." instance=ExtResource("4_kkm8t")]

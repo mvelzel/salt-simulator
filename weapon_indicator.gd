@@ -24,3 +24,15 @@ func change_weapon(type):
 		$ActiveBackground.visible = false
 		$InactiveBackground.visible = true
 		$WeaponSprite.modulate.a = 0.5
+		
+func disable(type = null):
+	if not type or type == weapon_type:
+		$DisabledSprite.visible = true
+	
+func enable(type = null):
+	if not type or type == weapon_type:
+		$DisabledSprite.visible = false
+		
+func hide_weapon(type):
+	if type == weapon_type:
+		visible = false
