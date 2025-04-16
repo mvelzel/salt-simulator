@@ -12,7 +12,7 @@ func change_weapon(type):
 		$WeaponSwitchSound.play()
 	else:
 		enabled = false
-		visible = false
+		visible = false	
 		
 func _process(_delta: float) -> void:
 	if scale.y < 0:

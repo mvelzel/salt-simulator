@@ -56,3 +56,11 @@ tile_set = ExtResource("1_nlkui")
 
 [node name="Sewer" parent="." instance=ExtResource("2_1o7sv")]
 position = Vector2(536, -63)
+
+[node name="TurretIndicator" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("1_nlkui")
+
+[node name="Turrets" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("1_nlkui")

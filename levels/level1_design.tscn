@@ -44,3 +44,11 @@ tile_set = ExtResource("1_t4yih")
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAbABAAAAAKAAsAAAAbABEAAQAAAAAABQA=")
 tile_set = ExtResource("1_t4yih")
+
+[node name="TurretIndicator" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("1_t4yih")
+
+[node name="Turrets" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("1_t4yih")
