@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cs2x8tlcrekw" path="res://characters/weapons/turret.tscn" id="7_bnq0n"]
 [ext_resource type="PackedScene" uid="uid://vfy0ybly0x4o" path="res://weapon_indicator.tscn" id="11_4kffy"]
 [ext_resource type="AudioStream" uid="uid://d2nnrnl3cukex" path="res://sounds/grab-pipe.mp3" id="12_bnq0n"]
-[ext_resource type="AudioStream" uid="uid://bgkfh8rlqq0kg" path="res://sounds/dwarf-hurt.mp3" id="13_3h56x"]
+[ext_resource type="AudioStream" uid="uid://4nj54vjhev6y" path="res://sounds/dwarf-hurt.mp3" id="13_3h56x"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
 [ext_resource type="PackedScene" uid="uid://0tgabdqxrlqd" path="res://characters/weapons/sword.tscn" id="18_bb4xn"]
@@ -109,5 +109,6 @@ volume_db = 5.0
 
 [node name="hurtSound" parent="." index="11"]
 stream = ExtResource("13_3h56x")
+volume_db = 20.0
 
 [connection signal="weapon_fired" from="Weapons/Turret" to="." method="_on_turret_weapon_fired"]
