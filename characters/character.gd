@@ -4,6 +4,11 @@ extends "res://characters/base_character.gd"
 
 const INDICATOR_DISTANCE = 150
 
+func _ready() -> void:
+	change_weapon("sword")
+	
+	super._ready()
+
 func _physics_process(delta: float) -> void:
 	_walk_sounds_effects()
 
@@ -44,10 +49,16 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed:
 			if event.keycode == KEY_1:
-				$Weapons.change_weapon("sword")
+				change_weapon("sword")
 			if event.keycode == KEY_2:
-				$Weapons.change_weapon("gun")
+				change_weapon("gun")
 				
+func change_weapon(type):
+	$Weapons.change_weapon(type)
+	for child in $CanvasLayer/WeaponIndicators.get_children():
+		if child.has_method("change_weapon"):
+			child.change_weapon(type)
+
 var dragging_pipe
 func set_pipe(pipe):
 	dragging_pipe = pipe

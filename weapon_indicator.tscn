@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://vfy0ybly0x4o"]
+
+[ext_resource type="Script" uid="uid://cyfrxgq1b6c3b" path="res://weapon_indicator.gd" id="1_elmmk"]
+[ext_resource type="Texture2D" uid="uid://2x8elknih4f4" path="res://ui/UI-Windows-grey-darkwood.png" id="1_ifnc4"]
+[ext_resource type="Texture2D" uid="uid://bxhabqnrirdu1" path="res://assets/Dungeon Gathering Full/New Items [Update]/16x16 Items Pack.png" id="2_elmmk"]
+[ext_resource type="Texture2D" uid="uid://l24qo6akqueu" path="res://assets/Guns/Guns/Tokarev.png" id="4_ujas7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lgwp"]
+atlas = ExtResource("1_ifnc4")
+region = Rect2(424, 304, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkrj1"]
+atlas = ExtResource("1_ifnc4")
+region = Rect2(376, 424, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujas7"]
+atlas = ExtResource("1_ifnc4")
+region = Rect2(8, 120, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elmmk"]
+atlas = ExtResource("1_ifnc4")
+region = Rect2(376, 376, 32, 32)
+
+[node name="WeaponIndicator" type="Node2D"]
+script = ExtResource("1_elmmk")
+
+[node name="ActiveBackground" type="Node2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="ActiveBackground"]
+scale = Vector2(6, 6)
+texture = SubResource("AtlasTexture_3lgwp")
+
+[node name="Border" type="Sprite2D" parent="ActiveBackground"]
+scale = Vector2(6, 6)
+texture = SubResource("AtlasTexture_hkrj1")
+
+[node name="InactiveBackground" type="Node2D" parent="."]
+visible = false
+
+[node name="Backdrop" type="Sprite2D" parent="InactiveBackground"]
+scale = Vector2(6, 6)
+texture = SubResource("AtlasTexture_ujas7")
+
+[node name="Border" type="Sprite2D" parent="InactiveBackground"]
+scale = Vector2(6, 6)
+texture = SubResource("AtlasTexture_elmmk")
+
+[node name="WeaponSprite" type="Node2D" parent="."]
+
+[node name="SwordSprite" type="Sprite2D" parent="WeaponSprite"]
+position = Vector2(4.76837e-07, 1.69407e-21)
+scale = Vector2(5, 5)
+texture = ExtResource("2_elmmk")
+hframes = 10
+vframes = 23
+frame = 33
+
+[node name="GunSprite" type="Sprite2D" parent="WeaponSprite"]
+visible = false
+position = Vector2(0, -24)
+scale = Vector2(8, 7.97266)
+texture = ExtResource("4_ujas7")

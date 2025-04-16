@@ -1,17 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=15 format=3 uid="uid://bplaidcffy315"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
 [ext_resource type="Script" uid="uid://6e0opuom2i3g" path="res://characters/character.gd" id="1_pjt0s"]
 [ext_resource type="Script" uid="uid://mrva1r4vc1wk" path="res://characters/weapons.gd" id="3_hkrj1"]
 [ext_resource type="PackedScene" uid="uid://cdjhowl3jtn0k" path="res://characters/weapons/gun.tscn" id="6_bnq0n"]
+[ext_resource type="PackedScene" uid="uid://vfy0ybly0x4o" path="res://weapon_indicator.tscn" id="11_4kffy"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
-[ext_resource type="Texture2D" uid="uid://bxhabqnrirdu1" path="res://assets/Dungeon Gathering Full/New Items [Update]/16x16 Items Pack.png" id="14_4unn8"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
 [ext_resource type="PackedScene" uid="uid://0tgabdqxrlqd" path="res://characters/weapons/sword.tscn" id="18_bb4xn"]
 [ext_resource type="PackedScene" uid="uid://dbhc6yaxsrm5p" path="res://progress.tscn" id="20_5fe2j"]
 [ext_resource type="Texture2D" uid="uid://bf3q6mfujqwwg" path="res://ui/health-bars.png" id="21_md4ow"]
-[ext_resource type="Texture2D" uid="uid://2x8elknih4f4" path="res://ui/UI-Windows-grey-darkwood.png" id="22_mqba4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqba4"]
 atlas = ExtResource("21_md4ow")
@@ -24,14 +23,6 @@ region = Rect2(40, 48, 8, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bb4xn"]
 atlas = ExtResource("21_md4ow")
 region = Rect2(8, 48, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3lgwp"]
-atlas = ExtResource("22_mqba4")
-region = Rect2(424, 304, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hkrj1"]
-atlas = ExtResource("22_mqba4")
-region = Rect2(376, 424, 32, 32)
 
 [node name="Character" groups=["Player"] instance=ExtResource("1_54qew")]
 script = ExtResource("1_pjt0s")
@@ -90,22 +81,11 @@ start_texture = SubResource("AtlasTexture_mqba4")
 end_texture = SubResource("AtlasTexture_md4ow")
 progress_texture = SubResource("AtlasTexture_bb4xn")
 
-[node name="WeaponIndicator" type="Node2D" parent="CanvasLayer" index="1"]
+[node name="WeaponIndicators" type="Node2D" parent="CanvasLayer" index="1"]
+position = Vector2(152, 856)
 
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/WeaponIndicator" index="0"]
-position = Vector2(144, 848)
-scale = Vector2(6, 6)
-texture = SubResource("AtlasTexture_3lgwp")
+[node name="SwordIndicator" parent="CanvasLayer/WeaponIndicators" index="0" instance=ExtResource("11_4kffy")]
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/WeaponIndicator" index="1"]
-position = Vector2(144, 848)
-scale = Vector2(6, 6)
-texture = SubResource("AtlasTexture_hkrj1")
-
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/WeaponIndicator" index="2"]
-position = Vector2(144, 848)
-scale = Vector2(5, 5)
-texture = ExtResource("14_4unn8")
-hframes = 10
-vframes = 23
-frame = 33
+[node name="GunIndicator" parent="CanvasLayer/WeaponIndicators" index="1" instance=ExtResource("11_4kffy")]
+position = Vector2(144, 0)
+weapon_type = "gun"

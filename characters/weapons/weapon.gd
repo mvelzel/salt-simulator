@@ -9,6 +9,7 @@ func change_weapon(type):
 	if weapon_type == type:
 		enabled = true
 		visible = true
+		$WeaponSwitchSound.play()
 	else:
 		enabled = false
 		visible = false
