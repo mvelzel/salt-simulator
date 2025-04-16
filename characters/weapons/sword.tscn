@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://0tgabdqxrlqd"]
+[gd_scene load_steps=16 format=3 uid="uid://0tgabdqxrlqd"]
 
 [ext_resource type="PackedScene" uid="uid://m8i881u5shwe" path="res://characters/weapons/weapon.tscn" id="1_gfbtj"]
 [ext_resource type="AudioStream" uid="uid://d2agvfxltpbvg" path="res://sounds/3_knife_slash_c-92500.mp3" id="2_fgxdk"]
 [ext_resource type="Script" uid="uid://bw1u3eq5mryvx" path="res://characters/weapons/sword.gd" id="2_m3bwd"]
 [ext_resource type="AudioStream" uid="uid://8eybitavjaqe" path="res://sounds/weapon-switch-sword.mp3" id="4_kjkax"]
+[ext_resource type="Texture2D" uid="uid://b76lehm0if683" path="res://effects/Combat FX 1.1/Combat-Sheet + Weapon + Glow.png" id="5_kjkax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgxdk"]
-size = Vector2(7.13398, 23.0516)
+size = Vector2(7.13398, 36.7696)
 
 [sub_resource type="Animation" id="Animation_m3bwd"]
 length = 0.001
@@ -134,6 +135,60 @@ _data = {
 &"swing_to": SubResource("Animation_fgxdk")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4bbx"]
+atlas = ExtResource("5_kjkax")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq4t2"]
+atlas = ExtResource("5_kjkax")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cta1u"]
+atlas = ExtResource("5_kjkax")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_debah"]
+atlas = ExtResource("5_kjkax")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc4sp"]
+atlas = ExtResource("5_kjkax")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fl42d"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4bbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq4t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cta1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_debah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc4sp")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"swing",
+"speed": 5.0
+}]
+
 [node name="Sword" instance=ExtResource("1_gfbtj")]
 script = ExtResource("2_m3bwd")
 weapon_type = "sword"
@@ -149,7 +204,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponSprite/Hurtbox" index="0"]
-position = Vector2(-3.4641, -2.00001)
+position = Vector2(-3.4641, -0.585792)
 shape = SubResource("RectangleShape2D_fgxdk")
 
 [node name="WeaponSound" parent="." index="2"]
@@ -162,5 +217,11 @@ libraries = {
 
 [node name="WeaponSwitchSound" parent="." index="4"]
 stream = ExtResource("4_kjkax")
+[node name="SwingAnimation" type="AnimatedSprite2D" parent="." index="4"]
+position = Vector2(64, 0)
+scale = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_fl42d")
+animation = &"swing"
+speed_scale = 4.0
 
 [connection signal="body_entered" from="WeaponSprite/Hurtbox" to="." method="_on_hurtbox_body_entered"]
