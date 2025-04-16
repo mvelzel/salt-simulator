@@ -44,9 +44,9 @@ func _ready() -> void:
 			var pillar_tile_data = pillars_layer.get_cell_tile_data(tile_pos)
 
 			if not floor_tile_data or not floor_tile_data.get_navigation_polygon(0):
-				astar_grid.set_point_solid(tile_pos)	
+				astar_grid.set_point_solid(tile_pos)
 			if pillar_tile_data:
-				astar_grid.set_point_solid(tile_pos)	
+				astar_grid.set_point_solid(tile_pos)
 
 var is_dragging = false
 var is_pumping = false

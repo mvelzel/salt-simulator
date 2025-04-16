@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://6e0opuom2i3g" path="res://characters/character.gd" id="1_pjt0s"]
 [ext_resource type="Script" uid="uid://mrva1r4vc1wk" path="res://characters/weapons.gd" id="3_hkrj1"]
 [ext_resource type="PackedScene" uid="uid://cdjhowl3jtn0k" path="res://characters/weapons/gun.tscn" id="6_bnq0n"]
+[ext_resource type="PackedScene" uid="uid://cs2x8tlcrekw" path="res://characters/weapons/turret.tscn" id="7_bnq0n"]
 [ext_resource type="PackedScene" uid="uid://vfy0ybly0x4o" path="res://weapon_indicator.tscn" id="11_4kffy"]
 [ext_resource type="AudioStream" uid="uid://d2nnrnl3cukex" path="res://sounds/grab-pipe.mp3" id="12_bnq0n"]
 [ext_resource type="AudioStream" uid="uid://bgkfh8rlqq0kg" path="res://sounds/dwarf-hurt.mp3" id="13_3h56x"]
@@ -55,6 +56,8 @@ texture = ExtResource("1_glpr6")
 
 [node name="Gun" parent="Weapons" index="2" instance=ExtResource("6_bnq0n")]
 
+[node name="Turret" parent="Weapons" index="3" instance=ExtResource("7_bnq0n")]
+
 [node name="MainLight" type="PointLight2D" parent="." index="6"]
 energy = 0.5
 shadow_enabled = true
@@ -100,3 +103,7 @@ volume_db = 5.0
 
 [node name="hurtSound" parent="." index="11"]
 stream = ExtResource("13_3h56x")
+
+[node name="TurretIndicator" parent="CanvasLayer/WeaponIndicators" index="2" instance=ExtResource("11_4kffy")]
+position = Vector2(288, 0)
+weapon_type = "turret"

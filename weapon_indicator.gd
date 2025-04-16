@@ -12,6 +12,8 @@ func _ready():
 		$WeaponSprite/SwordSprite.visible = true
 	elif weapon_type == "gun":
 		$WeaponSprite/GunSprite.visible = true
+	elif weapon_type == "turret":
+		$WeaponSprite/TurretSprite.visible = true
 		
 func change_weapon(type):
 	if type == weapon_type:

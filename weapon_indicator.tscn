@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://vfy0ybly0x4o"]
+[gd_scene load_steps=11 format=3 uid="uid://vfy0ybly0x4o"]
 
 [ext_resource type="Script" uid="uid://cyfrxgq1b6c3b" path="res://weapon_indicator.gd" id="1_elmmk"]
 [ext_resource type="Texture2D" uid="uid://2x8elknih4f4" path="res://ui/UI-Windows-grey-darkwood.png" id="1_ifnc4"]
 [ext_resource type="Texture2D" uid="uid://bxhabqnrirdu1" path="res://assets/Dungeon Gathering Full/New Items [Update]/16x16 Items Pack.png" id="2_elmmk"]
 [ext_resource type="Texture2D" uid="uid://l24qo6akqueu" path="res://assets/Guns/Guns/Tokarev.png" id="4_ujas7"]
+[ext_resource type="Texture2D" uid="uid://bms5kvniw0tpa" path="res://assets/Turret/Laser Turret Sprite Sheet.png" id="5_p2uls"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lgwp"]
 atlas = ExtResource("1_ifnc4")
@@ -20,6 +21,10 @@ region = Rect2(8, 120, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_elmmk"]
 atlas = ExtResource("1_ifnc4")
 region = Rect2(376, 376, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqga6"]
+atlas = ExtResource("5_p2uls")
+region = Rect2(0, 32, 32, 32)
 
 [node name="WeaponIndicator" type="Node2D"]
 script = ExtResource("1_elmmk")
@@ -60,3 +65,9 @@ visible = false
 position = Vector2(0, -24)
 scale = Vector2(8, 7.97266)
 texture = ExtResource("4_ujas7")
+
+[node name="TurretSprite" type="Sprite2D" parent="WeaponSprite"]
+visible = false
+position = Vector2(0, -8)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_wqga6")

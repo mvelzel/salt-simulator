@@ -52,6 +52,8 @@ func _unhandled_input(event):
 				change_weapon("sword")
 			if event.keycode == KEY_2:
 				change_weapon("gun")
+			if event.keycode == KEY_3:
+				change_weapon("turret")
 				
 func change_weapon(type):
 	$Weapons.change_weapon(type)
