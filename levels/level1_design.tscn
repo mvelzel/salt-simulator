@@ -13,10 +13,15 @@ tile_map_data = PackedByteArray("AAAJAAIAAAAGAAgAAAAJAAMAAAAGAAgAAAAJAAQAAAAGAAg
 tile_set = ExtResource("1_t4yih")
 y_sort_origin = 1
 
+[node name="Enemies" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAbABIABwAAAAAAAQAbABQABwAAAAAAAQAkABAABwAAAAAAAQAkABcABwAAAAAAAQAtABcABwAAAAAAAQAtABAABwAAAAAAAQApABIABwAAAAAAAQAiABgABwAAAAAAAgAiAA4ABwAAAAAAAgAuAA4ABwAAAAAAAgAuABgABwAAAAAAAgAoABgABwAAAAAABAAoAA4ABwAAAAAABAAbABMABwAAAAAABQA=")
+tile_set = ExtResource("1_t4yih")
+
 [node name="Pillars" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAmABAAAAAFABIAAAAmABEAAAAFABMAAAAmABQAAAAFABIAAAAmABUAAAAFABMAAAAqABAAAAAFABIAAAAqABEAAAAFABMAAAAqABQAAAAFABIAAAAqABUAAAAFABMAAAA=")
+tile_map_data = PackedByteArray("AAAnABQAAAAFABIAAAAnABUAAAAFABMAAAArABQAAAAFABIAAAArABUAAAAFABMAAAArABAAAAAFABIAAAArABEAAAAFABMAAAAnABAAAAAFABIAAAAnABEAAAAFABMAAAA=")
 tile_set = ExtResource("1_t4yih")
 
 [node name="Floor" type="TileMapLayer" parent="."]
