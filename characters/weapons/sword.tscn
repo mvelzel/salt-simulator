@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://m8i881u5shwe" path="res://characters/weapons/weapon.tscn" id="1_gfbtj"]
 [ext_resource type="AudioStream" uid="uid://d2agvfxltpbvg" path="res://sounds/3_knife_slash_c-92500.mp3" id="2_fgxdk"]
 [ext_resource type="Script" uid="uid://bw1u3eq5mryvx" path="res://characters/weapons/sword.gd" id="2_m3bwd"]
-[ext_resource type="AudioStream" uid="uid://8eybitavjaqe" path="res://sounds/weapon-switch-sword.mp3" id="4_kjkax"]
 [ext_resource type="Texture2D" uid="uid://b76lehm0if683" path="res://effects/Combat FX 1.1/Combat-Sheet + Weapon + Glow.png" id="5_kjkax"]
+[ext_resource type="AudioStream" uid="uid://cnktxpq3vkcf4" path="res://sounds/weapon-swicth-sword.mp3" id="5_t4bbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgxdk"]
 size = Vector2(7.13398, 36.7696)
@@ -223,6 +223,6 @@ animation = &"swing"
 speed_scale = 4.0
 
 [node name="WeaponSwitchSound" parent="." index="5"]
-stream = ExtResource("4_kjkax")
+stream = ExtResource("5_t4bbx")
 
 [connection signal="body_entered" from="WeaponSprite/Hurtbox" to="." method="_on_hurtbox_body_entered"]
