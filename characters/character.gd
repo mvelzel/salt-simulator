@@ -81,15 +81,39 @@ func enable_weapon(type):
 	for child in $CanvasLayer/WeaponIndicators.get_children():
 		if child.has_method("enable"):
 			child.enable(type)
+			
+			
+func _cycle_weapon(dir: int) -> void:
+	var list = active_weapons.filter(func(w):
+		return w not in disabled_weapons
+	)
+	if list.size() < 2:
+		return
+
+	var current = $Weapons.current_weapon
+	var idx = list.find(current)
+	if idx == -1:
+		idx = 0
+
+	idx = (idx + dir + list.size()) % list.size()
+	change_weapon(list[idx])
 		
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed:
-			for key in weapon_key_mapping:
-				var weapon = weapon_key_mapping[key]
-				if event.keycode == key and weapon not in disabled_weapons and weapon in active_weapons:
-					change_weapon(weapon_key_mapping[key])
-					break
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("next_weapon"):
+		_cycle_weapon(+1)
+		return
+	elif Input.is_action_just_pressed("prev_weapon"):
+		_cycle_weapon(-1)
+		return
+
+	if event is InputEventKey and event.pressed:
+		for key in weapon_key_mapping:
+			var weapon = weapon_key_mapping[key]
+			if event.keycode == key \
+			and weapon not in disabled_weapons \
+			and weapon in active_weapons:
+				change_weapon(weapon)
+				break
 				
 func change_weapon(type):
 	$Weapons.change_weapon(type)
