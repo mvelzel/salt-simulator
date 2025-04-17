@@ -25,9 +25,10 @@ func _process(_delta: float) -> void:
 
 var can_attack = true
 func _unhandled_input(event: InputEvent) -> void:
-	if enabled and event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		if can_attack:
-			attack()
+	if enabled:
+		if Input.is_action_pressed("attack"):
+			if can_attack:
+				attack() 
 
 func attack():
 	$WeaponSound.play()
