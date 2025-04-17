@@ -111,8 +111,8 @@ func stop_pumping():
 func get_is_pumping():
 	return is_pumping
 
-func _unhandled_input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_E:
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pickup"):
 		if can_finish:
 			get_node("%SceneTransitionRect").transition_to()
 		elif is_pumping:

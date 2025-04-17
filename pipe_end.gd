@@ -24,13 +24,11 @@ func _on_trigger_body_exited(body: Node2D) -> void:
 		$PlaceLabel.visible = false
 		
 func _unhandled_input(event):
-	if enabled and can_place and event is InputEventKey:
-		if event.pressed:
-			if event.keycode == KEY_E and pipe_start:
-				if pipe_start.get_is_pumping():
-					pipe_start.stop_pumping()
-					stop_pumping()
-				else:
-					pipe_start.start_pumping(self)
-					$UnconnectedPipe.visible = false
-					$ConnectedPipe.visible = true
+	if enabled and can_place and pipe_start and Input.is_action_just_pressed("pickup"):
+		if pipe_start.get_is_pumping():
+			pipe_start.stop_pumping()
+			stop_pumping()
+		else:
+			pipe_start.start_pumping(self)
+			$UnconnectedPipe.visible = false
+			$ConnectedPipe.visible = true
