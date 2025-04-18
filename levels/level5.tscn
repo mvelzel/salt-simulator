@@ -119,7 +119,6 @@ scale = Vector2(-92.7212, 73.5486)
 position = Vector2(115, 131)
 active_weapons = Array[String](["sword", "gun", "turret"])
 turret_amount = 6
-health = 10000.0
 
 [node name="PipeStart" parent="." instance=ExtResource("6_d4v0i")]
 y_sort_enabled = true
