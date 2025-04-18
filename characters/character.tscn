@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=19 format=3 uid="uid://bplaidcffy315"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://d2nnrnl3cukex" path="res://sounds/grab-pipe.mp3" id="12_bnq0n"]
 [ext_resource type="AudioStream" uid="uid://4nj54vjhev6y" path="res://sounds/dwarf-hurt.mp3" id="13_3h56x"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="13_i1355"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
 [ext_resource type="PackedScene" uid="uid://0tgabdqxrlqd" path="res://characters/weapons/sword.tscn" id="18_bb4xn"]
 [ext_resource type="PackedScene" uid="uid://dbhc6yaxsrm5p" path="res://progress.tscn" id="20_5fe2j"]
@@ -79,9 +80,9 @@ texture_scale = 10.0
 stream = ExtResource("15_i1355")
 volume_db = 1.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="9"]
+[node name="UI" type="CanvasLayer" parent="." index="9"]
 
-[node name="HealthBar" parent="CanvasLayer" index="0" instance=ExtResource("20_5fe2j")]
+[node name="HealthBar" parent="UI" index="0" instance=ExtResource("20_5fe2j")]
 position = Vector2(384, 976)
 scale = Vector2(6, 6)
 current_step = 10
@@ -89,18 +90,42 @@ start_texture = SubResource("AtlasTexture_mqba4")
 end_texture = SubResource("AtlasTexture_md4ow")
 progress_texture = SubResource("AtlasTexture_bb4xn")
 
-[node name="WeaponIndicators" type="Node2D" parent="CanvasLayer" index="1"]
+[node name="WeaponIndicators" type="Node2D" parent="UI" index="1"]
 position = Vector2(152, 856)
 
-[node name="SwordIndicator" parent="CanvasLayer/WeaponIndicators" index="0" instance=ExtResource("11_4kffy")]
+[node name="SwordIndicator" parent="UI/WeaponIndicators" index="0" instance=ExtResource("11_4kffy")]
 
-[node name="GunIndicator" parent="CanvasLayer/WeaponIndicators" index="1" instance=ExtResource("11_4kffy")]
+[node name="GunIndicator" parent="UI/WeaponIndicators" index="1" instance=ExtResource("11_4kffy")]
 position = Vector2(144, 0)
 weapon_type = "gun"
 
-[node name="TurretIndicator" parent="CanvasLayer/WeaponIndicators" index="2" instance=ExtResource("11_4kffy")]
+[node name="TurretIndicator" parent="UI/WeaponIndicators" index="2" instance=ExtResource("11_4kffy")]
 position = Vector2(288, 0)
 weapon_type = "turret"
+
+[node name="MoveJoystick" parent="UI" index="2" instance=ExtResource("13_i1355")]
+visible = false
+offset_top = -600.0
+offset_bottom = -300.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="ShootJoystick" parent="UI" index="3" instance=ExtResource("13_i1355")]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_top = -600.0
+offset_right = -300.0
+offset_bottom = -300.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+action_left = "aim_left"
+action_right = "aim_right"
+action_up = "aim_up"
+action_down = "aim_down"
 
 [node name="Pipe" type="Node2D" parent="." index="10"]
 
@@ -113,3 +138,4 @@ stream = ExtResource("13_3h56x")
 volume_db = 20.0
 
 [connection signal="weapon_fired" from="Weapons/Turret" to="." method="_on_turret_weapon_fired"]
+[connection signal="released" from="UI/ShootJoystick" to="." method="_on_shoot_joystick_released"]

@@ -11,6 +11,4 @@ func transition_to(scene = next_scene) -> void:
 		
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
-	var cur_scene = get_tree().current_scene
 	get_tree().change_scene_to_file(next_scene)
-	cur_scene.queue_free()

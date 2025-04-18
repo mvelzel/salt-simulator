@@ -5,6 +5,9 @@ var is_initial_pos = true
 var active_enemies = []
 
 func attack():
+	if not super.attack():
+		return false
+	
 	var anim = $SwingAnimation
 	if is_initial_pos:
 		$AnimationPlayer.play("swing_to")
@@ -19,7 +22,7 @@ func attack():
 			active_enemy.take_damage(damage, null, Vector2.RIGHT.rotated(global_rotation))
 	is_initial_pos = not is_initial_pos
 	
-	super.attack()
+	return true 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy") and body.has_method("take_damage"):

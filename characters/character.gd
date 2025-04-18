@@ -19,20 +19,27 @@ var weapon_key_mapping = {
 func _ready() -> void:
 	change_weapon("sword")
 	
+	if Global.is_mobile():
+		setup_mobile_hud()
+	
 	if Global.is_debug():
 		health = 10000
 	
 	for weapon in weapon_key_mapping.values():
 		if weapon in active_weapons:
 			continue
-		for child in $CanvasLayer/WeaponIndicators.get_children():
+		for child in $UI/WeaponIndicators.get_children():
 			if child.has_method("hide_weapon"):
 				child.hide_weapon(weapon)
 				
 	if "turret" in active_weapons:
-		$CanvasLayer/WeaponIndicators/TurretIndicator.set_ammo(current_turret_amount, turret_amount)
+		$UI/WeaponIndicators/TurretIndicator.set_ammo(current_turret_amount, turret_amount)
 	
 	super._ready()
+	
+func setup_mobile_hud():
+	$UI/MoveJoystick.visible = true
+	$UI/ShootJoystick.visible = true
 
 func _physics_process(delta: float) -> void:
 	_walk_sounds_effects()
@@ -63,14 +70,13 @@ func _process(_delta: float) -> void:
 		return
 		
 	
-	var screen_mouse_pos = get_viewport().get_mouse_position()
-	if (last_mouse_position != screen_mouse_pos):
-		last_mouse_position = screen_mouse_pos
-		var mouse_position = get_local_mouse_position()
-		$Weapons.position = mouse_position.normalized() * INDICATOR_DISTANCE
-		$Weapons.rotation = Vector2.ZERO.direction_to(mouse_position).angle()
-	
-	
+	if not Global.is_mobile():
+		var screen_mouse_pos = get_viewport().get_mouse_position()
+		if (last_mouse_position != screen_mouse_pos):
+			last_mouse_position = screen_mouse_pos
+			var mouse_position = get_local_mouse_position()
+			$Weapons.position = mouse_position.normalized() * INDICATOR_DISTANCE
+			$Weapons.rotation = Vector2.ZERO.direction_to(mouse_position).angle()
 
 func die():
 	get_tree().reload_current_scene()
@@ -78,7 +84,7 @@ func die():
 func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:
 	super.take_damage(damage, source, direction)
 	
-	$CanvasLayer/HealthBar.render_bar(health / max_health * 10)
+	$UI/HealthBar.render_bar(health / max_health * 10)
 
 func _walk_sounds_effects():
 	if velocity.length() > 10:
@@ -90,13 +96,13 @@ func _walk_sounds_effects():
 var disabled_weapons = []
 func disable_weapon(type):
 	disabled_weapons.append(type)
-	for child in $CanvasLayer/WeaponIndicators.get_children():
+	for child in $UI/WeaponIndicators.get_children():
 		if child.has_method("disable"):
 			child.disable(type)
 	
 func enable_weapon(type):
 	disabled_weapons = disabled_weapons.filter(func(weapon): return weapon != type)
-	for child in $CanvasLayer/WeaponIndicators.get_children():
+	for child in $UI/WeaponIndicators.get_children():
 		if child.has_method("enable"):
 			child.enable(type)
 			
@@ -135,7 +141,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 func change_weapon(type):
 	$Weapons.change_weapon(type)
-	for child in $CanvasLayer/WeaponIndicators.get_children():
+	for child in $UI/WeaponIndicators.get_children():
 		if child.has_method("change_weapon"):
 			child.change_weapon(type)
 
@@ -165,7 +171,12 @@ func get_pipe():
 func _on_turret_weapon_fired() -> void:
 	current_turret_amount -= 1
 	
-	$CanvasLayer/WeaponIndicators/TurretIndicator.set_ammo(current_turret_amount, turret_amount)
+	$UI/WeaponIndicators/TurretIndicator.set_ammo(current_turret_amount, turret_amount)
 	if current_turret_amount <= 0:
 		change_weapon("sword")
 		disable_weapon("turret")
+		
+func _on_shoot_joystick_released() -> void:
+	for child in $Weapons.get_children():
+		if child.has_method("attack"):
+			child.attack()

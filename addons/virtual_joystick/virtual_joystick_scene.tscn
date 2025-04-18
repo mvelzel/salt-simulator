@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmr0fcamx7t56"]
+
+[ext_resource type="Script" uid="uid://b1a8ueh68qtao" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_8x4dy"]
+[ext_resource type="Texture2D" uid="uid://de7qt3o6541ll" path="res://ui/icons-n-buttons.png" id="2_ettsy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bity"]
+atlas = ExtResource("2_ettsy")
+region = Rect2(112, 208, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aghgs"]
+atlas = ExtResource("2_ettsy")
+region = Rect2(96, 224, 16, 16)
+
+[node name="Virtual Joystick" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -308.0
+offset_right = 300.0
+offset_bottom = -8.0
+grow_vertical = 0
+script = ExtResource("1_8x4dy")
+
+[node name="Base" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.5)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+mouse_force_pass_scroll_events = false
+texture = SubResource("AtlasTexture_0bity")
+stretch_mode = 5
+
+[node name="Tip" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture = SubResource("AtlasTexture_aghgs")
+stretch_mode = 5

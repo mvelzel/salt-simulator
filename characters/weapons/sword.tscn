@@ -193,6 +193,7 @@ animations = [{
 script = ExtResource("2_m3bwd")
 weapon_type = "sword"
 damage = 75.0
+rotate_switch = false
 
 [node name="WeaponSprite" parent="." index="1"]
 position = Vector2(0, -128)

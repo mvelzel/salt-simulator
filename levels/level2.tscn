@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://be0opqvvn7rtt" path="res://pipe_start.tscn" id="7_76ugp"]
 [ext_resource type="PackedScene" uid="uid://brkd6r3iknjpg" path="res://levels/SceneTransitionRect.tscn" id="8_55gdq"]
 [ext_resource type="PackedScene" uid="uid://l02ctyfrg5nh" path="res://levels/level2_map.tscn" id="9_55gdq"]
-[ext_resource type="PackedScene" uid="uid://cai0rbw7r8t7w" path="res://pipe_end.tscn" id="10_crte6"]
+[ext_resource type="PackedScene" uid="uid://7aeg8tccoqrr" path="res://pipe_end.tscn" id="10_crte6"]
 [ext_resource type="PackedScene" uid="uid://c7pu1wadqtc8q" path="res://difficulty_manager.tscn" id="11_hq01p"]
 
 [node name="Game2" type="Node2D"]

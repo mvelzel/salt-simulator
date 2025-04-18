@@ -59,5 +59,9 @@ func _process(_delta: float) -> void:
 
 func attack():
 	if active_tile:
+		if not super.attack():
+			return false
+			
 		turrets_layer.set_cell(active_tile, 6, Vector2i(0,0), 1)
-		super.attack()
+		
+		return true
