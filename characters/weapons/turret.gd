@@ -39,6 +39,23 @@ func _process(_delta: float) -> void:
 				
 				turret_indicator_layer.set_cell(map_location, 5, Vector2i(2, 19))
 				active_tile = map_location
+		else:
+			var local_pos = Vector2.ZERO
+			var global_pos = to_global(local_pos)
+			var map_location = turret_indicator_layer.local_to_map(
+				turret_indicator_layer.to_local(global_pos)
+			)
+			
+			var floor_tile_data = floor_layer.get_cell_tile_data(map_location)
+			var pillar_tile_data = pillars_layer.get_cell_tile_data(map_location)
+			var turret_tile_data = turrets_layer.get_cell_alternative_tile(map_location)
+			
+			if floor_tile_data and not pillar_tile_data and turret_tile_data < 0:
+				
+				turret_indicator_layer.set_cell(map_location, 5, Vector2i(2, 19))
+				active_tile = map_location
+			
+			
 
 func attack():
 	if active_tile:
