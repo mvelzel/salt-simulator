@@ -1,10 +1,20 @@
-extends Node2D
+extends Control
 
 @export var weapon_type: String = "sword"
+@export var is_subtle = false
+
+var ammo_label: RichTextLabel
 
 func _ready():
 	if not weapon_type:
 		return
+		
+	if is_subtle:
+		$ActiveBackground.modulate.a = 0.5
+		$InactiveBackground.modulate.a = 0.5
+		ammo_label = $AmmoLabelSmall
+	else:
+		ammo_label = $AmmoLabel
 		
 	for child in $WeaponSprite.get_children():
 		child.visible = false
@@ -15,9 +25,13 @@ func _ready():
 	elif weapon_type == "turret":
 		$WeaponSprite/TurretSprite.visible = true
 		
-func set_ammo(current: int, max: int):
-	$AmmoLabel.visible = true
-	$AmmoLabel.text = "%d/%d" % [current, max]
+func set_ammo(type, current, max):
+	if type == weapon_type:
+		if current and max:
+			ammo_label.visible = true
+			ammo_label.text = "%d/%d" % [current, max]
+		else:
+			ammo_label.visible = false
 		
 func change_weapon(type):
 	if type == weapon_type:
@@ -39,4 +53,14 @@ func enable(type = null):
 		
 func hide_weapon(type):
 	if type == weapon_type:
+		visible = false
+		
+func show_weapon(type):
+	if type == weapon_type:
+		visible = true
+		
+func only_show_weapon(type):
+	if type == weapon_type:
+		visible = true
+	else:
 		visible = false

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var steps = 10
 @export var current_step = 0

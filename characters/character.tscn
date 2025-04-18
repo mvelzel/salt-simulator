@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bplaidcffy315"]
+[gd_scene load_steps=23 format=3 uid="uid://bplaidcffy315"]
 
 [ext_resource type="PackedScene" uid="uid://fqw31patorn4" path="res://characters/base_character.tscn" id="1_54qew"]
 [ext_resource type="Texture2D" uid="uid://bcw148svktx2o" path="res://icon.svg" id="1_glpr6"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://4nj54vjhev6y" path="res://sounds/dwarf-hurt.mp3" id="13_3h56x"]
 [ext_resource type="Texture2D" uid="uid://lulewqtv2vg0" path="res://effects/2d_lights_and_shadows_neutral_point_light.webp" id="13_hgjqb"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="13_i1355"]
+[ext_resource type="Texture2D" uid="uid://de7qt3o6541ll" path="res://ui/icons-n-buttons.png" id="14_qci4v"]
 [ext_resource type="AudioStream" uid="uid://c78odmy3qrpa3" path="res://sounds/walk-to-dungeon-69897.mp3" id="15_i1355"]
 [ext_resource type="PackedScene" uid="uid://0tgabdqxrlqd" path="res://characters/weapons/sword.tscn" id="18_bb4xn"]
 [ext_resource type="PackedScene" uid="uid://dbhc6yaxsrm5p" path="res://progress.tscn" id="20_5fe2j"]
@@ -28,9 +29,19 @@ region = Rect2(40, 48, 8, 16)
 atlas = ExtResource("21_md4ow")
 region = Rect2(8, 48, 8, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1355"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qci4v"]
+size = Vector2(256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnu6j"]
+atlas = ExtResource("14_qci4v")
+region = Rect2(320, 176, 16, 16)
+
 [node name="Character" groups=["Player"] instance=ExtResource("1_54qew")]
 script = ExtResource("1_pjt0s")
-active_weapons = Array[String](["sword"])
+active_weapons = ["sword"]
 turret_amount = 0
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
@@ -69,7 +80,7 @@ texture = ExtResource("13_hgjqb")
 texture_scale = 2.5
 
 [node name="WallIlluminator" type="PointLight2D" parent="." index="7"]
-position = Vector2(-40, -56)
+position = Vector2(-88, -120)
 energy = 0.2
 range_item_cull_mask = 2
 shadow_item_cull_mask = 2
@@ -82,37 +93,65 @@ volume_db = 1.0
 
 [node name="UI" type="CanvasLayer" parent="." index="9"]
 
-[node name="HealthBar" parent="UI" index="0" instance=ExtResource("20_5fe2j")]
-position = Vector2(384, 976)
+[node name="HealthBarContainer" type="HBoxContainer" parent="UI" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -104.0
+offset_right = -384.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(6, 6)
+
+[node name="HealthBar" parent="UI/HealthBarContainer" index="0" instance=ExtResource("20_5fe2j")]
+layout_mode = 2
 current_step = 10
 start_texture = SubResource("AtlasTexture_mqba4")
 end_texture = SubResource("AtlasTexture_md4ow")
 progress_texture = SubResource("AtlasTexture_bb4xn")
 
-[node name="WeaponIndicators" type="Node2D" parent="UI" index="1"]
-position = Vector2(152, 856)
+[node name="WeaponIndicators" type="HBoxContainer" parent="UI" index="1"]
+layout_direction = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = -288.0
+offset_right = 488.0
+offset_bottom = -160.0
+grow_vertical = 0
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = 8
 
-[node name="SwordIndicator" parent="UI/WeaponIndicators" index="0" instance=ExtResource("11_4kffy")]
+[node name="SwordIndicator" parent="UI/WeaponIndicators" index="0" groups=["WeaponIndicators"] instance=ExtResource("11_4kffy")]
+layout_mode = 2
+size_flags_horizontal = 0
 
-[node name="GunIndicator" parent="UI/WeaponIndicators" index="1" instance=ExtResource("11_4kffy")]
-position = Vector2(144, 0)
+[node name="GunIndicator" parent="UI/WeaponIndicators" index="1" groups=["WeaponIndicators"] instance=ExtResource("11_4kffy")]
+layout_mode = 2
+size_flags_horizontal = 0
 weapon_type = "gun"
 
-[node name="TurretIndicator" parent="UI/WeaponIndicators" index="2" instance=ExtResource("11_4kffy")]
-position = Vector2(288, 0)
+[node name="TurretIndicator" parent="UI/WeaponIndicators" index="2" groups=["WeaponIndicators"] instance=ExtResource("11_4kffy")]
+layout_mode = 2
+size_flags_horizontal = 0
 weapon_type = "turret"
 
 [node name="MoveJoystick" parent="UI" index="2" instance=ExtResource("13_i1355")]
-visible = false
 offset_top = -600.0
 offset_bottom = -300.0
 scale = Vector2(2, 2)
 size_flags_horizontal = 8
 size_flags_vertical = 4
+mouse_filter = 2
+clampzone_size = 80.0
 
 [node name="ShootJoystick" parent="UI" index="3" instance=ExtResource("13_i1355")]
-visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
@@ -122,10 +161,121 @@ offset_right = -300.0
 offset_bottom = -300.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
+mouse_filter = 2
+clampzone_size = 80.0
 action_left = "aim_left"
 action_right = "aim_right"
 action_up = "aim_up"
 action_down = "aim_down"
+
+[node name="MobileWeaponIndicators" type="Control" parent="UI" index="4"]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -448.0
+offset_top = 200.0
+offset_right = -448.0
+offset_bottom = 200.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="MainIndicator" type="TouchScreenButton" parent="UI/MobileWeaponIndicators" index="0"]
+position = Vector2(160, 16)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_i1355")
+
+[node name="SwordIndicator" parent="UI/MobileWeaponIndicators/MainIndicator" index="0" groups=["MainWeaponIndicators", "WeaponIndicators"] instance=ExtResource("11_4kffy")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+is_subtle = true
+
+[node name="GunIndicator" parent="UI/MobileWeaponIndicators/MainIndicator" index="1" groups=["MainWeaponIndicators", "WeaponIndicators"] instance=ExtResource("11_4kffy")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+weapon_type = "gun"
+is_subtle = true
+
+[node name="TurretIndicator" parent="UI/MobileWeaponIndicators/MainIndicator" index="2" groups=["MainWeaponIndicators", "WeaponIndicators"] instance=ExtResource("11_4kffy")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+weapon_type = "turret"
+is_subtle = true
+
+[node name="VFlowContainer" type="HFlowContainer" parent="UI/MobileWeaponIndicators" index="1"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 0
+offset_left = -336.0
+offset_top = -104.0
+offset_right = 149.0
+offset_bottom = 216.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+alignment = 2
+last_wrap_alignment = 3
+
+[node name="TurretIndicator" parent="UI/MobileWeaponIndicators/VFlowContainer" index="0" groups=["SecondaryWeaponIndicators", "WeaponIndicators"] instance=ExtResource("11_4kffy")]
+layout_mode = 2
+size_flags_horizontal = 0
+weapon_type = "turret"
+
+[node name="GunIndicator" parent="UI/MobileWeaponIndicators/VFlowContainer" index="1" groups=["SecondaryWeaponIndicators", "WeaponIndicators"] instance=ExtResource("11_4kffy")]
+layout_mode = 2
+size_flags_horizontal = 0
+weapon_type = "gun"
+
+[node name="SwordIndicator" parent="UI/MobileWeaponIndicators/VFlowContainer" index="2" groups=["SecondaryWeaponIndicators", "WeaponIndicators"] instance=ExtResource("11_4kffy")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MobileInteractButton" type="TouchScreenButton" parent="UI" index="5"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.5)
+position = Vector2(1176, 784)
+shape = SubResource("RectangleShape2D_qci4v")
+
+[node name="TextureRect" type="TextureRect" parent="UI/MobileInteractButton" index="0"]
+modulate = Color(1, 1, 1, 0.5)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_qnu6j")
+
+[node name="InteractText" type="RichTextLabel" parent="UI/MobileInteractButton" index="1"]
+offset_left = -128.0
+offset_top = -128.0
+offset_right = -64.0
+offset_bottom = -64.0
+scale = Vector2(4, 4)
+text = "GRAB"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Pipe" type="Node2D" parent="." index="10"]
 
@@ -139,3 +289,5 @@ volume_db = 20.0
 
 [connection signal="weapon_fired" from="Weapons/Turret" to="." method="_on_turret_weapon_fired"]
 [connection signal="released" from="UI/ShootJoystick" to="." method="_on_shoot_joystick_released"]
+[connection signal="pressed" from="UI/MobileWeaponIndicators/MainIndicator" to="." method="_on_main_indicator_pressed"]
+[connection signal="pressed" from="UI/MobileInteractButton" to="." method="_on_mobile_interact_button_pressed"]

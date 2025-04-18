@@ -3,6 +3,7 @@ extends Node2D
 var pipe_start: Node2D
 var can_place = false
 var enabled = true
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 func stop_pumping():
 	$UnconnectedPipe.visible = true
@@ -12,23 +13,21 @@ func stop_pumping():
 func _on_trigger_body_entered(body: Node2D) -> void:
 	if enabled and body.is_in_group("Player") and body.has_method("get_pipe"):
 		var pipe = body.get_pipe()
-		if pipe:
-			pipe_start = pipe
+		if pipe and not pipe.get_is_pumping():
 			can_place = true
-			if not pipe.get_is_pumping():
-				$PlaceLabel.visible = true
+			pipe_start = pipe
+			$PlaceLabel.visible = true
+			body.push_interaction("PLACE", place_pipe)
 
 func _on_trigger_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and can_place:
 		can_place = false
 		$PlaceLabel.visible = false
-		
-func _unhandled_input(event):
-	if enabled and can_place and pipe_start and Input.is_action_just_pressed("pickup"):
-		if pipe_start.get_is_pumping():
-			pipe_start.stop_pumping()
-			stop_pumping()
-		else:
-			pipe_start.start_pumping(self)
-			$UnconnectedPipe.visible = false
-			$ConnectedPipe.visible = true
+		body.pop_interaction("PLACE")
+
+func place_pipe():
+	pipe_start.start_pumping(self)
+	$UnconnectedPipe.visible = false
+	$ConnectedPipe.visible = true
+	$PlaceLabel.visible = false
+	player.pop_interaction("PLACE")

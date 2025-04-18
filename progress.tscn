@@ -39,7 +39,9 @@ region = Rect2(40, 96, 8, 16)
 atlas = ExtResource("2_wk8xe")
 region = Rect2(8, 96, 8, 16)
 
-[node name="SaltProgress" type="Node2D"]
+[node name="SaltProgress" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 scale = Vector2(8, 8)
 script = ExtResource("1_s2606")
 start_texture = SubResource("AtlasTexture_5i75w")

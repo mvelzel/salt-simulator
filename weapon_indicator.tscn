@@ -31,11 +31,28 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("6_wqga6")
 region = Rect2(144, 240, 16, 16)
 
-[node name="WeaponIndicator" type="Node2D"]
+[node name="WeaponIndicator" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 1
 script = ExtResource("1_elmmk")
 
-[node name="ActiveBackground" type="Node2D" parent="."]
+[node name="ActiveBackground" type="Control" parent="."]
 visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="Backdrop" type="Sprite2D" parent="ActiveBackground"]
 scale = Vector2(6, 6)
@@ -45,7 +62,16 @@ texture = SubResource("AtlasTexture_3lgwp")
 scale = Vector2(6, 6)
 texture = SubResource("AtlasTexture_hkrj1")
 
-[node name="InactiveBackground" type="Node2D" parent="."]
+[node name="InactiveBackground" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="Backdrop" type="Sprite2D" parent="InactiveBackground"]
 scale = Vector2(6, 6)
@@ -55,7 +81,16 @@ texture = SubResource("AtlasTexture_ujas7")
 scale = Vector2(6, 6)
 texture = SubResource("AtlasTexture_elmmk")
 
-[node name="WeaponSprite" type="Node2D" parent="."]
+[node name="WeaponSprite" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="SwordSprite" type="Sprite2D" parent="WeaponSprite"]
 position = Vector2(4.76837e-07, 1.69407e-21)
@@ -77,18 +112,43 @@ position = Vector2(0, -8)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_wqga6")
 
-[node name="DisabledSprite" type="Sprite2D" parent="."]
+[node name="DisabledSprite" type="TextureRect" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(8, 8)
 texture = SubResource("AtlasTexture_k0v8f")
 
 [node name="AmmoLabel" type="RichTextLabel" parent="."]
 visible = false
-offset_left = -56.0
-offset_top = -120.0
-offset_right = 8.0
-offset_bottom = -100.0
+layout_mode = 1
+offset_top = -56.0
+offset_right = 84.0
+offset_bottom = -33.0
 scale = Vector2(3, 3)
+mouse_filter = 1
+text = "0/10"
+vertical_alignment = 1
+
+[node name="AmmoLabelSmall" type="RichTextLabel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.75)
+layout_mode = 1
+offset_top = -40.0
+offset_right = 108.0
+offset_bottom = -17.0
+scale = Vector2(2, 2)
+mouse_filter = 1
 text = "0/10"
 vertical_alignment = 1

@@ -59,86 +59,60 @@ func _ready() -> void:
 				astar_grid.set_point_solid(tile_pos)
 			if pillar_tile_data:
 				astar_grid.set_point_solid(tile_pos)
-	
+
+func finish():
+	get_node("%SceneTransitionRect").transition_to()
 
 var is_dragging = false
 var is_pumping = false
-var can_stop_dragging = true
 
-var can_grab = false
-var can_finish = false
+var player_is_in_grab_area = false
 func _on_trigger_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		can_grab = true
-		if not is_dragging and (not is_pumping or current_salt >= level_finish_salt_threshold):
-			$PipeLocation/GrabLabel.visible = true
+		player_is_in_grab_area = true
+		set_interaction()
 
 func _on_trigger_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		can_grab = false
-		$PipeLocation/GrabLabel.visible = false	
+		player_is_in_grab_area = false
+		set_interaction()
 
 var pipe_end: Node2D
 func start_pumping(pump_pipe_end: Node2D):
-	can_stop_dragging = false
 	pipe_end = pump_pipe_end
 	is_dragging = false
 	is_pumping = true
-	$PipeLocation/GrabLabel.visible = false
 	$PipeLocation.global_position = pipe_end.global_position
 	$CanvasLayer/SaltProgress.visible = true
 	$PumpTimer.start()
 	difficulty_manager.add_difficulty_stage(1)
-	
-	if player and player.has_method("set_pipe"):
-		player.set_pipe(null)
+	player.set_pipe(null)
+	set_interaction()
 		
 func stop_pumping():
-	can_stop_dragging = false
 	is_dragging = true
 	is_pumping = false
 	$PumpTimer.stop()
 	$CanvasLayer/SaltProgress.visible = false
-	$PipeLocation/GrabLabel.visible = false
 	difficulty_manager.add_difficulty_stage(3)
-	
 	if pipe_end and pipe_end.has_method("stop_pumping"):
 		pipe_end.stop_pumping()
 	
-	if player and player.has_method("set_pipe"):
-		player.set_pipe(self)
+	player.set_pipe(self)
+	set_interaction()
 		
 func get_is_pumping():
 	return is_pumping
-
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pickup"):
-		if can_finish:
-			get_node("%SceneTransitionRect").transition_to()
-		elif is_pumping:
-			if current_salt >= level_finish_salt_threshold:
-				stop_pumping()
-		elif not is_dragging and can_grab:
-			start_dragging()
-		else:
-			stop_dragging()
-				
-var previous_path
 			
 func start_dragging():
 	is_dragging = true
 	$SheathedPipe.visible = false
 	$UnsheathedPipe.visible = true
-	$PipeLocation/GrabLabel.visible = false
-	if player and player.has_method("set_pipe"):
-		player.set_pipe(self)
+	player.set_pipe(self)
+	set_interaction()
 	
 func stop_dragging():
-	#if not can_stop_dragging:
-	#	return
-		
 	is_dragging = false
-	
 	var target_position = $PipeLocation.global_position
 	var self_tile_pos = floor_layer.local_to_map(floor_layer.to_local(global_position))
 	var target_tile_pos = floor_layer.local_to_map(floor_layer.to_local(target_position))
@@ -146,13 +120,43 @@ func stop_dragging():
 		$SheathedPipe.visible = true
 		$UnsheathedPipe.visible = false
 	
-	$PipeLocation/GrabLabel.visible = true
-	if player and player.has_method("set_pipe"):
-		player.set_pipe(null)
+	player.set_pipe(null)
+	set_interaction()
+		
+var player_is_in_finish_area = false
+func _on_finish_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player_is_in_finish_area = true
+		set_interaction()
+
+func _on_finish_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player_is_in_finish_area = false
+		set_interaction()
+
+func set_interaction():
+	player.pop_interaction("GRAB")
+	player.pop_interaction("DROP")
+	player.pop_interaction("FINISH")
+	$FinishLabel.visible = false
+	$PipeLocation/GrabLabel.visible = false
+	
+	if player_is_in_finish_area and current_salt >= level_finish_salt_threshold and player.get_pipe():
+		$FinishLabel.visible = true
+		player.push_interaction("FINISH", finish)
+	elif player_is_in_grab_area:
+		if is_pumping and current_salt >= level_finish_salt_threshold:
+			$PipeLocation/GrabLabel.visible = true
+			player.push_interaction("GRAB", stop_pumping)
+		elif not is_pumping and is_dragging:
+			player.push_interaction("DROP", stop_dragging)
+		elif not is_pumping and not is_dragging:
+			player.push_interaction("GRAB", start_dragging)
+			$PipeLocation/GrabLabel.visible = true
 
 var previous_position
-
-func _process(delta: float) -> void:
+var previous_path
+func _process(_delta: float) -> void:
 	if is_dragging and player:
 		$PipeLocation.global_position = player.global_position
 	
@@ -183,18 +187,8 @@ func _on_pump_timer_timeout() -> void:
 		if current_salt >= level_finish_salt_threshold + 4:
 			difficulty_manager.add_difficulty_stage(2)
 		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red]!!! [/color]Pumping [font gl=\"2\" emb=\"1\"]MORE[/font] salt[color=red] !!![/color]"
+		set_interaction()
 	
 	if current_salt == max_salt:
 		$CanvasLayer/SaltProgress/RichTextLabel.text = "[shake][color=red][font gl=\"2\" emb=\"1\"]MAX SALT - LEAVE NOW"
 		$PumpTimer.stop()
-
-func _on_finish_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		if not can_stop_dragging and player.get_pipe():
-			can_finish = true
-			$FinishLabel.visible = true
-
-func _on_finish_area_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		can_finish = false
-		$FinishLabel.visible = false
