@@ -47,7 +47,6 @@ position = Vector2(112, 112)
 script = ExtResource("3_hkrj1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapons" index="0"]
-visible = false
 modulate = Color(100, 100, 100, 1)
 z_index = 1
 position = Vector2(-3.63588e-06, -3.63588e-06)
@@ -55,8 +54,10 @@ scale = Vector2(0.0625001, 0.0625001)
 texture = ExtResource("1_glpr6")
 
 [node name="Sword" parent="Weapons" index="1" instance=ExtResource("18_bb4xn")]
+auto_fire = true
 
 [node name="Gun" parent="Weapons" index="2" instance=ExtResource("6_bnq0n")]
+auto_fire = true
 
 [node name="Turret" parent="Weapons" index="3" instance=ExtResource("7_bnq0n")]
 

@@ -6,6 +6,7 @@ const INDICATOR_DISTANCE = 150
 
 @export var active_weapons: Array[String] = ["sword"]
 @export var turret_amount = 0
+var last_mouse_position = Vector2(0,0)
 
 @onready var current_turret_amount = turret_amount
 
@@ -50,20 +51,37 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
 func _process(_delta: float) -> void:
-	var mouse_position = get_local_mouse_position()
-	$Weapons.position = mouse_position.normalized() * INDICATOR_DISTANCE
-	$Weapons.rotation = Vector2.ZERO.direction_to(mouse_position).angle()
+	
+	var direction = Vector2(
+		Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left"),
+		Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
+	)
+	
+	if (direction.x || direction.y):
+		$Weapons.position = direction.normalized() * INDICATOR_DISTANCE
+		$Weapons.rotation = Vector2.ZERO.direction_to(direction).angle()
+		return
+		
+	
+	var screen_mouse_pos = get_viewport().get_mouse_position()
+	if (last_mouse_position != screen_mouse_pos):
+		last_mouse_position = screen_mouse_pos
+		var mouse_position = get_local_mouse_position()
+		$Weapons.position = mouse_position.normalized() * INDICATOR_DISTANCE
+		$Weapons.rotation = Vector2.ZERO.direction_to(mouse_position).angle()
+	
+	
 
 func die():
 	get_tree().reload_current_scene()
 	
-func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:	
+func take_damage(damage: float, source: Node2D, direction: Vector2 = Vector2.ZERO) -> void:
 	super.take_damage(damage, source, direction)
 	
 	$CanvasLayer/HealthBar.render_bar(health / max_health * 10)
 
 func _walk_sounds_effects():
-	if velocity.length() > 10: 
+	if velocity.length() > 10:
 		if not footstep_sound.playing:
 			footstep_sound.play()
 	else:

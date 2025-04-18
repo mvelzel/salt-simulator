@@ -20,12 +20,14 @@ func _ready() -> void:
 
 var active_tile
 func _process(_delta: float) -> void:
+	super._process(_delta)
 	turret_indicator_layer.clear()
-			
 	if enabled and turret_indicator_layer:
+		
 		active_tile = null
 		var mouse_position = get_local_mouse_position()
 		if mouse_position.length() <= TURRET_RADIUS:
+			
 			var global_mouse_position = to_global(mouse_position)
 			var map_location = turret_indicator_layer.local_to_map(turret_indicator_layer.to_local(global_mouse_position))
 			
@@ -34,11 +36,11 @@ func _process(_delta: float) -> void:
 			var turret_tile_data = turrets_layer.get_cell_alternative_tile(map_location)
 
 			if floor_tile_data and not pillar_tile_data and turret_tile_data < 0:
+				
 				turret_indicator_layer.set_cell(map_location, 5, Vector2i(2, 19))
 				active_tile = map_location
 
 func attack():
 	if active_tile:
 		turrets_layer.set_cell(active_tile, 6, Vector2i(0,0), 1)
-		
 		super.attack()
